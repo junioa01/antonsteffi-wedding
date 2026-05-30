@@ -627,7 +627,12 @@
             const uVal = params.get('u');
 
             if (toVal) {
-                document.getElementById('guest-name').innerText = toVal;
+                const nameElement = document.getElementById('guest-name-placeholder');
+                if (nameElement) nameElement.innerText = toVal;
+
+                // ---> ADD THIS LINE HERE TO PRE-FILL THE RSVP FIELD <---
+                const rsvpNameInput = document.getElementById('rsvp-name');
+                if (rsvpNameInput) rsvpNameInput.value = toVal;
             }
             if (uVal) {
                 document.getElementById('guest-subtext').innerText = uVal;
