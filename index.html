@@ -398,7 +398,7 @@
                         <form id="rsvp-form" class="space-y-4">
                             <!-- Name Input -->
                             <div>
-                                <label class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Full Name</label>
+                                <label class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Full Name*</label>
                                 <input type="text" id="rsvp-name" required class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/40 focus:outline-none focus:border-forest-gold bg-forest-deep text-forest-mist text-sm" placeholder="Your full name">
                             </div>
 
@@ -410,7 +410,7 @@
 
                             <!-- Attendance Selection -->
                             <div>
-                                <label class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Will you attend?</label>
+                                <label class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Will you attend?*</label>
                                 <select id="rsvp-status" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/40 focus:outline-none focus:border-forest-gold bg-forest-deep text-forest-mist text-sm">
                                     <option value="Yes">Yes, I will attend</option>
                                     <option value="No">No, regretfully I will not</option>
@@ -682,9 +682,9 @@
         // 6. GUESTBOOK LOCAL STORAGE BACKUP
         // ==========================================
         const defaultWishes = [
-            { name: "Jessica Clara", status: "Joyfully Accepts", message: "Wishing you both a magical journey under the stars. Congratulations Steffi & Anton!", timestamp: Date.now() - 400000 },
-            { name: "Robert Hartono", status: "Joyfully Accepts", message: "Such a beautiful Enchanted Forest setup! Can't wait to celebrate with you.", timestamp: Date.now() - 800000 },
-            { name: "Michelle & David", status: "Regretfully Declines", message: "Sending warm, magical wishes all the way from across the ocean. Have a wonderful wedding!", timestamp: Date.now() - 1200000 }
+            { name: "Jessica Clara", status: "Yes", message: "Wishing you both a magical journey under the stars. Congratulations Steffi & Anton!", timestamp: Date.now() - 400000 },
+            { name: "Robert Hartono", status: "Yes", message: "Such a beautiful Enchanted Forest setup! Can't wait to celebrate with you.", timestamp: Date.now() - 800000 },
+            { name: "Michelle & David", status: "No", message: "Sending warm, magical wishes all the way from across the ocean. Have a wonderful wedding!", timestamp: Date.now() - 1200000 }
         ];
 
         function getLocalWishes() {
