@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation - Steffi & Anton</title>
     
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -13,19 +13,20 @@
                 extend: {
                     colors: {
                         forest: {
-                            deep: '#0B1A13',       /* Deep mysterious night forest */
-                            canopy: '#142C1F',     /* Dense foliage emerald */
-                            moss: '#426B52',       /* Earthy vibrant moss green */
-                            sage: '#89A894',       /* Soft eucalyptus sage */
-                            mist: '#F2F5F3',       /* Misty morning fog ivory */
-                            gold: '#D4AF37',       /* Shimmering magical gold */
-                            goldlight: '#F3E5AB',  /* Twinkling fairy-light gold */
-                            amber: '#E6A15C'       /* Warm sunset amber for accents */
+                            deep: '#2B0E1B',       /* Rich deep rosewood night */
+                            canopy: '#4A1D33',     /* Deep romantic plum rose */
+                            moss: '#8A3B5C',       /* Soft velvet berry rose */
+                            sage: '#D99BB0',       /* Gentle rose blush */
+                            mist: '#FFF0F3',       /* Luminous soft pink fog */
+                            gold: '#D4AF37',       /* Shimmering metallic gold */
+                            goldlight: '#F3E5AB',  /* Light champagne gold */
+                            amber: '#E6A15C'       /* Sunset warm amber */
                         }
                     },
                     fontFamily: {
                         serif: ['Playfair Display', 'Georgia', 'serif'],
                         display: ['Cinzel', 'Playfair Display', 'serif'],
+                        calligraphy: ['Great Vibes', 'Playfair Display', 'cursive'],
                         sans: ['Inter', 'sans-serif']
                     },
                     animation: {
@@ -39,11 +40,11 @@
     </script>
 
     <!-- Google Fonts & FontAwesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* floating keyframes */
+        /* Floating animations */
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-12px) rotate(2deg); }
@@ -69,6 +70,28 @@
             }
         }
 
+        /* Falling Rose Petal Animation */
+        @keyframes fallingPetal {
+            0% {
+                transform: translateY(-20px) rotate(0deg) translateX(0px);
+                opacity: 0;
+            }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% {
+                transform: translateY(100vh) rotate(720deg) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .petal {
+            position: absolute;
+            background: radial-gradient(circle, #F8C8DC 0%, #E899B0 70%);
+            border-radius: 15px 0px 15px 0px;
+            pointer-events: none;
+            animation: fallingPetal 10s linear infinite;
+        }
+
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -79,14 +102,14 @@
             transform: translateY(0);
         }
 
-        /* Envelope Styling with botanical touches */
+        /* Envelope Styling */
         .envelope-container {
             perspective: 1000px;
         }
         .envelope {
             position: relative;
-            background: #11251A; /* Enchanted Forest Deep Green */
-            box-shadow: 0 25px 50px -12px rgba(3, 15, 9, 0.7);
+            background: #2B0E1B;
+            box-shadow: 0 25px 50px -12px rgba(43, 14, 27, 0.8);
             transition: transform 1s ease-in-out;
         }
         .envelope-flap {
@@ -105,7 +128,7 @@
             transform: translateY(-90px) translateZ(10px);
         }
 
-        /* Firefly Elements positioning container */
+        /* Firefly & Petal positioning container */
         .firefly-box {
             position: absolute;
             width: 100%;
@@ -124,22 +147,26 @@
             animation: drift 12s linear infinite;
         }
 
-        /* Elegant Forest Branch Overlay styles */
         .canopy-vignette {
-            background: radial-gradient(circle, transparent 40%, rgba(11,26,19,0.85) 100%);
+            background: radial-gradient(circle, transparent 35%, rgba(43,14,27,0.85) 100%);
+        }
+
+        .gold-text {
+            background: linear-gradient(135deg, #FFF0F3 0%, #F3E5AB 30%, #D4AF37 70%, #E6A15C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
 <body class="bg-forest-mist font-sans text-slate-700 overflow-x-hidden antialiased">
 
-    <!-- Interactive Envelope Opening Overlay Screen (Enchanted Theme) -->
-    <div id="envelope-overlay" class="fixed inset-0 z-40 bg-gradient-to-b from-forest-deep to-forest-canopy flex flex-col items-center justify-center p-4 transition-all duration-1000">
+    <div id="envelope-overlay" class="fixed inset-0 z-40 bg-gradient-to-b from-forest-deep via-forest-canopy to-forest-moss flex flex-col items-center justify-center p-4 transition-all duration-1000">
         
-        <!-- Background Vignette & Floating Fireflies -->
+        <!-- Background Vignette & Floating Fireflies/Petals -->
         <div class="absolute inset-0 canopy-vignette pointer-events-none"></div>
         <div class="firefly-box" id="overlay-fireflies"></div>
 
-        <!-- Hanging Fairy Lights Overlay representation -->
+        <!-- Hanging Fairy Lights Overlay -->
         <div class="absolute top-0 inset-x-0 flex justify-around opacity-40 pointer-events-none">
             <div class="h-16 w-[1px] bg-forest-gold/30 relative"><div class="absolute bottom-0 -left-1 w-2.5 h-2.5 rounded-full bg-forest-goldlight shadow-[0_0_8px_#F3E5AB] animate-pulse"></div></div>
             <div class="h-24 w-[1px] bg-forest-gold/30 relative"><div class="absolute bottom-0 -left-1 w-2 h-2 rounded-full bg-forest-goldlight shadow-[0_0_8px_#F3E5AB] animate-pulse" style="animation-delay: 0.5s"></div></div>
@@ -149,228 +176,275 @@
         </div>
 
         <div class="text-center mb-8 max-w-md px-4 text-white z-10">
-            <p class="font-display tracking-[0.25em] text-xs text-forest-gold mb-2">YOU ARE CORDIALLY INVITED</p>
-            <h1 class="font-serif text-3xl md:text-4xl font-semibold mb-6">Steffi & Anton</h1>
+            <p class="font-display tracking-[0.25em] text-xs text-forest-goldlight mb-2">YOU ARE CORDIALLY INVITED TO</p>
+            <h1 class="font-serif text-3xl md:text-4xl font-semibold mb-4 gold-text">Steffi & Anton</h1>
             <div class="h-[1px] w-24 bg-forest-gold/50 mx-auto mb-6"></div>
             
-            <p class="text-xs text-forest-mist/70 uppercase tracking-widest mb-1">Dear Guest(s),</p>
+            <p class="text-xs text-forest-sage/90 uppercase tracking-widest mb-1">Dear Guest(s),</p>
             <!-- Dynamic Guest Recipient Container via URL -->
-            <div class="inline-block px-4 py-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-lg mt-2 min-w-[200px]">
+            <div class="inline-block px-6 py-2.5 bg-forest-deep/60 backdrop-blur-md border border-forest-gold/30 rounded-xl mt-2 min-w-[220px] shadow-lg">
                 <h3 id="guest-name" class="font-serif text-xl text-forest-goldlight font-medium italic">Dearest Guest</h3>
-                <p id="guest-subtext" class="text-[10px] text-forest-mist/50 uppercase tracking-widest mt-1">Special Guest</p>
+                <p id="guest-subtext" class="text-[10px] text-forest-sage uppercase tracking-widest mt-1">Special Guest</p>
             </div>
         </div>
 
         <!-- 3D Interactive Envelope Core -->
-        <div class="envelope-container w-full max-w-[320px] aspect-[4/3] relative cursor-pointer z-10" onclick="openInvitation()">
-            <div id="interactive-envelope" class="envelope w-full h-full rounded-b-xl border border-forest-gold/20 shadow-2xl">
-                <!-- Envelope Top Flap -->
+        <div class="envelope-container w-full max-w-[340px] aspect-[4/3] relative cursor-pointer z-10" onclick="openInvitation()">
+            <div id="interactive-envelope" class="envelope w-full h-full rounded-b-xl border border-forest-gold/30 shadow-2xl">
+                
                 <div class="envelope-flap absolute inset-x-0 top-0 h-1/2 overflow-visible origin-top">
-                    <svg class="w-full h-full drop-shadow-lg" viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <polygon points="0,0 400,0 200,140" fill="#183626" stroke="#D4AF37" stroke-width="0.75"/>
+                    <svg class="w-full h-full drop-shadow-2xl" viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="0,0 400,0 200,140" fill="#2B0E1B" stroke="#D4AF37" stroke-width="0.8"/>
                     </svg>
-                    <!-- Visual Custom Botanical Wax Seal Stamp -->
-                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-14 h-14 rounded-full bg-forest-gold shadow-lg flex items-center justify-center border border-forest-goldlight z-30 animate-pulse-slow">
-                        <div class="w-12 h-12 rounded-full border border-forest-deep flex items-center justify-center">
-                            <i class="fa-solid fa-seedling text-forest-deep text-xl"></i>
-                        </div>
+                    
+                    <!-- Monogram Floral Wreath Wax Seal -->
+                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-16 h-16 rounded-full bg-gradient-to-br from-forest-goldlight via-forest-gold to-forest-amber shadow-2xl flex items-center justify-center border-2 border-forest-goldlight z-30 animate-pulse-slow p-1 overflow-hidden">
+                        <img src="asset/mixboard-image (crop) 2.PNG" alt="Steffi & Anton Seal" class="w-full h-full object-cover rounded-full">
                     </div>
                 </div>
 
                 <!-- Hidden Inner Invitation Card -->
-                <div class="letter-card absolute inset-x-4 top-4 bottom-4 bg-forest-mist rounded p-4 text-center border border-forest-gold/20 shadow-inner flex flex-col justify-center items-center">
-                    <p class="font-display tracking-[0.15em] text-[8px] text-forest-moss">SATURDAY, NOV 7, 2026</p>
-                    <p class="font-serif text-sm font-semibold text-forest-canopy mt-1">Steffi & Anton</p>
-                    <div class="w-8 h-[1px] bg-forest-gold/30 my-2"></div>
-                    <span class="text-[9px] text-forest-moss/70 uppercase tracking-widest flex items-center gap-1">
-                        Click to Open <i class="fa-solid fa-leaf text-forest-gold"></i>
+                <div class="letter-card absolute inset-x-4 top-4 bottom-4 bg-forest-mist rounded-xl p-4 text-center border border-forest-gold/30 shadow-inner flex flex-col justify-center items-center">
+                    <p class="font-display tracking-[0.15em] text-[9px] text-forest-moss uppercase font-semibold">SATURDAY, NOV 7, 2026</p>
+                    <p class="font-serif text-base font-semibold text-forest-deep mt-1">Steffi & Anton</p>
+                    <div class="w-10 h-[1px] bg-forest-gold/40 my-2"></div>
+                    <span class="text-[9px] text-forest-moss/80 uppercase tracking-widest flex items-center gap-1 font-medium">
+                        Click to Open <i class="fa-solid fa-heart text-forest-moss animate-pulse"></i>
                     </span>
                 </div>
             </div>
         </div>
 
-        <button onclick="openInvitation()" class="mt-8 px-6 py-2.5 rounded-full bg-forest-gold text-forest-deep font-display text-xs tracking-widest hover:bg-forest-goldlight transition-all duration-300 shadow-md hover:shadow-forest-gold/20 z-10">
-            OPEN ENVELOPE
+        <button onclick="openInvitation()" class="mt-8 px-8 py-3 rounded-full bg-gradient-to-r from-forest-goldlight via-forest-gold to-forest-amber text-forest-deep font-display text-xs tracking-widest font-semibold hover:brightness-110 transition-all duration-300 shadow-xl hover:shadow-forest-gold/20 z-10">
+            OPEN INVITATION
         </button>
     </div>
 
-    <!-- Main Scrollable Invitation Content -->
     <main id="main-content" class="hidden opacity-0 transition-opacity duration-1000">
         
         <!-- Header Hero Section -->
-        <header class="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-forest-deep via-forest-canopy to-forest-moss overflow-hidden px-4 py-16">
-            <!-- Parallax-like Forest Vignette & Sparkles -->
+        <header class="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-forest-deep via-forest-canopy to-forest-moss overflow-hidden px-4 py-20 text-center">
             <div class="absolute inset-0 canopy-vignette pointer-events-none"></div>
             <div class="firefly-box" id="hero-fireflies"></div>
             
-            <div class="text-center max-w-xl z-10">
-                <p class="font-display tracking-[0.3em] text-xs text-forest-gold mb-4 uppercase animate-pulse-slow">The Wedding Invitation</p>
+            <div class="max-w-xl z-10 py-12 px-6 rounded-3xl bg-forest-deep/40 backdrop-blur-sm border border-forest-gold/20 shadow-2xl">
                 
-                <h1 class="font-serif text-5xl md:text-7xl font-light text-forest-mist mt-4 mb-2 tracking-wide">Steffi</h1>
-                <p class="font-serif text-2xl italic text-forest-goldlight my-2">&</p>
-                <h1 class="font-serif text-5xl md:text-7xl font-light text-forest-mist mb-6 tracking-wide">Anton</h1>
+                <!-- Detailed Botanical Floral Wreath Monogram Crest (A & S) -->
+                <div class="w-36 h-36 md:w-48 md:h-48 mx-auto mb-4 relative flex items-center justify-center">
+                    <div class="absolute inset-0 w-full h-full flex items-center justify-center z-0">
+                        <svg class="w-full h-full drop-shadow-xl text-forest-goldlight" viewBox="0 0 200 200" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#FFF0F3" />
+                                    <stop offset="30%" stop-color="#F3E5AB" />
+                                    <stop offset="70%" stop-color="#D4AF37" />
+                                    <stop offset="100%" stop-color="#E6A15C" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="100" cy="100" r="86" fill="none" stroke="url(#goldGradient)" stroke-width="1.8" stroke-dasharray="6 4" opacity="0.6"/>
+                            <circle cx="100" cy="100" r="78" fill="none" stroke="url(#goldGradient)" stroke-width="1" opacity="0.4"/>
+
+                            <g opacity="0.95" fill="url(#goldGradient)">
+                                <path d="M100,8 C90,8 84,16 87,25 C90,32 97,38 100,38 C103,38 110,32 113,25 C116,16 110,8 100,8 Z M95,18 C97,14 103,14 105,18 C108,22 100,29 100,29 C100,29 92,22 95,18 Z"/>
+                                <path d="M82,20 C74,16 70,24 76,28 C82,32 86,24 82,20 Z"/>
+                                <path d="M118,20 C126,16 130,24 124,28 C118,32 114,24 118,20 Z"/>
+                            </g>
+
+                            <g opacity="0.95" fill="url(#goldGradient)">
+                                <path d="M100,192 C90,192 84,184 87,175 C90,168 97,162 100,162 C103,162 110,168 113,175 C116,184 110,192 100,192 Z M95,182 C97,186 103,186 105,182 C108,178 100,171 100,171 C100,171 92,178 95,182 Z"/>
+                                <path d="M82,180 C74,184 70,176 76,172 C82,168 86,176 82,180 Z"/>
+                                <path d="M118,180 C126,184 130,176 124,172 C118,168 114,176 118,180 Z"/>
+                            </g>
+
+                            <g opacity="0.95" fill="url(#goldGradient)">
+                                <path d="M8,100 C8,90 16,84 25,87 C32,90 38,97 38,100 C38,103 32,110 25,113 C16,116 8,110 8,100 Z M18,95 C14,97 14,103 18,105 C22,108 29,100 29,100 C29,100 22,92 18,95 Z"/>
+                                <path d="M192,100 C192,90 184,84 175,87 C168,90 162,97 162,100 C162,103 168,110 175,113 C184,116 192,110 192,100 Z M182,95 C186,97 186,103 182,105 C178,108 171,100 171,100 C171,100 178,92 182,95 Z"/>
+                            </g>
+
+                            <g fill="url(#goldGradient)" opacity="0.85">
+                                <path d="M42,58 C52,46 68,36 84,30" fill="none" stroke="url(#goldGradient)" stroke-width="2.5" stroke-linecap="round"/>
+                                <circle cx="48" cy="50" r="3"/><circle cx="58" cy="41" r="3"/><circle cx="70" cy="34" r="3"/>
+                                
+                                <path d="M158,58 C148,46 132,36 116,30" fill="none" stroke="url(#goldGradient)" stroke-width="2.5" stroke-linecap="round"/>
+                                <circle cx="152" cy="50" r="3"/><circle cx="142" cy="41" r="3"/><circle cx="130" cy="34" r="3"/>
+
+                                <path d="M42,142 C52,154 68,164 84,170" fill="none" stroke="url(#goldGradient)" stroke-width="2.5" stroke-linecap="round"/>
+                                <circle cx="48" cy="150" r="3"/><circle cx="58" cy="159" r="3"/><circle cx="70" cy="166" r="3"/>
+
+                                <path d="M158,142 C148,154 132,164 116,170" fill="none" stroke="url(#goldGradient)" stroke-width="2.5" stroke-linecap="round"/>
+                                <circle cx="152" cy="150" r="3"/><circle cx="142" cy="159" r="3"/><circle cx="130" cy="166" r="3"/>
+                            </g>
+
+                            <g fill="url(#goldGradient)">
+                                <path d="M48,132 C36,136 28,124 40,116 C48,111 58,122 68,114 L90,56 C93,50 99,51 103,57 L118,98 C108,98 84,98 78,98 L90,68 L70,120 C64,128 56,130 48,132 Z M84,88 L108,88 L98,62 Z"/>
+                                <path d="M88,102 C82,97 88,90 94,94 C100,98 95,106 88,109 C81,112 83,120 90,118 C96,116 98,109 102,114 C97,121 85,125 78,118 C73,113 76,103 83,99 Z"/>
+                                <path d="M132,68 C126,60 112,61 112,70 C112,78 124,80 128,88 C135,98 123,112 108,112 C94,112 92,100 101,98 C108,96 109,105 115,105 C122,105 125,95 118,90 C111,85 101,80 101,70 C101,56 120,52 135,62 Z"/>
+                            </g>
+                            <img src="asset/mixboard-image (crop) 2.PNG" alt="Steffi & Anton Monogram" class="w-full h-full object-cover rounded-full p-1">
+                        </svg>
+                    </div>
+                </div>
+
+                <p class="font-display tracking-[0.3em] text-[11px] text-forest-goldlight mb-1 uppercase">THE WEDDING OF</p>
                 
-                <div class="h-[1px] w-32 bg-forest-gold/50 mx-auto my-8"></div>
+                <h1 class="font-calligraphy text-6xl md:text-7xl gold-text my-1 leading-tight py-2 drop-shadow-lg">Anton</h1>
+                <p class="font-serif text-xl italic text-forest-sage my-0.5">&</p>
+                <h1 class="font-calligraphy text-6xl md:text-7xl gold-text my-1 leading-tight py-2 drop-shadow-lg">Steffi</h1>
                 
-                <p class="font-display text-sm text-forest-goldlight tracking-[0.2em] mb-12">07 . 11 . 2026</p>
+                <div class="h-[1px] w-32 bg-forest-gold/40 mx-auto my-4"></div>
                 
-                <!-- Interactive Countdown Timer -->
-                <div class="grid grid-cols-4 gap-2 md:gap-4 max-w-sm mx-auto mb-12">
-                    <div class="bg-forest-deep/60 backdrop-blur-md p-3 rounded-lg border border-forest-gold/20 shadow-lg">
-                        <span id="days" class="block font-serif text-xl md:text-2xl font-semibold text-forest-gold">00</span>
+                <p class="font-display text-xs text-forest-goldlight tracking-[0.25em] mb-8">07 . 11 . 2026</p>
+                
+                <div class="grid grid-cols-4 gap-2 md:gap-4 max-w-sm mx-auto mb-6">
+                    <div class="bg-forest-deep/70 backdrop-blur-md p-3 rounded-xl border border-forest-gold/20 shadow-lg">
+                        <span id="days" class="block font-serif text-xl md:text-2xl font-semibold text-forest-goldlight">00</span>
                         <span class="text-[9px] uppercase tracking-wider text-forest-sage">Days</span>
                     </div>
-                    <div class="bg-forest-deep/60 backdrop-blur-md p-3 rounded-lg border border-forest-gold/20 shadow-lg">
-                        <span id="hours" class="block font-serif text-xl md:text-2xl font-semibold text-forest-gold">00</span>
+                    <div class="bg-forest-deep/70 backdrop-blur-md p-3 rounded-lg border border-forest-gold/20 shadow-lg">
+                        <span id="hours" class="block font-serif text-xl md:text-2xl font-semibold text-forest-goldlight">00</span>
                         <span class="text-[9px] uppercase tracking-wider text-forest-sage">Hours</span>
                     </div>
-                    <div class="bg-forest-deep/60 backdrop-blur-md p-3 rounded-lg border border-forest-gold/20 shadow-lg">
-                        <span id="minutes" class="block font-serif text-xl md:text-2xl font-semibold text-forest-gold">00</span>
+                    <div class="bg-forest-deep/70 backdrop-blur-md p-3 rounded-lg border border-forest-gold/20 shadow-lg">
+                        <span id="minutes" class="block font-serif text-xl md:text-2xl font-semibold text-forest-goldlight">00</span>
                         <span class="text-[9px] uppercase tracking-wider text-forest-sage">Min</span>
                     </div>
-                    <div class="bg-forest-deep/60 backdrop-blur-md p-3 rounded-lg border border-forest-gold/20 shadow-lg">
-                        <span id="seconds" class="block font-serif text-xl md:text-2xl font-semibold text-forest-gold">00</span>
+                    <div class="bg-forest-deep/70 backdrop-blur-md p-3 rounded-lg border border-forest-gold/20 shadow-lg">
+                        <span id="seconds" class="block font-serif text-xl md:text-2xl font-semibold text-forest-goldlight">00</span>
                         <span class="text-[9px] uppercase tracking-wider text-forest-sage">Sec</span>
                     </div>
                 </div>
 
-                <div class="animate-float">
-                    <i class="fa-solid fa-chevron-down text-forest-gold text-lg"></i>
+                <div class="animate-float mt-6">
+                    <i class="fa-solid fa-chevron-down text-forest-goldlight text-lg"></i>
                 </div>
             </div>
         </header>
 
-        <!-- Bride & Groom Profiles Section -->
         <section class="py-24 bg-forest-deep px-4 relative overflow-hidden text-forest-mist">
-            <!-- Decorative forest/ivy vector overlay mimicking high-end organic parchment -->
-            <div class="absolute inset-0 opacity-[0.05] pointer-events-none flex justify-between items-center px-4">
-                <i class="fa-solid fa-leaf text-[200px] text-forest-gold rotate-45 transform -translate-x-24"></i>
-                <i class="fa-solid fa-leaf text-[200px] text-forest-gold -rotate-45 transform translate-x-24"></i>
-            </div>
-
             <div class="max-w-3xl mx-auto text-center relative z-10">
-                <span class="font-serif text-3xl italic text-forest-goldlight">With Joyful Hearts</span>
-                <p class="text-xs text-forest-sage tracking-[0.15em] uppercase mt-2 mb-16">WE INVITE YOU TO JOIN US IN CELEBRATING OUR UNION</p>
+                <p class="font-serif text-sm italic text-forest-goldlight mb-2">By the Grace and Blessing of Our Lord</p>
+                <h2 class="font-serif text-3xl md:text-4xl gold-text mb-4">We Request The Honor Of Your Presence</h2>
+                <div class="h-[1px] w-20 bg-forest-gold/40 mx-auto mb-16"></div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 items-center">
-                    <!-- Bride Profile -->
-                    <div class="reveal">
-                        <div class="relative inline-block mb-6">
-                            <div class="w-40 h-40 rounded-full overflow-hidden border-2 border-forest-gold p-1 mx-auto bg-forest-canopy shadow-lg">
-                                <img src="https://placehold.co/400x400/142C1F/ffffff?text=Steffi" alt="Steffi Ong" class="w-full h-full object-cover rounded-full" onerror="this.src='https://placehold.co/160x160/e2e8f0/475569?text=Bride'">
-                            </div>
-                            <div class="absolute -bottom-1 -right-1 bg-forest-gold text-forest-deep w-8 h-8 rounded-full flex items-center justify-center border-2 border-forest-deep text-xs">
-                                <i class="fa-solid fa-venus"></i>
-                            </div>
-                        </div>
-                        <h3 class="font-serif text-2xl font-semibold text-forest-mist">Steffi Ong</h3>
-                        <p class="text-[11px] font-medium tracking-widest text-forest-goldlight uppercase mt-1">Daughter of</p>
-                        <p class="text-sm text-forest-sage mt-2">Mr. Dani Ong &<br>Mrs. Widari Maryanto</p>
-                    </div>
-
                     <!-- Groom Profile -->
                     <div class="reveal">
                         <div class="relative inline-block mb-6">
-                            <div class="w-40 h-40 rounded-full overflow-hidden border-2 border-forest-gold p-1 mx-auto bg-forest-canopy shadow-lg">
-                                <img src="https://placehold.co/400x400/142C1F/ffffff?text=Anton" alt="Anton Junior" class="w-full h-full object-cover rounded-full" onerror="this.src='https://placehold.co/160x160/e2e8f0/475569?text=Groom'">
+                            <div class="w-40 h-40 rounded-full overflow-hidden border-2 border-forest-gold p-1 mx-auto bg-forest-canopy shadow-xl">
+                                <img src="asset/aj head.JPG" alt="Anton Junior" class="w-full h-full object-cover rounded-full">
                             </div>
-                            <div class="absolute -bottom-1 -left-1 bg-forest-moss text-white w-8 h-8 rounded-full flex items-center justify-center border-2 border-forest-deep text-xs">
+                            <div class="absolute -bottom-1 -right-1 bg-forest-gold text-forest-deep w-8 h-8 rounded-full flex items-center justify-center border-2 border-forest-deep text-xs font-bold">
                                 <i class="fa-solid fa-mars"></i>
                             </div>
                         </div>
-                        <h3 class="font-serif text-2xl font-semibold text-forest-mist">Anton Junior</h3>
-                        <p class="text-[11px] font-medium tracking-widest text-forest-goldlight uppercase mt-1">Son of</p>
-                        <p class="text-sm text-forest-sage mt-2">Mr. Anton Cip Nio &<br>Mrs. Sujanti Solihin</p>
+                        <h3 class="font-serif text-2xl font-semibold text-forest-goldlight">Anton Junior</h3>
+                        <p class="text-[11px] font-medium tracking-widest text-forest-sage uppercase mt-2">Son of</p>
+                        <p class="text-sm text-forest-mist mt-1">Mr. Anton Cip Nio &<br>Mrs. Suyanti</p>
+                    </div>
+
+                    <!-- Bride Profile -->
+                    <div class="reveal">
+                        <div class="relative inline-block mb-6">
+                            <div class="w-40 h-40 rounded-full overflow-hidden border-2 border-forest-gold p-1 mx-auto bg-forest-canopy shadow-xl">
+                                <img src="asset/so head.JPG" alt="Steffi Ong" class="w-full h-full object-cover rounded-full">
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 bg-forest-moss text-white w-8 h-8 rounded-full flex items-center justify-center border-2 border-forest-deep text-xs font-bold">
+                                <i class="fa-solid fa-venus"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-serif text-2xl font-semibold text-forest-goldlight">Steffi Ong</h3>
+                        <p class="text-[11px] font-medium tracking-widest text-forest-sage uppercase mt-2">Daughter of</p>
+                        <p class="text-sm text-forest-mist mt-1">Mr. Dani Ong &<br>Mrs. Widari Maryanto</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Event Details & Venues Section (Enchanted Forest Theme) -->
-        <section class="py-24 bg-gradient-to-b from-forest-deep via-forest-canopy to-forest-deep px-4 border-y border-forest-gold/15 relative">
+        <section class="py-24 bg-gradient-to-b from-forest-deep via-forest-canopy to-forest-deep px-4 border-y border-forest-gold/20 relative">
             <div class="firefly-box" id="schedule-fireflies"></div>
 
             <div class="max-w-4xl mx-auto relative z-10">
                 <div class="text-center mb-16">
                     <span class="font-display tracking-[0.2em] text-xs text-forest-sage uppercase">JOIN US FOR THE CELEBRATION</span>
-                    <h2 class="font-serif text-4xl text-forest-mist mt-2">Wedding Schedule</h2>
+                    <h2 class="font-serif text-4xl gold-text mt-2">Wedding Schedule</h2>
                     <div class="h-[1px] w-20 bg-forest-gold/50 mx-auto mt-4"></div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <!-- Holy Matrimony Card -->
-                    <div class="bg-forest-deep/80 backdrop-blur-md p-8 rounded-xl shadow-xl border border-forest-gold/20 text-center reveal text-forest-mist">
+                    <div class="bg-forest-deep/80 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-forest-gold/20 text-center reveal text-forest-mist">
                         <div class="w-12 h-12 bg-forest-canopy rounded-full flex items-center justify-center mx-auto mb-6 text-forest-gold border border-forest-gold/30">
                             <i class="fa-solid fa-church text-lg"></i>
                         </div>
-                        <h3 class="font-serif text-xl font-semibold text-forest-mist mb-2">The Holy Matrimony</h3>
-                        <div class="text-xs tracking-widest text-forest-goldlight uppercase mb-4">09:00 AM - 11:00 AM</div>
+                        <h3 class="font-serif text-xl font-semibold text-forest-goldlight mb-1">Holy Matrimony</h3>
+                        <div class="text-xs tracking-widest text-forest-sage uppercase mb-4">09:00 AM WIB</div>
                         
                         <div class="h-[1px] w-12 bg-forest-gold/30 mx-auto mb-4"></div>
                         
-                        <p class="font-serif text-forest-mist italic font-medium mb-1">Avenzel Hotel and Convention</p>
-                        <p class="text-sm text-forest-sage mb-6">Jl. Raya Kranggan No.69, Cibubur, Bekasi</p>
+                        <p class="font-serif text-forest-mist font-semibold">Pool Deck, Lantai 3</p>
+                        <p class="text-sm text-forest-sage mb-1">Avenzel Hotel and Convention</p>
+                        <p class="text-xs text-forest-sage/80 mb-6">Jl. Raya Kranggan No.69, Cibubur, Bekasi</p>
                         
                         <a href="https://maps.app.goo.gl/LFeg72B7W5B2X8gg6" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-forest-gold/40 text-forest-goldlight hover:bg-forest-gold hover:text-forest-deep transition-all duration-300 text-xs font-medium bg-forest-canopy/50">
-                            <i class="fa-solid fa-location-dot"></i> View on Google Maps
+                            <i class="fa-solid fa-location-dot"></i> Open Google Maps
                         </a>
                     </div>
 
                     <!-- Reception Dinner Card -->
-                    <div class="bg-forest-deep/80 backdrop-blur-md p-8 rounded-xl shadow-xl border border-forest-gold/20 text-center reveal text-forest-mist">
+                    <div class="bg-forest-deep/80 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-forest-gold/20 text-center reveal text-forest-mist">
                         <div class="w-12 h-12 bg-forest-canopy rounded-full flex items-center justify-center mx-auto mb-6 text-forest-gold border border-forest-gold/30">
                             <i class="fa-solid fa-champagne-glasses text-lg"></i>
                         </div>
-                        <h3 class="font-serif text-xl font-semibold text-forest-mist mb-2">The Grand Reception</h3>
-                        <div class="text-xs tracking-widest text-forest-goldlight uppercase mb-4">06:00 PM - 09:00 PM</div>
+                        <h3 class="font-serif text-xl font-semibold text-forest-goldlight mb-1">Grand Reception</h3>
+                        <div class="text-xs tracking-widest text-forest-sage uppercase mb-4">06:30 PM WIB</div>
                         
                         <div class="h-[1px] w-12 bg-forest-gold/30 mx-auto mb-4"></div>
                         
-                        <p class="font-serif text-forest-mist italic font-medium mb-1">Avenzel Hotel and Convention</p>
-                        <p class="text-sm text-forest-sage mb-6">Jl. Raya Kranggan No.69, Cibubur, Bekasi</p>
+                        <p class="font-serif text-forest-mist font-semibold">Peony Ballroom, Lantai 3</p>
+                        <p class="text-sm text-forest-sage mb-1">Avenzel Hotel and Convention</p>
+                        <p class="text-xs text-forest-sage/80 mb-6">Jl. Raya Kranggan No.69, Cibubur, Bekasi</p>
                         
                         <a href="https://maps.app.goo.gl/LFeg72B7W5B2X8gg6" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-forest-gold/40 text-forest-goldlight hover:bg-forest-gold hover:text-forest-deep transition-all duration-300 text-xs font-medium bg-forest-canopy/50">
-                            <i class="fa-solid fa-location-dot"></i> View on Google Maps
+                            <i class="fa-solid fa-location-dot"></i> Open Google Maps
                         </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Wedding Gift Registry Section -->
         <section class="py-24 bg-forest-deep px-4 border-t border-forest-gold/15 text-forest-mist">
             <div class="max-w-2xl mx-auto text-center">
                 <span class="font-display tracking-[0.2em] text-xs text-forest-sage uppercase">WEDDING REGISTRY</span>
-                <h2 class="font-serif text-3xl md:text-4xl text-forest-mist mt-2 mb-4">Wedding Gift</h2>
+                <h2 class="font-serif text-3xl md:text-4xl gold-text mt-2 mb-4">Wedding Gift</h2>
                 <p class="text-sm text-forest-sage max-w-md mx-auto mb-12">Your presence at our wedding is the greatest gift of all. However, should you wish to honor us with a gift, a digital contribution can be sent below.</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left max-w-md mx-auto">
-                    <!-- Bank Transfer Option 1 -->
-                    <div class="bg-forest-canopy/50 p-6 rounded-xl border border-forest-gold/20 shadow-lg reveal">
+                    <!-- Bank Option 1 -->
+                    <div class="bg-forest-canopy/60 p-6 rounded-2xl border border-forest-gold/20 shadow-lg reveal">
                         <div class="flex justify-between items-start mb-4">
-                            <span class="font-bold text-lg text-forest-mist tracking-wide">BCA</span>
+                            <span class="font-bold text-lg text-forest-goldlight tracking-wide">BCA</span>
                             <i class="fa-solid fa-credit-card text-forest-gold"></i>
                         </div>
                         <p class="text-xs text-forest-sage">Account Number</p>
                         <div class="flex items-center gap-2 mt-1">
-                            <span id="acc-no-1" class="font-mono text-sm font-semibold text-forest-goldlight">8220918237</span>
-                            <button onclick="copyToClipboard('acc-no-1')" class="text-[10px] text-forest-gold hover:underline font-medium ml-auto flex items-center gap-1">
+                            <span id="acc-no-1" class="font-mono text-sm font-semibold text-white">8220918237</span>
+                            <button onclick="copyToClipboard('acc-no-1')" class="text-[10px] text-forest-goldlight hover:underline font-medium ml-auto flex items-center gap-1">
                                 <i class="fa-regular fa-copy"></i> Copy
                             </button>
                         </div>
                         <p class="text-xs font-medium text-forest-sage mt-2 uppercase">A/N STEFFI ONG</p>
                     </div>
 
-                    <!-- Bank Transfer Option 2 -->
-                    <div class="bg-forest-canopy/50 p-6 rounded-xl border border-forest-gold/20 shadow-lg reveal">
+                    <!-- Bank Option 2 -->
+                    <div class="bg-forest-canopy/60 p-6 rounded-2xl border border-forest-gold/20 shadow-lg reveal">
                         <div class="flex justify-between items-start mb-4">
-                            <span class="font-bold text-lg text-forest-mist tracking-wide">Mandiri</span>
+                            <span class="font-bold text-lg text-forest-goldlight tracking-wide">Mandiri</span>
                             <i class="fa-solid fa-credit-card text-forest-gold"></i>
                         </div>
                         <p class="text-xs text-forest-sage">Account Number</p>
                         <div class="flex items-center gap-2 mt-1">
-                            <span id="acc-no-2" class="font-mono text-sm font-semibold text-forest-goldlight">1410029381273</span>
-                            <button onclick="copyToClipboard('acc-no-2')" class="text-[10px] text-forest-gold hover:underline font-medium ml-auto flex items-center gap-1">
+                            <span id="acc-no-2" class="font-mono text-sm font-semibold text-white">1410029381273</span>
+                            <button onclick="copyToClipboard('acc-no-2')" class="text-[10px] text-forest-goldlight hover:underline font-medium ml-auto flex items-center gap-1">
                                 <i class="fa-regular fa-copy"></i> Copy
                             </button>
                         </div>
@@ -380,39 +454,40 @@
             </div>
         </section>
 
-        <!-- RSVP & Live Guestbook Comments Section -->
         <section class="py-24 bg-forest-deep px-4 border-t border-forest-gold/15 text-forest-mist">
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-16">
                     <span class="font-display tracking-[0.2em] text-xs text-forest-sage uppercase">RSVP & GUESTBOOK</span>
-                    <h2 class="font-serif text-4xl text-forest-mist mt-2">Be Our Guest</h2>
+                    <h2 class="font-serif text-4xl gold-text mt-2">Be Our Guest</h2>
                     <div class="h-[1px] w-20 bg-forest-gold/50 mx-auto mt-4 mb-4"></div>
-                    <p class="text-sm text-forest-sage max-w-sm mx-auto">Kindly respond with your attendance before November 1st, 2026, and share your warm wishes below.</p>
+                    <p class="text-sm text-forest-sage max-w-sm mx-auto">Kindly respond with your attendance before October 1st, 2026, and share your warm wishes below.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-                    <!-- RSVP Contact Form -->
-                    <div class="bg-forest-canopy/60 p-6 md:p-8 rounded-2xl border border-forest-gold/20 shadow-2xl">
-                        <h3 class="font-serif text-lg font-semibold text-forest-mist mb-6 text-center">Reservation Form</h3>
+                    <!-- RSVP Form -->
+                    <div class="bg-forest-canopy/70 p-6 md:p-8 rounded-2xl border border-forest-gold/20 shadow-2xl">
+                        <h3 class="font-serif text-lg font-semibold text-forest-goldlight mb-6 text-center">Reservation Form</h3>
                         
                         <form id="rsvp-form" class="space-y-4">
                             <!-- Name Input -->
                             <div>
                                 <label class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Full Name*</label>
-                                <input type="text" id="rsvp-name" required class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/40 focus:outline-none focus:border-forest-gold bg-forest-deep text-forest-mist text-sm" placeholder="Your full name">
+                                <input type="text" id="rsvp-name" required class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm" placeholder="Your full name">
                             </div>
 
-                            <!-- Phone Input -->
+                            <!-- Phone Input (Optional) -->
                             <div>
-                                <label class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Phone Number</label>
-                                <input type="tel" id="rsvp-phone" required class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/40 focus:outline-none focus:border-forest-gold bg-forest-deep text-forest-mist text-sm" placeholder="e.g., 08123456789">
+                                <label class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Phone Number <span class="text-[10px] opacity-60">(Optional)</span></label>
+                                <input type="tel" id="rsvp-phone" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm" placeholder="e.g., 08123456789">
                             </div>
 
                             <!-- Attendance Selection -->
                             <div>
                                 <label class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Will you attend?*</label>
-                                <select id="rsvp-status" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/40 focus:outline-none focus:border-forest-gold bg-forest-deep text-forest-mist text-sm">
-                                    <option value="Yes">Yes, I will attend</option>
+                                <select id="rsvp-status" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm">
+                                    <option value="Yes, reception">Yes, I will join the evening reception</option>
+                                    <option value="Yes, holy matrimony">Yes, I will attend the morning holy matrimony</option>
+                                    <option value="Yes, both">Yes, I will attend both</option>
                                     <option value="No">No, regretfully I will not</option>
                                 </select>
                             </div>
@@ -420,22 +495,21 @@
                             <!-- Guest Count Selection -->
                             <div>
                                 <label class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Number of Guests</label>
-                                <select id="rsvp-count" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/40 focus:outline-none focus:border-forest-gold bg-forest-deep text-forest-mist text-sm">
+                                <select id="rsvp-count" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm">
                                     <option value="1">1 Person</option>
                                     <option value="2">2 Persons</option>
                                     <option value="3">3 Persons</option>
                                     <option value="4">4 Persons</option>
-                                    <option value="5">5 Persons</option>
                                 </select>
                             </div>
 
-                            <!-- Wishes Message Input -->
+                            <!-- Wishes Message Input (Optional) -->
                             <div>
-                                <label class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Warm Wishes</label>
-                                <textarea id="rsvp-message" required rows="4" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/40 focus:outline-none focus:border-forest-gold bg-forest-deep text-forest-mist text-sm resize-none" placeholder="Write your messages or congratulations..."></textarea>
+                                <label class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Warm Wishes <span class="text-[10px] opacity-60">(Optional)</span></label>
+                                <textarea id="rsvp-message" rows="4" maxlength="500" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm resize-none" placeholder="Write your congratulations or blessings..."></textarea>
                             </div>
 
-                            <button type="submit" class="w-full py-3 bg-forest-gold hover:bg-forest-goldlight text-forest-deep font-display text-xs tracking-widest rounded-lg transition-colors duration-300 mt-2 shadow-lg">
+                            <button type="submit" class="w-full py-3 bg-gradient-to-r from-forest-goldlight via-forest-gold to-forest-amber text-forest-deep font-display text-xs font-semibold tracking-widest rounded-lg transition-all duration-300 mt-2 shadow-lg hover:brightness-110">
                                 SUBMIT RESPONSE
                             </button>
                         </form>
@@ -443,25 +517,25 @@
 
                     <!-- Live Dynamic Wishes Scroll -->
                     <div class="flex flex-col h-full max-h-[460px]">
-                        <h3 class="font-serif text-lg font-semibold text-forest-mist mb-6 flex items-center gap-2">
+                        <h3 class="font-serif text-lg font-semibold text-forest-goldlight mb-6 flex items-center gap-2">
                             <i class="fa-solid fa-quote-left text-forest-gold"></i>
                             Guest Book
                         </h3>
                         
                         <div id="wishes-list" class="space-y-4 overflow-y-auto pr-2 flex-1 scrollbar-thin">
-                            <!-- Wishes populates here via client local storage -->
+                            <!-- Wishes populate dynamically -->
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Elegant Invitation Footer -->
+        <!-- Footer -->
         <footer class="py-16 bg-gradient-to-b from-forest-deep to-forest-canopy text-white text-center px-4 relative border-t border-forest-gold/10">
             <p class="font-serif italic text-lg text-forest-goldlight">Thank you for sharing in our joy!</p>
             <div class="h-[1px] w-24 bg-forest-gold/30 mx-auto my-6"></div>
             <p class="font-serif text-2xl font-light tracking-[0.1em] text-white">Steffi & Anton</p>
-            <p class="text-[9px] tracking-widest text-forest-sage/40 uppercase mt-8">&copy; 2026 Steffi & Anton Wedding. All Rights Reserved.</p>
+            <p class="text-[9px] tracking-widest text-forest-sage/50 uppercase mt-8">&copy; 2026 Steffi & Anton Wedding. All Rights Reserved.</p>
         </footer>
     </main>
 
@@ -473,38 +547,29 @@
     </div>
 
     <script>
-        // ==========================================
-        // 1. GOOGLE FORM RSVP CONFIGURATION
-        // ==========================================
+        // Google Form RSVP Configuration
         const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSda2YNhFL0lj_QpJnXM2D9vtWx5OUUVt0bul0t4xhZrp-YD5w/formResponse";
         
-        // Custom Entry Identifiers mapped inside your active Google Sheet connections
-        const ENTRY_ID_NAME = "entry.1881760146";       // Field ID for Guest Name
-        const ENTRY_ID_PHONE = "entry.2120304517";      // Field ID for Phone Number
-        const ENTRY_ID_STATUS = "entry.1832745907";     // Field ID for Attendance Status
-        const ENTRY_ID_COUNT = "entry.1793951564";      // Field ID for Number of Guests
-        const ENTRY_ID_MESSAGE = "entry.510660372";     // Field ID for Warm Wishes / Message
+        const ENTRY_ID_NAME = "entry.1881760146";
+        const ENTRY_ID_PHONE = "entry.2120304517";
+        const ENTRY_ID_STATUS = "entry.1832745907";
+        const ENTRY_ID_COUNT = "entry.1793951564";
+        const ENTRY_ID_MESSAGE = "entry.510660372";
 
-        // Target Date for marriage
         const WEDDING_DATE = new Date("November 7, 2026 09:00:00").getTime();
-
-        // Guestbook Local Storage Key name
         const GUESTBOOK_STORAGE_KEY = "steffi_anton_wishes_backup";
 
-        // ==========================================
-        // 2. MAGICAL WHIMSICAL WOODS SYNTHESIZER
-        // ==========================================
+        // Web Audio Synthesizer
         let audioCtx = null;
         let synthesizerTimer = null;
         let isMusicPlaying = false;
         let musicStep = 0;
 
-        // Custom plucking melody matching forest ambient atmosphere
         const melodyNotes = [
-            261.63, 329.63, 392.00, 523.25, 489.99, 392.00, // C Major - G major twist
-            293.66, 349.23, 440.00, 587.33, 523.25, 440.00, // D Minor - F maj transition
-            329.63, 392.00, 493.88, 659.25, 587.33, 493.88, // E Minor
-            349.23, 440.00, 523.25, 698.46, 659.25, 523.25  // F Major
+            261.63, 329.63, 392.00, 523.25, 489.99, 392.00,
+            293.66, 349.23, 440.00, 587.33, 523.25, 440.00,
+            329.63, 392.00, 493.88, 659.25, 587.33, 493.88,
+            349.23, 440.00, 523.25, 698.46, 659.25, 523.25
         ];
 
         function initSynth() {
@@ -525,11 +590,9 @@
             const osc = audioCtx.createOscillator();
             const gainNode = audioCtx.createGain();
 
-            // SINE wave provides softer, bell-like properties for an enchanted theme
             osc.type = 'sine'; 
             osc.frequency.setValueAtTime(frequency, audioCtx.currentTime);
             
-            // Whimsical attack with lingering sound
             gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
             gainNode.gain.linearRampToValueAtTime(0.08, audioCtx.currentTime + 0.12);
             gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
@@ -546,7 +609,6 @@
             const note = melodyNotes[musicStep % melodyNotes.length];
             playSynthTone(note, 2.2);
             musicStep++;
-            // Gentle spacing between plucks to emulate string chords
             synthesizerTimer = setTimeout(runMusicLoop, 550);
         }
 
@@ -564,43 +626,43 @@
             }
         }
 
-        // ==========================================
-        // 3. GENERATE MAGICAL DRIFTING FIREFLIES
-        // ==========================================
-        function createFireflies(containerId, count) {
+        // Generate Particles (Fireflies & Petals)
+        function createParticles(containerId, count) {
             const container = document.getElementById(containerId);
             if (!container) return;
             
             for (let i = 0; i < count; i++) {
+                // Firefly
                 const firefly = document.createElement('div');
                 firefly.className = 'firefly';
-                
-                // Randomize sizing, horizontal coordinates, animation delay, and durations
-                const size = Math.random() * 6 + 4;
-                const left = Math.random() * 100;
-                const top = Math.random() * 100;
-                const delay = Math.random() * 8;
-                const duration = Math.random() * 10 + 8;
-                
+                const size = Math.random() * 5 + 3;
                 firefly.style.width = `${size}px`;
                 firefly.style.height = `${size}px`;
-                firefly.style.left = `${left}%`;
-                firefly.style.top = `${top}%`;
-                firefly.style.animationDelay = `${delay}s`;
-                firefly.style.animationDuration = `${duration}s`;
-                
+                firefly.style.left = `${Math.random() * 100}%`;
+                firefly.style.top = `${Math.random() * 100}%`;
+                firefly.style.animationDelay = `${Math.random() * 8}s`;
+                firefly.style.animationDuration = `${Math.random() * 10 + 8}s`;
                 container.appendChild(firefly);
+
+                // Petal
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                const pSize = Math.random() * 8 + 6;
+                petal.style.width = `${pSize}px`;
+                petal.style.height = `${pSize * 1.5}px`;
+                petal.style.left = `${Math.random() * 100}%`;
+                petal.style.top = `-20px`;
+                petal.style.animationDelay = `${Math.random() * 10}s`;
+                petal.style.animationDuration = `${Math.random() * 8 + 7}s`;
+                container.appendChild(petal);
             }
         }
 
-        // ==========================================
-        // 4. ENVELOPE INTERACTION & SCROLL REVEALS
-        // ==========================================
+        // Open Invitation Envelope
         function openInvitation() {
             const envelope = document.getElementById('interactive-envelope');
             envelope.classList.add('open');
 
-            // Sequential transitions to reveal content smoothly
             setTimeout(() => {
                 document.getElementById('envelope-overlay').classList.add('opacity-0');
                 document.getElementById('main-content').classList.remove('hidden');
@@ -609,18 +671,14 @@
                     document.getElementById('envelope-overlay').classList.add('hidden');
                     document.getElementById('audio-widget').classList.remove('hidden');
                     
-                    // Activate magical synthesizer automatically
                     isMusicPlaying = true;
                     initSynth();
                     runMusicLoop();
-                    
-                    // Trigger scroll element animation states
                     revealElements();
                 }, 400);
             }, 1000);
         }
 
-        // Read URL query parameters to display custom guest names
         function parseUrlRecipient() {
             const params = new URLSearchParams(window.location.search);
             const toVal = params.get('to');
@@ -630,16 +688,15 @@
                 const nameElement = document.getElementById('guest-name');
                 if (nameElement) nameElement.innerText = toVal;
 
-                // ---> ADD THIS LINE HERE TO PRE-FILL THE RSVP FIELD <---
                 const rsvpNameInput = document.getElementById('rsvp-name');
                 if (rsvpNameInput) rsvpNameInput.value = toVal;
             }
             if (uVal) {
-                document.getElementById('guest-subtext').innerText = uVal;
+                const subtextElement = document.getElementById('guest-subtext');
+                if (subtextElement) subtextElement.innerText = uVal;
             }
         }
 
-        // Copy Clipboard Helper
         function copyToClipboard(elementId) {
             const textToCopy = document.getElementById(elementId).innerText;
             const tempInput = document.createElement("input");
@@ -649,16 +706,12 @@
             document.execCommand("copy");
             document.body.removeChild(tempInput);
             
-            // Visual confirmation effect
             const btn = document.querySelector(`[onclick="copyToClipboard('${elementId}')"]`);
             const prevHtml = btn.innerHTML;
             btn.innerHTML = `<i class="fa-solid fa-check"></i> Copied!`;
             setTimeout(() => { btn.innerHTML = prevHtml; }, 2000);
         }
 
-        // ==========================================
-        // 5. ANIMATED INTERACTIVE COUNTDOWN
-        // ==========================================
         function runCountdown() {
             const now = new Date().getTime();
             const difference = WEDDING_DATE - now;
@@ -683,13 +736,10 @@
         }
         setInterval(runCountdown, 1000);
 
-        // ==========================================
-        // 6. GUESTBOOK LOCAL STORAGE BACKUP
-        // ==========================================
+        // Guestbook Local Storage
         const defaultWishes = [
-            { name: "Jessica Clara", status: "Yes", message: "Wishing you both a magical journey under the stars. Congratulations Steffi & Anton!", timestamp: Date.now() - 400000 },
-            { name: "Robert Hartono", status: "Yes", message: "Such a beautiful Enchanted Forest setup! Can't wait to celebrate with you.", timestamp: Date.now() - 800000 },
-            { name: "Michelle & David", status: "No", message: "Sending warm, magical wishes all the way from across the ocean. Have a wonderful wedding!", timestamp: Date.now() - 1200000 }
+            { name: "Jessica Clara", status: "Yes", message: "Wishing you both a magical journey together. Congratulations Steffi & Anton!", timestamp: Date.now() - 400000 },
+            { name: "Robert Hartono", status: "Yes", message: "So excited for the big day! Can't wait to celebrate with you.", timestamp: Date.now() - 800000 }
         ];
 
         function getLocalWishes() {
@@ -703,18 +753,19 @@
 
         function renderWishesList(wishes) {
             const container = document.getElementById('wishes-list');
+            if (!container) return;
             container.innerHTML = "";
             
             wishes.forEach(wish => {
                 const date = new Date(wish.timestamp).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
                 const bubble = document.createElement('div');
-                bubble.className = "bg-forest-canopy/40 p-4 rounded-xl border border-forest-gold/10 text-xs shadow-md transition-all text-forest-mist";
+                bubble.className = "bg-forest-canopy/60 p-4 rounded-xl border border-forest-gold/15 text-xs shadow-md text-forest-mist";
                 bubble.innerHTML = `
                     <div class="flex justify-between items-center mb-2">
                         <span class="font-semibold text-forest-goldlight">${escapeHtml(wish.name)}</span>
-                        <span class="px-2 py-0.5 rounded text-[8px] tracking-wide font-medium uppercase ${wish.status.includes('Accepts') ? 'bg-emerald-950/80 text-emerald-300' : 'bg-rose-950/80 text-rose-300'}">${wish.status}</span>
+                        <span class="px-2 py-0.5 rounded text-[8px] font-medium uppercase ${wish.status === 'Yes' ? 'bg-emerald-900/80 text-emerald-200' : 'bg-rose-950/80 text-rose-200'}">${wish.status === 'Yes' ? 'Attending' : 'Declined'}</span>
                     </div>
-                    <p class="text-forest-sage leading-relaxed mb-1 italic">"${escapeHtml(wish.message)}"</p>
+                    ${wish.message ? `<p class="text-forest-sage leading-relaxed mb-1 italic">"${escapeHtml(wish.message)}"</p>` : ''}
                     <span class="text-[9px] text-forest-sage/60 font-medium">${date}</span>
                 `;
                 container.appendChild(bubble);
@@ -730,13 +781,15 @@
                 .replace(/'/g, "&#039;");
         }
 
-        // ==========================================
-        // 7. FORM SUBMISSION HANDLER
-        // ==========================================
+        // Form Submit Handler
         const rsvpForm = document.getElementById('rsvp-form');
         if (rsvpForm) {
             rsvpForm.addEventListener('submit', function(e) {
                 e.preventDefault();
+                
+                const submitButton = rsvpForm.querySelector('button[type="submit"]');
+                submitButton.disabled = true;
+                submitButton.innerHTML = 'SUBMITTING...';
 
                 const name = document.getElementById('rsvp-name').value.trim();
                 const phone = document.getElementById('rsvp-phone').value.trim();
@@ -744,9 +797,8 @@
                 const count = document.getElementById('rsvp-count').value;
                 const message = document.getElementById('rsvp-message').value.trim();
 
-                if (!name || !phone || !status || !message) return;
+                if (!name || !status) return;
 
-                // Send data in the background to the Google Form
                 const formData = new FormData();
                 formData.append(ENTRY_ID_NAME, name);
                 formData.append(ENTRY_ID_PHONE, phone);
@@ -758,35 +810,26 @@
                     method: "POST",
                     mode: "no-cors",
                     body: formData
-                })
-                .then(() => {
-                    console.log("Response dispatched smoothly to Google Sheets via Google Forms.");
-                })
-                .catch((err) => {
-                    console.error("CORS post redirect fallback action triggered:", err);
-                });
+                }).catch(err => console.error(err));
 
-                // Instantly update the guest view with local storage cache
                 const localWishes = getLocalWishes();
-                const newWish = {
+                localWishes.unshift({
                     name: name,
                     status: status,
                     message: message,
                     timestamp: Date.now()
-                };
-                localWishes.unshift(newWish);
+                });
                 localStorage.setItem(GUESTBOOK_STORAGE_KEY, JSON.stringify(localWishes));
                 renderWishesList(localWishes);
 
-                // Elegant inline response confirmation
                 const formContainer = rsvpForm.parentElement;
                 formContainer.innerHTML = `
-                    <div class="text-center py-8 animate-pulse-slow text-forest-mist">
+                    <div class="text-center py-8 text-forest-mist">
                         <div class="w-16 h-16 bg-forest-canopy rounded-full flex items-center justify-center mx-auto mb-4 text-forest-gold border border-forest-gold/30">
                             <i class="fa-solid fa-circle-check text-2xl"></i>
                         </div>
                         <h4 class="font-serif text-xl font-semibold text-forest-goldlight mb-2">Thank You!</h4>
-                        <p class="text-sm text-forest-sage max-w-xs mx-auto mb-6">Your RSVP has been submitted successfully to our forest registry database.</p>
+                        <p class="text-sm text-forest-sage max-w-xs mx-auto mb-6">Your RSVP response has been submitted successfully.</p>
                         <button onclick="location.reload()" class="px-6 py-2 rounded-full border border-forest-gold/40 text-forest-goldlight hover:bg-forest-gold hover:text-forest-deep transition-all duration-300 text-xs font-medium bg-forest-canopy/50">
                             Submit Another Response
                         </button>
@@ -795,32 +838,26 @@
             });
         }
 
-        // ==========================================
-        // 8. ON-SCROLL ANNOUNCEMENT TRANSITIONS
-        // ==========================================
         function revealElements() {
             const reveals = document.querySelectorAll(".reveal");
             for (let i = 0; i < reveals.length; i++) {
                 const windowHeight = window.innerHeight;
                 const elementTop = reveals[i].getBoundingClientRect().top;
-                const elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
+                if (elementTop < windowHeight - 100) {
                     reveals[i].classList.add("active");
                 }
             }
         }
         window.addEventListener("scroll", revealElements);
 
-        // Standard Window initialization tasks
         window.onload = function() {
             parseUrlRecipient();
             runCountdown();
             renderWishesList(getLocalWishes());
             
-            // Create fireflies on target locations
-            createFireflies('overlay-fireflies', 15);
-            createFireflies('hero-fireflies', 25);
-            createFireflies('schedule-fireflies', 15);
+            createParticles('overlay-fireflies', 15);
+            createParticles('hero-fireflies', 25);
+            createParticles('schedule-fireflies', 15);
         };
     </script>
 </body>
