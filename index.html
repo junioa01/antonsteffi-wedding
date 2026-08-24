@@ -427,8 +427,8 @@
                         </div>
                         <p class="text-xs text-forest-sage">Account Number</p>
                         <div class="flex items-center gap-2 mt-1">
-                            <span id="acc-no-1" class="font-mono text-sm font-semibold text-white">8220918237</span>
-                            <button onclick="copyToClipboard('acc-no-1')" class="text-[10px] text-forest-goldlight hover:underline font-medium ml-auto flex items-center gap-1">
+                            <span id="acc-no-1" class="font-mono text-sm font-semibold text-white" data-acc-parts="ODIyMDkxODIzNw=="></span>
+                            <button type="button" data-copy-target="acc-no-1" class="copy-btn text-[10px] text-forest-goldlight hover:underline font-medium ml-auto flex items-center gap-1">
                                 <i class="fa-regular fa-copy"></i> Copy
                             </button>
                         </div>
@@ -443,8 +443,8 @@
                         </div>
                         <p class="text-xs text-forest-sage">Account Number</p>
                         <div class="flex items-center gap-2 mt-1">
-                            <span id="acc-no-2" class="font-mono text-sm font-semibold text-white">1410029381273</span>
-                            <button onclick="copyToClipboard('acc-no-2')" class="text-[10px] text-forest-goldlight hover:underline font-medium ml-auto flex items-center gap-1">
+                            <span id="acc-no-2" class="font-mono text-sm font-semibold text-white" data-acc-parts="MTQxMDAyOTM4MTI3Mw=="></span>
+                            <button type="button" data-copy-target="acc-no-2" class="copy-btn text-[10px] text-forest-goldlight hover:underline font-medium ml-auto flex items-center gap-1">
                                 <i class="fa-regular fa-copy"></i> Copy
                             </button>
                         </div>
@@ -471,19 +471,19 @@
                         <form id="rsvp-form" class="space-y-4">
                             <!-- Name Input -->
                             <div>
-                                <label class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Full Name*</label>
+                                <label for="rsvp-name" class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Full Name*</label>
                                 <input type="text" id="rsvp-name" required class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm" placeholder="Your full name">
                             </div>
 
                             <!-- Phone Input (Optional) -->
                             <div>
-                                <label class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Phone Number <span class="text-[10px] opacity-60">(Optional)</span></label>
+                                <label for="rsvp-phone" class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Phone Number <span class="text-[10px] opacity-60">(Optional)</span></label>
                                 <input type="tel" id="rsvp-phone" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm" placeholder="e.g., 08123456789">
                             </div>
 
                             <!-- Attendance Selection -->
                             <div>
-                                <label class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Will you attend?*</label>
+                                <label for="rsvp-status" class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Will you attend?*</label>
                                 <select id="rsvp-status" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm">
                                     <option value="Yes, reception">Yes, I will join the evening reception</option>
                                     <option value="Yes, holy matrimony">Yes, I will attend the morning holy matrimony</option>
@@ -494,7 +494,7 @@
 
                             <!-- Guest Count Selection -->
                             <div>
-                                <label class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Number of Guests</label>
+                                <label for="rsvp-count" class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Number of Guests</label>
                                 <select id="rsvp-count" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm">
                                     <option value="1">1 Person</option>
                                     <option value="2">2 Persons</option>
@@ -505,7 +505,7 @@
 
                             <!-- Wishes Message Input (Optional) -->
                             <div>
-                                <label class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Warm Wishes <span class="text-[10px] opacity-60">(Optional)</span></label>
+                                <label for="rsvp-message" class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Warm Wishes <span class="text-[10px] opacity-60">(Optional)</span></label>
                                 <textarea id="rsvp-message" rows="4" maxlength="500" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm resize-none" placeholder="Write your congratulations or blessings..."></textarea>
                             </div>
 
@@ -697,19 +697,66 @@
             }
         }
 
-        function copyToClipboard(elementId) {
-            const textToCopy = document.getElementById(elementId).innerText;
-            const tempInput = document.createElement("input");
-            tempInput.value = textToCopy;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempInput);
-            
-            const btn = document.querySelector(`[onclick="copyToClipboard('${elementId}')"]`);
+        // Decode and fill in the bank account numbers on load, rather than
+        // shipping them as plain readable text in the HTML source. This is
+        // light obfuscation (base64), not real security -- anyone who opens
+        // dev tools or views the rendered page can still read the numbers,
+        // same as before. It mainly stops the digits from being trivially
+        // grep-able/scraped straight out of the page source or search-engine
+        // caches.
+        function renderAccountNumbers() {
+            document.querySelectorAll('[data-acc-parts]').forEach(el => {
+                try {
+                    el.textContent = atob(el.getAttribute('data-acc-parts'));
+                } catch (e) {
+                    console.warn('Could not decode account number', e);
+                }
+            });
+        }
+
+        async function copyToClipboard(elementId) {
+            const el = document.getElementById(elementId);
+            const textToCopy = el.innerText;
+            const btn = document.querySelector(`[data-copy-target="${elementId}"]`);
             const prevHtml = btn.innerHTML;
-            btn.innerHTML = `<i class="fa-solid fa-check"></i> Copied!`;
-            setTimeout(() => { btn.innerHTML = prevHtml; }, 2000);
+
+            const showCopied = () => {
+                btn.innerHTML = `<i class="fa-solid fa-check"></i> Copied!`;
+                setTimeout(() => { btn.innerHTML = prevHtml; }, 2000);
+            };
+            const showFailed = () => {
+                btn.innerHTML = `<i class="fa-solid fa-xmark"></i> Failed`;
+                setTimeout(() => { btn.innerHTML = prevHtml; }, 2000);
+            };
+
+            // Preferred modern API (requires secure context: https or localhost --
+            // GitHub Pages serves over https, so this will work there).
+            if (navigator.clipboard && window.isSecureContext) {
+                try {
+                    await navigator.clipboard.writeText(textToCopy);
+                    showCopied();
+                    return;
+                } catch (err) {
+                    console.warn('Clipboard API failed, falling back.', err);
+                }
+            }
+
+            // Fallback for older/non-secure contexts.
+            try {
+                const tempInput = document.createElement("textarea");
+                tempInput.value = textToCopy;
+                tempInput.style.position = "fixed";
+                tempInput.style.opacity = "0";
+                document.body.appendChild(tempInput);
+                tempInput.focus();
+                tempInput.select();
+                const successful = document.execCommand("copy");
+                document.body.removeChild(tempInput);
+                successful ? showCopied() : showFailed();
+            } catch (err) {
+                console.error('Copy fallback failed', err);
+                showFailed();
+            }
         }
 
         function runCountdown() {
@@ -786,10 +833,6 @@
         if (rsvpForm) {
             rsvpForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                
-                const submitButton = rsvpForm.querySelector('button[type="submit"]');
-                submitButton.disabled = true;
-                submitButton.innerHTML = 'SUBMITTING...';
 
                 const name = document.getElementById('rsvp-name').value.trim();
                 const phone = document.getElementById('rsvp-phone').value.trim();
@@ -797,7 +840,16 @@
                 const count = document.getElementById('rsvp-count').value;
                 const message = document.getElementById('rsvp-message').value.trim();
 
-                if (!name || !status) return;
+                // Validate BEFORE touching the submit button, so a failed
+                // validation never leaves the button stuck on "SUBMITTING...".
+                if (!name || !status) {
+                    document.getElementById('rsvp-name').reportValidity();
+                    return;
+                }
+
+                const submitButton = rsvpForm.querySelector('button[type="submit"]');
+                submitButton.disabled = true;
+                submitButton.innerHTML = 'SUBMITTING...';
 
                 const formData = new FormData();
                 formData.append(ENTRY_ID_NAME, name);
@@ -838,6 +890,15 @@
             });
         }
 
+        // Delegate clicks on the copy buttons (works even if the button HTML
+        // is re-rendered later).
+        document.addEventListener('click', function (e) {
+            const btn = e.target.closest('.copy-btn');
+            if (btn) {
+                copyToClipboard(btn.getAttribute('data-copy-target'));
+            }
+        });
+
         function revealElements() {
             const reveals = document.querySelectorAll(".reveal");
             for (let i = 0; i < reveals.length; i++) {
@@ -852,6 +913,7 @@
 
         window.onload = function() {
             parseUrlRecipient();
+            renderAccountNumbers();
             runCountdown();
             renderWishesList(getLocalWishes());
             
