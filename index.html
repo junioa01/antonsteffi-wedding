@@ -912,7 +912,6 @@
                 bubble.innerHTML = `
                     <div class="flex justify-between items-center mb-2">
                         <span class="font-semibold text-forest-goldlight">${escapeHtml(wish.name)}</span>
-                        <span class="px-2 py-0.5 rounded text-[8px] font-medium uppercase ${wish.status === 'Yes' ? 'bg-emerald-900/80 text-emerald-200' : 'bg-rose-950/80 text-rose-200'}">${wish.status === 'Yes' ? 'Attending' : 'Declined'}</span>
                     </div>
                     ${wish.message ? `<p class="text-forest-sage leading-relaxed mb-1 italic">"${escapeHtml(wish.message)}"</p>` : ''}
                     <span class="text-[9px] text-forest-sage/60 font-medium">${date}</span>
