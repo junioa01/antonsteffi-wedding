@@ -733,28 +733,71 @@
         }
 
         // Web Audio Synthesizer
-        let audioCtx = null;
+        // ============================================================
+// Final Fantasy-style version (original composition, not a copy of any game track).
+// Same drop-in spot as before: replaces everything from "// Web Audio Synthesizer"
+// down to the end of toggleMusic() (and the visibilitychange listener if you
+// already pasted the previous patch).
+//
+// openInvitation() stays EXACTLY as in your original file (no edits needed):
+//   isMusicPlaying = true;
+//   initSynth();
+//   runMusicLoop();
+//   revealElements();
+//
+// Layers: rolling harp arpeggio + soft string pad + plucked bass + flute-like lead.
+// 8 bars of Cadd9 - G/B - Am7 - Em7 - Fmaj7 - C/E - Dm7 - Gsus4, about 15 s per loop.
+// ============================================================
+
+// Web Audio Synthesizer
+let audioCtx = null;
 let noteBus = null;
 let masterGain = null;
 let schedulerTimer = null;
 let isMusicPlaying = false;
 let musicStep = 0;
 let nextNoteTime = 0;
- 
-const STEP_SECONDS = 0.55;   // time between notes
+
+const STEP_SECONDS = 0.24;   // one 8th note (lower = faster)
+const STEPS_PER_BAR = 8;
 const LOOKAHEAD = 0.3;       // schedule this far ahead (seconds)
- 
-// Cmaj7 -> Dm7 -> Em7 -> Fmaj7, 6 notes each = 24 notes
-// (note 5 was 489.99, ~14 cents flat of B4; corrected to 493.88)
-const melodyNotes = [
-    261.63, 329.63, 392.00, 523.25, 493.88, 392.00,
-    293.66, 349.23, 440.00, 587.33, 523.25, 440.00,
-    329.63, 392.00, 493.88, 659.25, 587.33, 493.88,
-    349.23, 440.00, 523.25, 698.46, 659.25, 523.25
+
+const mtof = (m) => 440 * Math.pow(2, (m - 69) / 12);
+
+// bass = bass note, arp = 5 chord tones (low to high) used by the harp
+const progression = [
+    { name: 'Cadd9',  bass: 48, arp: [60, 64, 67, 72, 74] },
+    { name: 'G/B',    bass: 47, arp: [59, 62, 67, 71, 74] },
+    { name: 'Am7',    bass: 45, arp: [57, 60, 64, 67, 72] },
+    { name: 'Em7',    bass: 52, arp: [59, 64, 67, 71, 76] },
+    { name: 'Fmaj7',  bass: 53, arp: [60, 65, 69, 72, 76] },
+    { name: 'C/E',    bass: 52, arp: [64, 67, 72, 76, 79] },
+    { name: 'Dm7',    bass: 50, arp: [62, 65, 69, 72, 77] },
+    { name: 'Gsus4',  bass: 43, arp: [62, 67, 72, 74, 79] }
 ];
- 
-// Cheap generated reverb: decaying stereo noise as an impulse response
-function makeReverb(ctx, seconds = 2.8, decay = 3) {
+
+// Up-and-down harp patterns (indexes into arp); alternate by bar
+const arpPatterns = [
+    [0, 1, 2, 3, 4, 3, 2, 1],
+    [0, 2, 1, 3, 2, 4, 3, 2]
+];
+
+// Lead melody: [bar, step, midi note, length in steps]
+const melodyLine = [
+    [0, 0, 76, 6], [0, 6, 74, 2],
+    [1, 0, 71, 4], [1, 4, 74, 4],
+    [2, 0, 72, 2], [2, 2, 76, 2], [2, 4, 81, 4],
+    [3, 0, 79, 6], [3, 6, 76, 2],
+    [4, 0, 77, 4], [4, 4, 76, 2], [4, 6, 72, 2],
+    [5, 0, 76, 4], [5, 4, 79, 4],
+    [6, 0, 77, 4], [6, 4, 74, 2], [6, 6, 72, 2],
+    [7, 0, 74, 6], [7, 6, 69, 2]
+];
+const melodyMap = {};
+melodyLine.forEach(([bar, step, midi, len]) => { melodyMap[bar + ':' + step] = [midi, len]; });
+
+// Generated hall reverb: decaying stereo noise as an impulse response
+function makeReverb(ctx, seconds = 3.5, decay = 2.6) {
     const rate = ctx.sampleRate;
     const len = Math.floor(rate * seconds);
     const buf = ctx.createBuffer(2, len, rate);
@@ -768,82 +811,164 @@ function makeReverb(ctx, seconds = 2.8, decay = 3) {
     conv.buffer = buf;
     return conv;
 }
- 
+
 function initSynth() {
     if (audioCtx) return;
     const AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) { console.warn("Web Audio API not supported on this device."); return; }
     audioCtx = new AC();
- 
+
+    // master: gentle fade-in, then a compressor so stacked layers never clip
     masterGain = audioCtx.createGain();
     masterGain.gain.setValueAtTime(0, audioCtx.currentTime);
-    masterGain.gain.linearRampToValueAtTime(1, audioCtx.currentTime + 4); // gentle fade-in
-    masterGain.connect(audioCtx.destination);
- 
+    masterGain.gain.linearRampToValueAtTime(0.8, audioCtx.currentTime + 4);
+    const comp = audioCtx.createDynamicsCompressor();
+    comp.threshold.value = -20;
+    comp.knee.value = 20;
+    comp.ratio.value = 4;
+    masterGain.connect(comp).connect(audioCtx.destination);
+
+    // everything goes through one bus, split into dry + reverb
     noteBus = audioCtx.createGain();
-    const dry = audioCtx.createGain(); dry.gain.value = 0.8;
-    const wet = audioCtx.createGain(); wet.gain.value = 0.35;
+    const dry = audioCtx.createGain(); dry.gain.value = 0.75;
+    const wet = audioCtx.createGain(); wet.gain.value = 0.42;
     noteBus.connect(dry).connect(masterGain);
     noteBus.connect(makeReverb(audioCtx)).connect(wet).connect(masterGain);
 }
- 
-// One note = fundamental + a quiet octave-up partial (bell/music-box colour),
-// slightly random velocity, and a slow left/right drift.
-function scheduleNote(freq, when, accent) {
-    const vel = (accent ? 1.0 : 0.8) * (0.9 + Math.random() * 0.2);
-    const pan = audioCtx.createStereoPanner ? audioCtx.createStereoPanner() : null;
-    const out = pan || noteBus;
-    if (pan) {
-        pan.pan.value = Math.sin(musicStep * 0.7) * 0.4;
-        pan.connect(noteBus);
+
+// Basic oscillator voice.
+// pluck:   fast attack, exponential decay over `dur`
+// sustain: slower attack, holds, then releases at the end of `dur`
+function tone(freq, type, when, attack, peak, dur, out, sustain) {
+    const osc = audioCtx.createOscillator();
+    const g = audioCtx.createGain();
+    osc.type = type;
+    osc.frequency.value = freq;
+
+    g.gain.setValueAtTime(0.0001, when);
+    g.gain.linearRampToValueAtTime(peak, when + attack);
+    if (sustain) {
+        const releaseAt = Math.max(when + attack, when + dur - 0.35);
+        g.gain.setValueAtTime(peak, releaseAt);
     }
- 
-    [[1, 1.0, 2.2], [2, 0.18, 1.0]].forEach(([ratio, level, dur]) => {
-        const osc = audioCtx.createOscillator();
-        const g = audioCtx.createGain();
-        osc.type = 'sine';
-        osc.frequency.value = freq * ratio;
- 
-        const peak = 0.08 * vel * level;
-        g.gain.setValueAtTime(0.0001, when);
-        g.gain.linearRampToValueAtTime(peak, when + 0.06);
-        g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
- 
-        osc.connect(g);
-        g.connect(out);
-        osc.start(when);
-        osc.stop(when + dur + 0.05);
+    g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+
+    osc.connect(g);
+    g.connect(out);
+    osc.start(when);
+    osc.stop(when + dur + 0.05);
+    return osc;
+}
+
+// Harp: sine fundamental + two quick-fading upper partials for the "pluck"
+function playHarp(midi, when, vel, panValue) {
+    const f = mtof(midi);
+    let out = noteBus;
+    if (audioCtx.createStereoPanner) {
+        const p = audioCtx.createStereoPanner();
+        p.pan.value = panValue;           // low notes left, high notes right
+        p.connect(noteBus);
+        out = p;
+    }
+    tone(f,     'sine', when, 0.004, 0.070 * vel, 2.0, out);
+    tone(f * 2, 'sine', when, 0.004, 0.018 * vel, 0.9, out);
+    tone(f * 3, 'sine', when, 0.004, 0.007 * vel, 0.5, out);
+}
+
+// Bass: plucked sine with a quiet octave-up partial so phones can hear it
+function playBass(midi, when, dur) {
+    const f = mtof(midi);
+    tone(f,     'sine', when, 0.02, 0.11, dur, noteBus);
+    tone(f * 2, 'sine', when, 0.02, 0.04, dur * 0.7, noteBus);
+}
+
+// Strings pad: detuned triangle pairs through a low-pass, slow swell
+function playPad(midis, when, dur) {
+    const lp = audioCtx.createBiquadFilter();
+    lp.type = 'lowpass';
+    lp.frequency.value = 1100;
+    lp.connect(noteBus);
+    midis.forEach((m) => {
+        [-5, 5].forEach((cents) => {
+            const osc = tone(mtof(m), 'triangle', when, 0.6, 0.012, dur, lp, true);
+            osc.detune.value = cents;
+        });
     });
 }
- 
-// Look-ahead scheduler: timer only wakes up often enough to queue notes on
-// the audio clock, so timing stays exact even if the timer jitters.
+
+// Lead: soft flute-like triangle with delayed vibrato
+function playLead(midi, when, dur) {
+    const lp = audioCtx.createBiquadFilter();
+    lp.type = 'lowpass';
+    lp.frequency.value = 2400;
+    lp.connect(noteBus);
+
+    const osc = tone(mtof(midi), 'triangle', when, 0.08, 0.05, dur, lp, true);
+
+    const lfo = audioCtx.createOscillator();
+    const lfoGain = audioCtx.createGain();
+    lfo.frequency.value = 5.5;
+    lfoGain.gain.setValueAtTime(0, when);
+    lfoGain.gain.linearRampToValueAtTime(3, when + 0.4);   // +/-3 Hz, fades in
+    lfo.connect(lfoGain).connect(osc.frequency);
+    lfo.start(when);
+    lfo.stop(when + dur + 0.05);
+}
+
+function scheduleStep(n, t) {
+    const bar = Math.floor(n / STEPS_PER_BAR) % progression.length;
+    const step = n % STEPS_PER_BAR;
+    const chord = progression[bar];
+    const barLen = STEPS_PER_BAR * STEP_SECONDS;
+    const pattern = arpPatterns[bar % 2];
+    const idx = pattern[step];
+
+    const vel = step === 0 ? 1.0 : (step === 4 ? 0.9 : 0.7 + Math.random() * 0.25);
+    playHarp(chord.arp[idx], t, vel, (idx - 2) / 2 * 0.5);
+
+    if (step === 0) {
+        playBass(chord.bass, t, barLen + 0.3);
+        playPad(chord.arp.slice(1, 4), t, barLen + 0.5);
+    }
+
+    const m = melodyMap[bar + ':' + step];
+    if (m) playLead(m[0], t, m[1] * STEP_SECONDS);
+}
+
+// Look-ahead scheduler: the timer only queues notes on the audio clock,
+// so timing stays exact even when setTimeout jitters.
 function scheduler() {
     if (!isMusicPlaying || !audioCtx) return;
     while (nextNoteTime < audioCtx.currentTime + LOOKAHEAD) {
-        const i = musicStep % melodyNotes.length;
-        scheduleNote(melodyNotes[i], nextNoteTime, i % 6 === 0);
+        scheduleStep(musicStep, nextNoteTime);
         nextNoteTime += STEP_SECONDS;
         musicStep++;
     }
     schedulerTimer = setTimeout(scheduler, 100);
 }
- 
-function startMusic() {
-    if (isMusicPlaying) return;
-    initSynth();
+
+// Called by your ORIGINAL openInvitation():
+//   isMusicPlaying = true; initSynth(); runMusicLoop();
+function runMusicLoop() {
     if (!audioCtx) return;
+    clearTimeout(schedulerTimer);   // never run two loops at once
     audioCtx.resume();
-    isMusicPlaying = true;
     nextNoteTime = audioCtx.currentTime + 0.1;
     scheduler();
 }
- 
+
+// Used by the music button
+function startMusic() {
+    isMusicPlaying = true;
+    initSynth();
+    runMusicLoop();
+}
+
 function stopMusic() {
     isMusicPlaying = false;
     clearTimeout(schedulerTimer);
 }
- 
+
 function toggleMusic() {
     const icon = document.getElementById('audio-icon');
     if (isMusicPlaying) {
@@ -854,6 +979,13 @@ function toggleMusic() {
         icon.className = "fa-solid fa-music";
     }
 }
+
+// Pause the audio clock in background tabs instead of letting it stutter
+document.addEventListener('visibilitychange', () => {
+    if (!audioCtx || !isMusicPlaying) return;
+    if (document.hidden) audioCtx.suspend();
+    else audioCtx.resume();
+});
 
         // Generate Particles (Fireflies & Petals)
         function createParticles(containerId, count) {
