@@ -734,70 +734,126 @@
 
         // Web Audio Synthesizer
         let audioCtx = null;
-        let synthesizerTimer = null;
-        let isMusicPlaying = false;
-        let musicStep = 0;
-
-        const melodyNotes = [
-            261.63, 329.63, 392.00, 523.25, 489.99, 392.00,
-            293.66, 349.23, 440.00, 587.33, 523.25, 440.00,
-            329.63, 392.00, 493.88, 659.25, 587.33, 493.88,
-            349.23, 440.00, 523.25, 698.46, 659.25, 523.25
-        ];
-
-        function initSynth() {
-            try {
-                window.AudioContext = window.AudioContext || window.webkitAudioContext;
-                audioCtx = new AudioContext();
-            } catch (e) {
-                console.warn("Web Audio API not supported on this device.");
-            }
+let noteBus = null;
+let masterGain = null;
+let schedulerTimer = null;
+let isMusicPlaying = false;
+let musicStep = 0;
+let nextNoteTime = 0;
+ 
+const STEP_SECONDS = 0.55;   // time between notes
+const LOOKAHEAD = 0.3;       // schedule this far ahead (seconds)
+ 
+// Cmaj7 -> Dm7 -> Em7 -> Fmaj7, 6 notes each = 24 notes
+// (note 5 was 489.99, ~14 cents flat of B4; corrected to 493.88)
+const melodyNotes = [
+    261.63, 329.63, 392.00, 523.25, 493.88, 392.00,
+    293.66, 349.23, 440.00, 587.33, 523.25, 440.00,
+    329.63, 392.00, 493.88, 659.25, 587.33, 493.88,
+    349.23, 440.00, 523.25, 698.46, 659.25, 523.25
+];
+ 
+// Cheap generated reverb: decaying stereo noise as an impulse response
+function makeReverb(ctx, seconds = 2.8, decay = 3) {
+    const rate = ctx.sampleRate;
+    const len = Math.floor(rate * seconds);
+    const buf = ctx.createBuffer(2, len, rate);
+    for (let c = 0; c < 2; c++) {
+        const d = buf.getChannelData(c);
+        for (let i = 0; i < len; i++) {
+            d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, decay);
         }
-
-        function playSynthTone(frequency, duration) {
-            if (!audioCtx) return;
-            if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
-
-            const osc = audioCtx.createOscillator();
-            const gainNode = audioCtx.createGain();
-
-            osc.type = 'sine'; 
-            osc.frequency.setValueAtTime(frequency, audioCtx.currentTime);
-            
-            gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
-            gainNode.gain.linearRampToValueAtTime(0.08, audioCtx.currentTime + 0.12);
-            gainNode.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-
-            osc.connect(gainNode);
-            gainNode.connect(audioCtx.destination);
-
-            osc.start();
-            osc.stop(audioCtx.currentTime + duration);
-        }
-
-        function runMusicLoop() {
-            if (!isMusicPlaying) return;
-            const note = melodyNotes[musicStep % melodyNotes.length];
-            playSynthTone(note, 2.2);
-            musicStep++;
-            synthesizerTimer = setTimeout(runMusicLoop, 550);
-        }
-
-        function toggleMusic() {
-            const icon = document.getElementById('audio-icon');
-            if (isMusicPlaying) {
-                isMusicPlaying = false;
-                clearTimeout(synthesizerTimer);
-                icon.className = "fa-solid fa-volume-xmark";
-            } else {
-                isMusicPlaying = true;
-                if (!audioCtx) initSynth();
-                runMusicLoop();
-                icon.className = "fa-solid fa-music";
-            }
-        }
+    }
+    const conv = ctx.createConvolver();
+    conv.buffer = buf;
+    return conv;
+}
+ 
+function initSynth() {
+    if (audioCtx) return;
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) { console.warn("Web Audio API not supported on this device."); return; }
+    audioCtx = new AC();
+ 
+    masterGain = audioCtx.createGain();
+    masterGain.gain.setValueAtTime(0, audioCtx.currentTime);
+    masterGain.gain.linearRampToValueAtTime(1, audioCtx.currentTime + 4); // gentle fade-in
+    masterGain.connect(audioCtx.destination);
+ 
+    noteBus = audioCtx.createGain();
+    const dry = audioCtx.createGain(); dry.gain.value = 0.8;
+    const wet = audioCtx.createGain(); wet.gain.value = 0.35;
+    noteBus.connect(dry).connect(masterGain);
+    noteBus.connect(makeReverb(audioCtx)).connect(wet).connect(masterGain);
+}
+ 
+// One note = fundamental + a quiet octave-up partial (bell/music-box colour),
+// slightly random velocity, and a slow left/right drift.
+function scheduleNote(freq, when, accent) {
+    const vel = (accent ? 1.0 : 0.8) * (0.9 + Math.random() * 0.2);
+    const pan = audioCtx.createStereoPanner ? audioCtx.createStereoPanner() : null;
+    const out = pan || noteBus;
+    if (pan) {
+        pan.pan.value = Math.sin(musicStep * 0.7) * 0.4;
+        pan.connect(noteBus);
+    }
+ 
+    [[1, 1.0, 2.2], [2, 0.18, 1.0]].forEach(([ratio, level, dur]) => {
+        const osc = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.value = freq * ratio;
+ 
+        const peak = 0.08 * vel * level;
+        g.gain.setValueAtTime(0.0001, when);
+        g.gain.linearRampToValueAtTime(peak, when + 0.06);
+        g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+ 
+        osc.connect(g);
+        g.connect(out);
+        osc.start(when);
+        osc.stop(when + dur + 0.05);
+    });
+}
+ 
+// Look-ahead scheduler: timer only wakes up often enough to queue notes on
+// the audio clock, so timing stays exact even if the timer jitters.
+function scheduler() {
+    if (!isMusicPlaying || !audioCtx) return;
+    while (nextNoteTime < audioCtx.currentTime + LOOKAHEAD) {
+        const i = musicStep % melodyNotes.length;
+        scheduleNote(melodyNotes[i], nextNoteTime, i % 6 === 0);
+        nextNoteTime += STEP_SECONDS;
+        musicStep++;
+    }
+    schedulerTimer = setTimeout(scheduler, 100);
+}
+ 
+function startMusic() {
+    if (isMusicPlaying) return;
+    initSynth();
+    if (!audioCtx) return;
+    audioCtx.resume();
+    isMusicPlaying = true;
+    nextNoteTime = audioCtx.currentTime + 0.1;
+    scheduler();
+}
+ 
+function stopMusic() {
+    isMusicPlaying = false;
+    clearTimeout(schedulerTimer);
+}
+ 
+function toggleMusic() {
+    const icon = document.getElementById('audio-icon');
+    if (isMusicPlaying) {
+        stopMusic();
+        icon.className = "fa-solid fa-volume-xmark";
+    } else {
+        startMusic();
+        icon.className = "fa-solid fa-music";
+    }
+}
 
         // Generate Particles (Fireflies & Petals)
         function createParticles(containerId, count) {
