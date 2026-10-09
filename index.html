@@ -1,1280 +1,1234 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation - Anton & Steffi</title>
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        forest: {
-                            deep: '#2B0E1B',       /* Rich deep rosewood night */
-                            canopy: '#4A1D33',     /* Deep romantic plum rose */
-                            moss: '#8A3B5C',       /* Soft velvet berry rose */
-                            sage: '#D99BB0',       /* Gentle rose blush */
-                            mist: '#FFF0F3',       /* Luminous soft pink fog */
-                            gold: '#D4AF37',       /* Shimmering metallic gold */
-                            goldlight: '#F3E5AB',  /* Light champagne gold */
-                            amber: '#E6A15C'       /* Sunset warm amber */
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
-                        display: ['Cinzel', 'Playfair Display', 'serif'],
-                        calligraphy: ['Great Vibes', 'Playfair Display', 'cursive'],
-                        sans: ['Inter', 'sans-serif']
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'glimmer': 'glimmer 4s ease-in-out infinite',
-                    }
-                }
-            }
-        }
-    </script>
+
+    <!-- Link preview (WhatsApp, iMessage, Telegram, Facebook, etc.) -->
+    <meta name="description" content="Saturday, 7 November 2026 · Avenzel Hotel and Convention, Cibubur">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Anton & Steffi">
+    <meta property="og:title" content="Wedding Invitation - Anton & Steffi">
+    <meta property="og:description" content="Saturday, 7 November 2026 · Avenzel Hotel and Convention, Cibubur">
+    <meta property="og:url" content="https://junioa01.github.io/antonsteffi-wedding/">
+    <meta property="og:image" content="https://junioa01.github.io/antonsteffi-wedding/asset/collage.jpg">
+    <meta property="og:image:alt" content="Anton & Steffi pre-wedding photo collage">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Wedding Invitation - Anton & Steffi">
+    <meta name="twitter:description" content="Saturday, 7 November 2026 · Avenzel Hotel and Convention, Cibubur">
+    <meta name="twitter:image" content="https://junioa01.github.io/antonsteffi-wedding/asset/collage.jpg">
+
+    <!-- Compiled Tailwind CSS (inlined so the invitation is a single file) -->
+    <style>*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Inter,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.\!container{width:100%!important}.container{width:100%}@media (min-width:640px){.\!container{max-width:640px!important}.container{max-width:640px}}@media (min-width:768px){.\!container{max-width:768px!important}.container{max-width:768px}}@media (min-width:1024px){.\!container{max-width:1024px!important}.container{max-width:1024px}}@media (min-width:1280px){.\!container{max-width:1280px!important}.container{max-width:1280px}}@media (min-width:1536px){.\!container{max-width:1536px!important}.container{max-width:1536px}}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0}.inset-x-0{left:0;right:0}.inset-x-4{left:1rem;right:1rem}.-bottom-1{bottom:-.25rem}.-left-1{left:-.25rem}.-left-2{left:-.5rem}.-right-1{right:-.25rem}.-right-2{right:-.5rem}.bottom-0{bottom:0}.bottom-4{bottom:1rem}.bottom-6{bottom:1.5rem}.left-1\/2{left:50%}.right-6{right:1.5rem}.top-0{top:0}.top-1\/2{top:50%}.top-4{top:1rem}.z-0{z-index:0}.z-10{z-index:10}.z-30{z-index:30}.z-40{z-index:40}.mx-auto{margin-left:auto;margin-right:auto}.my-0\.5{margin-top:.125rem;margin-bottom:.125rem}.my-1{margin-top:.25rem;margin-bottom:.25rem}.my-2{margin-top:.5rem;margin-bottom:.5rem}.my-4{margin-top:1rem;margin-bottom:1rem}.my-6{margin-top:1.5rem;margin-bottom:1.5rem}.mb-1{margin-bottom:.25rem}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-auto{margin-left:auto}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.aspect-\[2\/3\]{aspect-ratio:2/3}.aspect-\[4\/3\]{aspect-ratio:4/3}.aspect-\[9\/16\]{aspect-ratio:9/16}.aspect-square{aspect-ratio:1/1}.h-1\/2{height:50%}.h-10{height:2.5rem}.h-12{height:3rem}.h-16{height:4rem}.h-2{height:.5rem}.h-2\.5{height:.625rem}.h-24{height:6rem}.h-28{height:7rem}.h-36{height:9rem}.h-40{height:10rem}.h-8{height:2rem}.h-9{height:2.25rem}.h-\[1px\]{height:1px}.h-\[340px\]{height:340px}.h-auto{height:auto}.h-full{height:100%}.max-h-\[460px\]{max-height:460px}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-12{width:3rem}.w-16{width:4rem}.w-2{width:.5rem}.w-2\.5{width:.625rem}.w-20{width:5rem}.w-24{width:6rem}.w-32{width:8rem}.w-36{width:9rem}.w-40{width:10rem}.w-8{width:2rem}.w-9{width:2.25rem}.w-\[1px\]{width:1px}.w-full{width:100%}.min-w-\[220px\]{min-width:220px}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-\[340px\]{max-width:340px}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.max-w-xl{max-width:36rem}.max-w-xs{max-width:20rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.origin-top{transform-origin:top}.-translate-x-1\/2{--tw-translate-x:-50%}.-translate-x-1\/2,.-translate-y-1\/2{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%}.translate-y-1\/2{--tw-translate-y:50%}.transform,.translate-y-1\/2{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.animate-float{animation:float 6s ease-in-out infinite}.animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}@keyframes pulse{50%{opacity:.5}}.animate-pulse-slow{animation:pulse 3s cubic-bezier(.4,0,.6,1) infinite}.cursor-pointer{cursor:pointer}.resize-none{resize:none}.snap-x{scroll-snap-type:x var(--tw-scroll-snap-strictness)}.snap-mandatory{--tw-scroll-snap-strictness:mandatory}.snap-center{scroll-snap-align:center}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.justify-around{justify-content:space-around}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-12{gap:3rem}.gap-16{gap:4rem}.gap-2{gap:.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-visible{overflow:visible}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.overflow-x-hidden{overflow-x:hidden}.scroll-smooth{scroll-behavior:smooth}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}.rounded-b-xl{border-bottom-right-radius:.75rem;border-bottom-left-radius:.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-y{border-top-width:1px;border-bottom-width:1px}.border-t{border-top-width:1px}.border-forest-deep{--tw-border-opacity:1;border-color:rgb(43 14 27/var(--tw-border-opacity,1))}.border-forest-gold{--tw-border-opacity:1;border-color:rgb(212 175 55/var(--tw-border-opacity,1))}.border-forest-gold\/10{border-color:rgba(212,175,55,.1)}.border-forest-gold\/15{border-color:rgba(212,175,55,.15)}.border-forest-gold\/20{border-color:rgba(212,175,55,.2)}.border-forest-gold\/30{border-color:rgba(212,175,55,.3)}.border-forest-gold\/40{border-color:rgba(212,175,55,.4)}.border-forest-goldlight{--tw-border-opacity:1;border-color:rgb(243 229 171/var(--tw-border-opacity,1))}.border-forest-moss\/50{border-color:rgba(138,59,92,.5)}.border-white\/20{border-color:hsla(0,0%,100%,.2)}.bg-forest-canopy{--tw-bg-opacity:1;background-color:rgb(74 29 51/var(--tw-bg-opacity,1))}.bg-forest-canopy\/40{background-color:rgba(74,29,51,.4)}.bg-forest-canopy\/50{background-color:rgba(74,29,51,.5)}.bg-forest-canopy\/60{background-color:rgba(74,29,51,.6)}.bg-forest-canopy\/70{background-color:rgba(74,29,51,.7)}.bg-forest-deep{--tw-bg-opacity:1;background-color:rgb(43 14 27/var(--tw-bg-opacity,1))}.bg-forest-deep\/40{background-color:rgba(43,14,27,.4)}.bg-forest-deep\/60{background-color:rgba(43,14,27,.6)}.bg-forest-deep\/70{background-color:rgba(43,14,27,.7)}.bg-forest-deep\/80{background-color:rgba(43,14,27,.8)}.bg-forest-gold{--tw-bg-opacity:1;background-color:rgb(212 175 55/var(--tw-bg-opacity,1))}.bg-forest-gold\/30{background-color:rgba(212,175,55,.3)}.bg-forest-gold\/40{background-color:rgba(212,175,55,.4)}.bg-forest-gold\/50{background-color:rgba(212,175,55,.5)}.bg-forest-goldlight{--tw-bg-opacity:1;background-color:rgb(243 229 171/var(--tw-bg-opacity,1))}.bg-forest-mist{--tw-bg-opacity:1;background-color:rgb(255 240 243/var(--tw-bg-opacity,1))}.bg-forest-moss{--tw-bg-opacity:1;background-color:rgb(138 59 92/var(--tw-bg-opacity,1))}.bg-gradient-to-b{background-image:linear-gradient(to bottom,var(--tw-gradient-stops))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}.from-forest-deep{--tw-gradient-from:#2b0e1b var(--tw-gradient-from-position);--tw-gradient-to:rgba(43,14,27,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-forest-goldlight{--tw-gradient-from:#f3e5ab var(--tw-gradient-from-position);--tw-gradient-to:hsla(48,75%,81%,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.via-forest-canopy{--tw-gradient-to:rgba(74,29,51,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#4a1d33 var(--tw-gradient-via-position),var(--tw-gradient-to)}.via-forest-gold{--tw-gradient-to:rgba(212,175,55,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#d4af37 var(--tw-gradient-via-position),var(--tw-gradient-to)}.to-forest-amber{--tw-gradient-to:#e6a15c var(--tw-gradient-to-position)}.to-forest-canopy{--tw-gradient-to:#4a1d33 var(--tw-gradient-to-position)}.to-forest-deep{--tw-gradient-to:#2b0e1b var(--tw-gradient-to-position)}.to-forest-moss{--tw-gradient-to:#8a3b5c var(--tw-gradient-to-position)}.object-cover{-o-object-fit:cover;object-fit:cover}.p-1{padding:.25rem}.p-1\.5{padding:.375rem}.p-2{padding:.5rem}.p-3{padding:.75rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-1{padding-left:.25rem;padding-right:.25rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-20{padding-top:5rem;padding-bottom:5rem}.py-24{padding-top:6rem;padding-bottom:6rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-8{padding-top:2rem;padding-bottom:2rem}.pr-2{padding-right:.5rem}.text-left{text-align:left}.text-center{text-align:center}.font-calligraphy{font-family:Great Vibes,Playfair Display,cursive}.font-display{font-family:Cinzel,Playfair Display,serif}.font-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}.font-sans{font-family:Inter,sans-serif}.font-serif{font-family:Playfair Display,Georgia,serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-6xl{font-size:3.75rem;line-height:1}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[9px\]{font-size:9px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-light{font-weight:300}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-\[0\.15em\]{letter-spacing:.15em}.tracking-\[0\.1em\]{letter-spacing:.1em}.tracking-\[0\.25em\]{letter-spacing:.25em}.tracking-\[0\.2em\]{letter-spacing:.2em}.tracking-\[0\.3em\]{letter-spacing:.3em}.tracking-wide{letter-spacing:.025em}.tracking-wider{letter-spacing:.05em}.tracking-widest{letter-spacing:.1em}.text-forest-deep{--tw-text-opacity:1;color:rgb(43 14 27/var(--tw-text-opacity,1))}.text-forest-gold{--tw-text-opacity:1;color:rgb(212 175 55/var(--tw-text-opacity,1))}.text-forest-goldlight{--tw-text-opacity:1;color:rgb(243 229 171/var(--tw-text-opacity,1))}.text-forest-mist{--tw-text-opacity:1;color:rgb(255 240 243/var(--tw-text-opacity,1))}.text-forest-moss{--tw-text-opacity:1;color:rgb(138 59 92/var(--tw-text-opacity,1))}.text-forest-moss\/80{color:rgba(138,59,92,.8)}.text-forest-sage{--tw-text-opacity:1;color:rgb(217 155 176/var(--tw-text-opacity,1))}.text-forest-sage\/50{color:rgba(217,155,176,.5)}.text-forest-sage\/60{color:rgba(217,155,176,.6)}.text-forest-sage\/70{color:rgba(217,155,176,.7)}.text-forest-sage\/80{color:rgba(217,155,176,.8)}.text-forest-sage\/90{color:rgba(217,155,176,.9)}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-0{opacity:0}.opacity-100{opacity:1}.opacity-40{opacity:.4}.opacity-60{opacity:.6}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgba(0,0,0,.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color)}.shadow-2xl,.shadow-\[0_0_8px_\#F3E5AB\]{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-\[0_0_8px_\#F3E5AB\]{--tw-shadow:0 0 8px #f3e5ab;--tw-shadow-colored:0 0 8px var(--tw-shadow-color)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgba(0,0,0,.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color)}.shadow-inner,.shadow-lg{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-md{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color)}.shadow-md,.shadow-xl{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color)}.drop-shadow-2xl{--tw-drop-shadow:drop-shadow(0 25px 25px rgba(0,0,0,.15))}.drop-shadow-2xl,.drop-shadow-lg{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.drop-shadow-lg{--tw-drop-shadow:drop-shadow(0 10px 8px rgba(0,0,0,.04)) drop-shadow(0 4px 3px rgba(0,0,0,.1))}.drop-shadow-xl{--tw-drop-shadow:drop-shadow(0 20px 13px rgba(0,0,0,.03)) drop-shadow(0 8px 5px rgba(0,0,0,.08));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px)}.backdrop-blur-md,.backdrop-blur-sm{-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-1000{transition-duration:1s}.duration-300{transition-duration:.3s}.duration-500{transition-duration:.5s}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:bg-forest-gold:hover{--tw-bg-opacity:1;background-color:rgb(212 175 55/var(--tw-bg-opacity,1))}.hover\:text-forest-deep:hover{--tw-text-opacity:1;color:rgb(43 14 27/var(--tw-text-opacity,1))}.hover\:text-forest-goldlight:hover{--tw-text-opacity:1;color:rgb(243 229 171/var(--tw-text-opacity,1))}.hover\:underline:hover{text-decoration-line:underline}.hover\:shadow-forest-gold\/20:hover{--tw-shadow-color:rgba(212,175,55,.2);--tw-shadow:var(--tw-shadow-colored)}.hover\:brightness-110:hover{--tw-brightness:brightness(1.1);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.focus\:border-forest-gold:focus{--tw-border-opacity:1;border-color:rgb(212 175 55/var(--tw-border-opacity,1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95}.active\:scale-95:active,.group:hover .group-hover\:scale-105{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.group:hover .group-hover\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05}@media (min-width:640px){.sm\:-left-4{left:-1rem}.sm\:-right-4{right:-1rem}.sm\:h-\[400px\]{height:400px}}@media (min-width:768px){.md\:h-48{height:12rem}.md\:w-48{width:12rem}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.md\:gap-4{gap:1rem}.md\:gap-8{gap:2rem}.md\:p-8{padding:2rem}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-7xl{font-size:4.5rem;line-height:1}.md\:text-base{font-size:1rem;line-height:1.5rem}}</style>
 
     <!-- Google Fonts & FontAwesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        /* Floating animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-12px) rotate(2deg); }
-        }
-        
-        /* Magical Glimmer keyframe for glowing items */
-        @keyframes glimmer {
-            0%, 100% { opacity: 0.3; transform: scale(0.9); }
-            50% { opacity: 0.9; transform: scale(1.1); }
+      /* Floating animations */
+      @keyframes float {
+
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
         }
 
-        /* Firefly drifting animation */
-        @keyframes drift {
-            0% {
-                transform: translateY(0px) translateX(0px) scale(0.5);
-                opacity: 0;
-            }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.8; }
-            100% {
-                transform: translateY(-120px) translateX(50px) scale(1.2);
-                opacity: 0;
-            }
+        50% {
+          transform: translateY(-12px) rotate(2deg);
+        }
+      }
+
+      /* Magical Glimmer keyframe for glowing items */
+      @keyframes glimmer {
+
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: scale(0.9);
         }
 
-        /* Falling Rose Petal Animation */
-        @keyframes fallingPetal {
-            0% {
-                transform: translateY(-20px) rotate(0deg) translateX(0px);
-                opacity: 0;
-            }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.8; }
-            100% {
-                transform: translateY(100vh) rotate(720deg) translateX(100px);
-                opacity: 0;
-            }
+        50% {
+          opacity: 0.9;
+          transform: scale(1.1);
+        }
+      }
+
+      /* Firefly drifting animation */
+      @keyframes drift {
+        0% {
+          transform: translateY(0px) translateX(0px) scale(0.5);
+          opacity: 0;
         }
 
-        .petal {
-            position: absolute;
-            background: radial-gradient(circle, #F8C8DC 0%, #E899B0 70%);
-            border-radius: 15px 0px 15px 0px;
-            pointer-events: none;
-            animation: fallingPetal 10s linear infinite;
+        10% {
+          opacity: 0.8;
         }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        90% {
+          opacity: 0.8;
         }
 
-        /* Envelope Styling */
-        .envelope-container {
-            perspective: 1000px;
+        100% {
+          transform: translateY(-120px) translateX(50px) scale(1.2);
+          opacity: 0;
         }
-        .envelope {
-            position: relative;
-            background: #2B0E1B;
-            box-shadow: 0 25px 50px -12px rgba(43, 14, 27, 0.8);
-            transition: transform 1s ease-in-out;
-        }
-        .envelope-flap {
-            transition: transform 0.8s ease-in-out;
-            z-index: 30;
-        }
-        .envelope.open .envelope-flap {
-            transform: rotateX(180deg);
-            z-index: 10;
-        }
-        .letter-card {
-            transition: transform 1s ease-in-out, opacity 0.8s ease-in-out;
-            z-index: 20;
-        }
-        .envelope.open .letter-card {
-            transform: translateY(-90px) translateZ(10px);
+      }
+
+      /* Falling Rose Petal Animation */
+      @keyframes fallingPetal {
+        0% {
+          transform: translateY(-20px) rotate(0deg) translateX(0px);
+          opacity: 0;
         }
 
-        /* Firefly & Petal positioning container */
-        .firefly-box {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 5;
+        10% {
+          opacity: 0.8;
         }
 
-        .firefly {
-            position: absolute;
-            background: radial-gradient(circle, rgba(243,229,171,1) 0%, rgba(212,175,55,0) 70%);
-            border-radius: 50%;
-            animation: drift 12s linear infinite;
+        90% {
+          opacity: 0.8;
         }
 
-        .canopy-vignette {
-            background: radial-gradient(circle, transparent 35%, rgba(43,14,27,0.85) 100%);
+        100% {
+          transform: translateY(100vh) rotate(720deg) translateX(100px);
+          opacity: 0;
         }
+      }
 
-        .gold-text {
-            background: linear-gradient(135deg, #FFF0F3 0%, #F3E5AB 30%, #D4AF37 70%, #E6A15C 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+      .petal {
+        position: absolute;
+        background: radial-gradient(circle, #F8C8DC 0%, #E899B0 70%);
+        border-radius: 15px 0px 15px 0px;
+        pointer-events: none;
+        animation: fallingPetal 10s linear infinite;
+      }
 
-        .scrollbar-none::-webkit-scrollbar {
-            display: none;
-        }
-        .scrollbar-none {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 1s ease-out;
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Envelope Styling */
+      .envelope-container {
+        perspective: 1000px;
+      }
+
+      .envelope {
+        position: relative;
+        background: #2B0E1B;
+        box-shadow: 0 25px 50px -12px rgba(43, 14, 27, 0.8);
+        transition: transform 1s ease-in-out;
+      }
+
+      .envelope-flap {
+        transition: transform 0.8s ease-in-out;
+        z-index: 30;
+      }
+
+      .envelope.open .envelope-flap {
+        transform: rotateX(180deg);
+        z-index: 10;
+      }
+
+      .letter-card {
+        transition: transform 1s ease-in-out, opacity 0.8s ease-in-out;
+        z-index: 20;
+      }
+
+      .envelope.open .letter-card {
+        transform: translateY(-90px) translateZ(10px);
+      }
+
+      /* Firefly & Petal positioning container */
+      .firefly-box {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 5;
+      }
+
+      .firefly {
+        position: absolute;
+        background: radial-gradient(circle, rgba(243, 229, 171, 1) 0%, rgba(212, 175, 55, 0) 70%);
+        border-radius: 50%;
+        animation: drift 12s linear infinite;
+      }
+
+      .canopy-vignette {
+        background: radial-gradient(circle, transparent 35%, rgba(43, 14, 27, 0.85) 100%);
+      }
+
+      .gold-text {
+        background: linear-gradient(135deg, #FFF0F3 0%, #F3E5AB 30%, #D4AF37 70%, #E6A15C 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .scrollbar-none::-webkit-scrollbar {
+        display: none;
+      }
+
+      .scrollbar-none {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
     </style>
-</head>
-<body class="bg-forest-mist font-sans text-slate-700 overflow-x-hidden antialiased">
-
+  </head>
+  <body class="bg-forest-mist font-sans text-slate-700 overflow-x-hidden antialiased">
     <div id="envelope-overlay" class="fixed inset-0 z-40 bg-gradient-to-b from-forest-deep via-forest-canopy to-forest-moss flex flex-col items-center justify-center p-4 transition-all duration-1000">
-        
-        <!-- Background Vignette & Floating Fireflies/Petals -->
-        <div class="absolute inset-0 canopy-vignette pointer-events-none"></div>
-        <div class="firefly-box" id="overlay-fireflies"></div>
-
-        <!-- Hanging Fairy Lights Overlay -->
-        <div class="absolute top-0 inset-x-0 flex justify-around opacity-40 pointer-events-none">
-            <div class="h-16 w-[1px] bg-forest-gold/30 relative"><div class="absolute bottom-0 -left-1 w-2.5 h-2.5 rounded-full bg-forest-goldlight shadow-[0_0_8px_#F3E5AB] animate-pulse"></div></div>
-            <div class="h-24 w-[1px] bg-forest-gold/30 relative"><div class="absolute bottom-0 -left-1 w-2 h-2 rounded-full bg-forest-goldlight shadow-[0_0_8px_#F3E5AB] animate-pulse" style="animation-delay: 0.5s"></div></div>
-            <div class="h-12 w-[1px] bg-forest-gold/30 relative"><div class="absolute bottom-0 -left-1 w-2 h-2 rounded-full bg-forest-goldlight shadow-[0_0_8px_#F3E5AB] animate-pulse" style="animation-delay: 1.2s"></div></div>
-            <div class="h-28 w-[1px] bg-forest-gold/30 relative"><div class="absolute bottom-0 -left-1 w-2.5 h-2.5 rounded-full bg-forest-goldlight shadow-[0_0_8px_#F3E5AB] animate-pulse" style="animation-delay: 0.8s"></div></div>
-            <div class="h-16 w-[1px] bg-forest-gold/30 relative"><div class="absolute bottom-0 -left-1 w-2 h-2 rounded-full bg-forest-goldlight shadow-[0_0_8px_#F3E5AB] animate-pulse" style="animation-delay: 0.2s"></div></div>
+      <!-- Background Vignette & Floating Fireflies/Petals -->
+      <div class="absolute inset-0 canopy-vignette pointer-events-none"></div>
+      <div class="firefly-box" id="overlay-fireflies"></div>
+      <!-- Hanging Fairy Lights Overlay -->
+      <div class="absolute top-0 inset-x-0 flex justify-around opacity-40 pointer-events-none">
+        <div class="h-16 w-[1px] bg-forest-gold/30 relative">
+          <div class="absolute bottom-0 -left-1 w-2.5 h-2.5 rounded-full bg-forest-goldlight shadow-[0_0_8px_#F3E5AB] animate-pulse"></div>
         </div>
-
-        <div class="text-center mb-8 max-w-md px-4 text-white z-10">
-            <p class="font-display tracking-[0.25em] text-xs text-forest-goldlight mb-2">YOU ARE CORDIALLY INVITED TO</p>
-            <h1 class="font-serif text-3xl md:text-4xl font-semibold mb-4 gold-text">Anton & Steffi</h1>
-            <div class="h-[1px] w-24 bg-forest-gold/50 mx-auto mb-6"></div>
-            
-            <p class="text-xs text-forest-sage/90 uppercase tracking-widest mb-1">Dear Guest(s),</p>
-            <!-- Dynamic Guest Recipient Container via URL -->
-            <div class="inline-block px-6 py-2.5 bg-forest-deep/60 backdrop-blur-md border border-forest-gold/30 rounded-xl mt-2 min-w-[220px] shadow-lg">
-                <h3 id="guest-name" class="font-serif text-xl text-forest-goldlight font-medium italic">Dearest Guest</h3>
-                <p id="guest-subtext" class="text-[10px] text-forest-sage uppercase tracking-widest mt-1">***</p>
+        <div class="h-24 w-[1px] bg-forest-gold/30 relative">
+          <div class="absolute bottom-0 -left-1 w-2 h-2 rounded-full bg-forest-goldlight shadow-[0_0_8px_#F3E5AB] animate-pulse" style="animation-delay: 0.5s"></div>
+        </div>
+        <div class="h-12 w-[1px] bg-forest-gold/30 relative">
+          <div class="absolute bottom-0 -left-1 w-2 h-2 rounded-full bg-forest-goldlight shadow-[0_0_8px_#F3E5AB] animate-pulse" style="animation-delay: 1.2s"></div>
+        </div>
+        <div class="h-28 w-[1px] bg-forest-gold/30 relative">
+          <div class="absolute bottom-0 -left-1 w-2.5 h-2.5 rounded-full bg-forest-goldlight shadow-[0_0_8px_#F3E5AB] animate-pulse" style="animation-delay: 0.8s"></div>
+        </div>
+        <div class="h-16 w-[1px] bg-forest-gold/30 relative">
+          <div class="absolute bottom-0 -left-1 w-2 h-2 rounded-full bg-forest-goldlight shadow-[0_0_8px_#F3E5AB] animate-pulse" style="animation-delay: 0.2s"></div>
+        </div>
+      </div>
+      <div class="text-center mb-8 max-w-md px-4 text-white z-10">
+        <p class="font-display tracking-[0.25em] text-xs text-forest-goldlight mb-2">YOU ARE CORDIALLY INVITED TO</p>
+        <h1 class="font-serif text-3xl md:text-4xl font-semibold mb-4 gold-text">Anton & Steffi</h1>
+        <div class="h-[1px] w-24 bg-forest-gold/50 mx-auto mb-6"></div>
+        <p class="text-xs text-forest-sage/90 uppercase tracking-widest mb-1">Dear Guest(s),</p>
+        <!-- Dynamic Guest Recipient Container via URL -->
+        <div class="inline-block px-6 py-2.5 bg-forest-deep/60 backdrop-blur-md border border-forest-gold/30 rounded-xl mt-2 min-w-[220px] shadow-lg">
+          <h3 id="guest-name" class="font-serif text-xl text-forest-goldlight font-medium italic">Dearest Guest</h3>
+          <p id="guest-subtext" class="text-[10px] text-forest-sage uppercase tracking-widest mt-1">***</p>
+        </div>
+      </div>
+      <!-- 3D Interactive Envelope Core -->
+      <div class="envelope-container w-full max-w-[340px] aspect-[4/3] relative cursor-pointer z-10" onclick="openInvitation()">
+        <div id="interactive-envelope" class="envelope w-full h-full rounded-b-xl border border-forest-gold/30 shadow-2xl">
+          <div class="envelope-flap absolute inset-x-0 top-0 h-1/2 overflow-visible origin-top">
+            <svg class="w-full h-full drop-shadow-2xl" viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="0,0 400,0 200,140" fill="#2B0E1B" stroke="#D4AF37" stroke-width="0.8" />
+            </svg>
+            <!-- Monogram Floral Wreath Wax Seal -->
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-16 h-16 rounded-full bg-gradient-to-br from-forest-goldlight via-forest-gold to-forest-amber shadow-2xl flex items-center justify-center border-2 border-forest-goldlight z-30 animate-pulse-slow p-1 overflow-hidden">
+              <img src="asset/monogram-seal.png" alt="Anton & Steffi Seal" class="w-full h-full object-cover rounded-full">
             </div>
+          </div>
+          <!-- Hidden Inner Invitation Card -->
+          <div class="letter-card absolute inset-x-4 top-4 bottom-4 bg-forest-mist rounded-xl p-4 text-center border border-forest-gold/30 shadow-inner flex flex-col justify-center items-center">
+            <p class="font-display tracking-[0.15em] text-[9px] text-forest-moss uppercase font-semibold">SATURDAY, NOV 7, 2026</p>
+            <p class="font-serif text-base font-semibold text-forest-deep mt-1">Anton & Steffi</p>
+            <div class="w-10 h-[1px] bg-forest-gold/40 my-2"></div>
+            <span class="text-[9px] text-forest-moss/80 uppercase tracking-widest flex items-center gap-1 font-medium"> Click to Open <i class="fa-solid fa-heart text-forest-moss animate-pulse"></i>
+            </span>
+          </div>
         </div>
-
-        <!-- 3D Interactive Envelope Core -->
-        <div class="envelope-container w-full max-w-[340px] aspect-[4/3] relative cursor-pointer z-10" onclick="openInvitation()">
-            <div id="interactive-envelope" class="envelope w-full h-full rounded-b-xl border border-forest-gold/30 shadow-2xl">
-                
-                <div class="envelope-flap absolute inset-x-0 top-0 h-1/2 overflow-visible origin-top">
-                    <svg class="w-full h-full drop-shadow-2xl" viewBox="0 0 400 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <polygon points="0,0 400,0 200,140" fill="#2B0E1B" stroke="#D4AF37" stroke-width="0.8"/>
-                    </svg>
-                    
-                    <!-- Monogram Floral Wreath Wax Seal -->
-                    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-16 h-16 rounded-full bg-gradient-to-br from-forest-goldlight via-forest-gold to-forest-amber shadow-2xl flex items-center justify-center border-2 border-forest-goldlight z-30 animate-pulse-slow p-1 overflow-hidden">
-                        <img src="asset/monogram-seal.png" alt="Anton & Steffi Seal" class="w-full h-full object-cover rounded-full">
-                    </div>
-                </div>
-
-                <!-- Hidden Inner Invitation Card -->
-                <div class="letter-card absolute inset-x-4 top-4 bottom-4 bg-forest-mist rounded-xl p-4 text-center border border-forest-gold/30 shadow-inner flex flex-col justify-center items-center">
-                    <p class="font-display tracking-[0.15em] text-[9px] text-forest-moss uppercase font-semibold">SATURDAY, NOV 7, 2026</p>
-                    <p class="font-serif text-base font-semibold text-forest-deep mt-1">Anton & Steffi</p>
-                    <div class="w-10 h-[1px] bg-forest-gold/40 my-2"></div>
-                    <span class="text-[9px] text-forest-moss/80 uppercase tracking-widest flex items-center gap-1 font-medium">
-                        Click to Open <i class="fa-solid fa-heart text-forest-moss animate-pulse"></i>
-                    </span>
-                </div>
-            </div>
-        </div>
-
-        <button onclick="openInvitation()" class="mt-8 px-8 py-3 rounded-full bg-gradient-to-r from-forest-goldlight via-forest-gold to-forest-amber text-forest-deep font-display text-xs tracking-widest font-semibold hover:brightness-110 transition-all duration-300 shadow-xl hover:shadow-forest-gold/20 z-10">
-            OPEN INVITATION
-        </button>
+      </div>
+      <button onclick="openInvitation()" class="mt-8 px-8 py-3 rounded-full bg-gradient-to-r from-forest-goldlight via-forest-gold to-forest-amber text-forest-deep font-display text-xs tracking-widest font-semibold hover:brightness-110 transition-all duration-300 shadow-xl hover:shadow-forest-gold/20 z-10"> OPEN INVITATION </button>
     </div>
-
     <main id="main-content" class="hidden opacity-0 transition-opacity duration-1000">
-        
-        <!-- Header Hero Section -->
-        <header class="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-forest-deep via-forest-canopy to-forest-moss overflow-hidden px-4 py-20 text-center">
-            <div class="absolute inset-0 canopy-vignette pointer-events-none"></div>
-            <div class="firefly-box" id="hero-fireflies"></div>
-            
-            <div class="max-w-xl z-10 py-12 px-6 rounded-3xl bg-forest-deep/40 backdrop-blur-sm border border-forest-gold/20 shadow-2xl">
-                
-                <!-- Detailed Botanical Floral Wreath Monogram Crest (A & S) -->
-                <div class="w-36 h-36 md:w-48 md:h-48 mx-auto mb-4 relative flex items-center justify-center">
-                    <div class="absolute inset-0 w-full h-full flex items-center justify-center z-0">
-                        <img id="hero-monogram-img" src="asset/monogram-seal.png" alt="Anton & Steffi Monogram" class="w-full h-full object-cover rounded-full p-1" onerror="this.style.display='none'; document.getElementById('hero-monogram-svg').classList.remove('hidden');">
-                        <svg id="hero-monogram-svg" class="hidden w-full h-full drop-shadow-xl text-forest-goldlight" viewBox="0 0 200 200" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#FFF0F3" />
-                                    <stop offset="30%" stop-color="#F3E5AB" />
-                                    <stop offset="70%" stop-color="#D4AF37" />
-                                    <stop offset="100%" stop-color="#E6A15C" />
-                                </linearGradient>
-                            </defs>
-                            <circle cx="100" cy="100" r="86" fill="none" stroke="url(#goldGradient)" stroke-width="1.8" stroke-dasharray="6 4" opacity="0.6"/>
-                            <circle cx="100" cy="100" r="78" fill="none" stroke="url(#goldGradient)" stroke-width="1" opacity="0.4"/>
-
-                            <g opacity="0.95" fill="url(#goldGradient)">
-                                <path d="M100,8 C90,8 84,16 87,25 C90,32 97,38 100,38 C103,38 110,32 113,25 C116,16 110,8 100,8 Z M95,18 C97,14 103,14 105,18 C108,22 100,29 100,29 C100,29 92,22 95,18 Z"/>
-                                <path d="M82,20 C74,16 70,24 76,28 C82,32 86,24 82,20 Z"/>
-                                <path d="M118,20 C126,16 130,24 124,28 C118,32 114,24 118,20 Z"/>
-                            </g>
-
-                            <g opacity="0.95" fill="url(#goldGradient)">
-                                <path d="M100,192 C90,192 84,184 87,175 C90,168 97,162 100,162 C103,162 110,168 113,175 C116,184 110,192 100,192 Z M95,182 C97,186 103,186 105,182 C108,178 100,171 100,171 C100,171 92,178 95,182 Z"/>
-                                <path d="M82,180 C74,184 70,176 76,172 C82,168 86,176 82,180 Z"/>
-                                <path d="M118,180 C126,184 130,176 124,172 C118,168 114,176 118,180 Z"/>
-                            </g>
-
-                            <g opacity="0.95" fill="url(#goldGradient)">
-                                <path d="M8,100 C8,90 16,84 25,87 C32,90 38,97 38,100 C38,103 32,110 25,113 C16,116 8,110 8,100 Z M18,95 C14,97 14,103 18,105 C22,108 29,100 29,100 C29,100 22,92 18,95 Z"/>
-                                <path d="M192,100 C192,90 184,84 175,87 C168,90 162,97 162,100 C162,103 168,110 175,113 C184,116 192,110 192,100 Z M182,95 C186,97 186,103 182,105 C178,108 171,100 171,100 C171,100 178,92 182,95 Z"/>
-                            </g>
-
-                            <g fill="url(#goldGradient)" opacity="0.85">
-                                <path d="M42,58 C52,46 68,36 84,30" fill="none" stroke="url(#goldGradient)" stroke-width="2.5" stroke-linecap="round"/>
-                                <circle cx="48" cy="50" r="3"/><circle cx="58" cy="41" r="3"/><circle cx="70" cy="34" r="3"/>
-                                
-                                <path d="M158,58 C148,46 132,36 116,30" fill="none" stroke="url(#goldGradient)" stroke-width="2.5" stroke-linecap="round"/>
-                                <circle cx="152" cy="50" r="3"/><circle cx="142" cy="41" r="3"/><circle cx="130" cy="34" r="3"/>
-
-                                <path d="M42,142 C52,154 68,164 84,170" fill="none" stroke="url(#goldGradient)" stroke-width="2.5" stroke-linecap="round"/>
-                                <circle cx="48" cy="150" r="3"/><circle cx="58" cy="159" r="3"/><circle cx="70" cy="166" r="3"/>
-
-                                <path d="M158,142 C148,154 132,164 116,170" fill="none" stroke="url(#goldGradient)" stroke-width="2.5" stroke-linecap="round"/>
-                                <circle cx="152" cy="150" r="3"/><circle cx="142" cy="159" r="3"/><circle cx="130" cy="166" r="3"/>
-                            </g>
-
-                            <g fill="url(#goldGradient)">
-                                <path d="M48,132 C36,136 28,124 40,116 C48,111 58,122 68,114 L90,56 C93,50 99,51 103,57 L118,98 C108,98 84,98 78,98 L90,68 L70,120 C64,128 56,130 48,132 Z M84,88 L108,88 L98,62 Z"/>
-                                <path d="M88,102 C82,97 88,90 94,94 C100,98 95,106 88,109 C81,112 83,120 90,118 C96,116 98,109 102,114 C97,121 85,125 78,118 C73,113 76,103 83,99 Z"/>
-                                <path d="M132,68 C126,60 112,61 112,70 C112,78 124,80 128,88 C135,98 123,112 108,112 C94,112 92,100 101,98 C108,96 109,105 115,105 C122,105 125,95 118,90 C111,85 101,80 101,70 C101,56 120,52 135,62 Z"/>
-                            </g>
-                        </svg>
-                    </div>
-                </div>
-
-                <p class="font-display tracking-[0.3em] text-[11px] text-forest-goldlight mb-1 uppercase">THE WEDDING OF</p>
-                
-                <h1 class="font-calligraphy text-6xl md:text-7xl gold-text my-1 leading-tight py-2 drop-shadow-lg">Anton</h1>
-                <p class="font-serif text-xl italic text-forest-sage my-0.5">&</p>
-                <h1 class="font-calligraphy text-6xl md:text-7xl gold-text my-1 leading-tight py-2 drop-shadow-lg">Steffi</h1>
-                
-                <div class="h-[1px] w-32 bg-forest-gold/40 mx-auto my-4"></div>
-                
-                <p class="font-display text-xs text-forest-goldlight tracking-[0.25em] mb-8">07 . 11 . 2026</p>
-                
-                <div class="grid grid-cols-4 gap-2 md:gap-4 max-w-sm mx-auto mb-6">
-                    <div class="bg-forest-deep/70 backdrop-blur-md p-3 rounded-xl border border-forest-gold/20 shadow-lg">
-                        <span id="days" class="block font-serif text-xl md:text-2xl font-semibold text-forest-goldlight">00</span>
-                        <span class="text-[9px] uppercase tracking-wider text-forest-sage">Days</span>
-                    </div>
-                    <div class="bg-forest-deep/70 backdrop-blur-md p-3 rounded-lg border border-forest-gold/20 shadow-lg">
-                        <span id="hours" class="block font-serif text-xl md:text-2xl font-semibold text-forest-goldlight">00</span>
-                        <span class="text-[9px] uppercase tracking-wider text-forest-sage">Hours</span>
-                    </div>
-                    <div class="bg-forest-deep/70 backdrop-blur-md p-3 rounded-lg border border-forest-gold/20 shadow-lg">
-                        <span id="minutes" class="block font-serif text-xl md:text-2xl font-semibold text-forest-goldlight">00</span>
-                        <span class="text-[9px] uppercase tracking-wider text-forest-sage">Min</span>
-                    </div>
-                    <div class="bg-forest-deep/70 backdrop-blur-md p-3 rounded-lg border border-forest-gold/20 shadow-lg">
-                        <span id="seconds" class="block font-serif text-xl md:text-2xl font-semibold text-forest-goldlight">00</span>
-                        <span class="text-[9px] uppercase tracking-wider text-forest-sage">Sec</span>
-                    </div>
-                </div>
-
-                <div class="animate-float mt-6">
-                    <i class="fa-solid fa-chevron-down text-forest-goldlight text-lg"></i>
-                </div>
+      <!-- Header Hero Section -->
+      <header class="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-forest-deep via-forest-canopy to-forest-moss overflow-hidden px-4 py-20 text-center">
+        <div class="absolute inset-0 canopy-vignette pointer-events-none"></div>
+        <div class="firefly-box" id="hero-fireflies"></div>
+        <div class="max-w-xl z-10 py-12 px-6 rounded-3xl bg-forest-deep/40 backdrop-blur-sm border border-forest-gold/20 shadow-2xl">
+          <!-- Detailed Botanical Floral Wreath Monogram Crest (A & S) -->
+          <div class="w-36 h-36 md:w-48 md:h-48 mx-auto mb-4 relative flex items-center justify-center">
+            <div class="absolute inset-0 w-full h-full flex items-center justify-center z-0">
+              <img id="hero-monogram-img" src="asset/monogram-seal.png" alt="Anton & Steffi Monogram" class="w-full h-full object-cover rounded-full p-1" onerror="this.style.display='none'; document.getElementById('hero-monogram-svg').classList.remove('hidden');">
+              <svg id="hero-monogram-svg" class="hidden w-full h-full drop-shadow-xl text-forest-goldlight" viewBox="0 0 200 200" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FFF0F3" />
+                    <stop offset="30%" stop-color="#F3E5AB" />
+                    <stop offset="70%" stop-color="#D4AF37" />
+                    <stop offset="100%" stop-color="#E6A15C" />
+                  </linearGradient>
+                </defs>
+                <circle cx="100" cy="100" r="86" fill="none" stroke="url(#goldGradient)" stroke-width="1.8" stroke-dasharray="6 4" opacity="0.6" />
+                <circle cx="100" cy="100" r="78" fill="none" stroke="url(#goldGradient)" stroke-width="1" opacity="0.4" />
+                <g opacity="0.95" fill="url(#goldGradient)">
+                  <path d="M100,8 C90,8 84,16 87,25 C90,32 97,38 100,38 C103,38 110,32 113,25 C116,16 110,8 100,8 Z M95,18 C97,14 103,14 105,18 C108,22 100,29 100,29 C100,29 92,22 95,18 Z" />
+                  <path d="M82,20 C74,16 70,24 76,28 C82,32 86,24 82,20 Z" />
+                  <path d="M118,20 C126,16 130,24 124,28 C118,32 114,24 118,20 Z" />
+                </g>
+                <g opacity="0.95" fill="url(#goldGradient)">
+                  <path d="M100,192 C90,192 84,184 87,175 C90,168 97,162 100,162 C103,162 110,168 113,175 C116,184 110,192 100,192 Z M95,182 C97,186 103,186 105,182 C108,178 100,171 100,171 C100,171 92,178 95,182 Z" />
+                  <path d="M82,180 C74,184 70,176 76,172 C82,168 86,176 82,180 Z" />
+                  <path d="M118,180 C126,184 130,176 124,172 C118,168 114,176 118,180 Z" />
+                </g>
+                <g opacity="0.95" fill="url(#goldGradient)">
+                  <path d="M8,100 C8,90 16,84 25,87 C32,90 38,97 38,100 C38,103 32,110 25,113 C16,116 8,110 8,100 Z M18,95 C14,97 14,103 18,105 C22,108 29,100 29,100 C29,100 22,92 18,95 Z" />
+                  <path d="M192,100 C192,90 184,84 175,87 C168,90 162,97 162,100 C162,103 168,110 175,113 C184,116 192,110 192,100 Z M182,95 C186,97 186,103 182,105 C178,108 171,100 171,100 C171,100 178,92 182,95 Z" />
+                </g>
+                <g fill="url(#goldGradient)" opacity="0.85">
+                  <path d="M42,58 C52,46 68,36 84,30" fill="none" stroke="url(#goldGradient)" stroke-width="2.5" stroke-linecap="round" />
+                  <circle cx="48" cy="50" r="3" />
+                  <circle cx="58" cy="41" r="3" />
+                  <circle cx="70" cy="34" r="3" />
+                  <path d="M158,58 C148,46 132,36 116,30" fill="none" stroke="url(#goldGradient)" stroke-width="2.5" stroke-linecap="round" />
+                  <circle cx="152" cy="50" r="3" />
+                  <circle cx="142" cy="41" r="3" />
+                  <circle cx="130" cy="34" r="3" />
+                  <path d="M42,142 C52,154 68,164 84,170" fill="none" stroke="url(#goldGradient)" stroke-width="2.5" stroke-linecap="round" />
+                  <circle cx="48" cy="150" r="3" />
+                  <circle cx="58" cy="159" r="3" />
+                  <circle cx="70" cy="166" r="3" />
+                  <path d="M158,142 C148,154 132,164 116,170" fill="none" stroke="url(#goldGradient)" stroke-width="2.5" stroke-linecap="round" />
+                  <circle cx="152" cy="150" r="3" />
+                  <circle cx="142" cy="159" r="3" />
+                  <circle cx="130" cy="166" r="3" />
+                </g>
+                <g fill="url(#goldGradient)">
+                  <path d="M48,132 C36,136 28,124 40,116 C48,111 58,122 68,114 L90,56 C93,50 99,51 103,57 L118,98 C108,98 84,98 78,98 L90,68 L70,120 C64,128 56,130 48,132 Z M84,88 L108,88 L98,62 Z" />
+                  <path d="M88,102 C82,97 88,90 94,94 C100,98 95,106 88,109 C81,112 83,120 90,118 C96,116 98,109 102,114 C97,121 85,125 78,118 C73,113 76,103 83,99 Z" />
+                  <path d="M132,68 C126,60 112,61 112,70 C112,78 124,80 128,88 C135,98 123,112 108,112 C94,112 92,100 101,98 C108,96 109,105 115,105 C122,105 125,95 118,90 C111,85 101,80 101,70 C101,56 120,52 135,62 Z" />
+                </g>
+              </svg>
             </div>
-        </header>
-
-        <section class="py-24 bg-forest-deep px-4 relative overflow-hidden text-forest-mist">
-            <div class="max-w-3xl mx-auto text-center relative z-10">
-                <p class="font-serif text-sm italic text-forest-goldlight mb-2">By the Grace and Blessing of Our Lord</p>
-                <h2 class="font-serif text-3xl md:text-4xl gold-text mb-4">We Request The Honor Of Your Presence</h2>
-                <div class="h-[1px] w-20 bg-forest-gold/40 mx-auto mb-16"></div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 items-center">
-                    <!-- Groom Profile -->
-                    <div class="reveal">
-                        <div class="relative inline-block mb-6">
-                            <div class="w-40 h-40 rounded-full overflow-hidden border-2 border-forest-gold p-1 mx-auto bg-forest-canopy shadow-xl">
-                                <img src="asset/aj-head.jpg" alt="Anton Junior" class="w-full h-full object-cover rounded-full">
-                            </div>
-                            <div class="absolute -bottom-1 -right-1 bg-forest-gold text-forest-deep w-8 h-8 rounded-full flex items-center justify-center border-2 border-forest-deep text-xs font-bold">
-                                <i class="fa-solid fa-mars"></i>
-                            </div>
-                        </div>
-                        <h3 class="font-serif text-2xl font-semibold text-forest-goldlight">Anton Junior</h3>
-                        <p class="text-[11px] font-medium tracking-widest text-forest-sage uppercase mt-2">Son of</p>
-                        <p class="text-sm text-forest-mist mt-1">Mr. Anton Cip Nio &<br>Mrs. Suyanti</p>
-                    </div>
-
-                    <!-- Bride Profile -->
-                    <div class="reveal">
-                        <div class="relative inline-block mb-6">
-                            <div class="w-40 h-40 rounded-full overflow-hidden border-2 border-forest-gold p-1 mx-auto bg-forest-canopy shadow-xl">
-                                <img src="asset/so-head.jpg" alt="Steffi Ong" class="w-full h-full object-cover rounded-full">
-                            </div>
-                            <div class="absolute -bottom-1 -left-1 bg-forest-moss text-white w-8 h-8 rounded-full flex items-center justify-center border-2 border-forest-deep text-xs font-bold">
-                                <i class="fa-solid fa-venus"></i>
-                            </div>
-                        </div>
-                        <h3 class="font-serif text-2xl font-semibold text-forest-goldlight">Steffi Ong</h3>
-                        <p class="text-[11px] font-medium tracking-widest text-forest-sage uppercase mt-2">Daughter of</p>
-                        <p class="text-sm text-forest-mist mt-1">Mr. Dani Ong &<br>Mrs. Widari Maryanto</p>
-                    </div>
-                </div>
+          </div>
+          <p class="font-display tracking-[0.3em] text-[11px] text-forest-goldlight mb-1 uppercase">THE WEDDING OF</p>
+          <h1 class="font-calligraphy text-6xl md:text-7xl gold-text my-1 leading-tight py-2 drop-shadow-lg">Anton</h1>
+          <p class="font-serif text-xl italic text-forest-sage my-0.5">&</p>
+          <h1 class="font-calligraphy text-6xl md:text-7xl gold-text my-1 leading-tight py-2 drop-shadow-lg">Steffi</h1>
+          <div class="h-[1px] w-32 bg-forest-gold/40 mx-auto my-4"></div>
+          <p class="font-display text-xs text-forest-goldlight tracking-[0.25em] mb-8">07 . 11 . 2026</p>
+          <div class="grid grid-cols-4 gap-2 md:gap-4 max-w-sm mx-auto mb-6">
+            <div class="bg-forest-deep/70 backdrop-blur-md p-3 rounded-xl border border-forest-gold/20 shadow-lg">
+              <span id="days" class="block font-serif text-xl md:text-2xl font-semibold text-forest-goldlight">00</span>
+              <span class="text-[9px] uppercase tracking-wider text-forest-sage">Days</span>
             </div>
-        </section>
-
-        <section class="py-24 bg-gradient-to-b from-forest-deep via-forest-canopy to-forest-deep px-4 border-y border-forest-gold/20 relative">
-            <div class="firefly-box" id="schedule-fireflies"></div>
-
-            <div class="max-w-4xl mx-auto relative z-10">
-                <div class="text-center mb-16">
-                    <span class="font-display tracking-[0.2em] text-xs text-forest-sage uppercase">JOIN US FOR THE CELEBRATION</span>
-                    <h2 class="font-serif text-4xl gold-text mt-2">Wedding Schedule</h2>
-                    <div class="h-[1px] w-20 bg-forest-gold/50 mx-auto mt-4"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Holy Matrimony Card -->
-                    <div class="bg-forest-deep/80 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-forest-gold/20 text-center reveal text-forest-mist">
-                        <div class="w-12 h-12 bg-forest-canopy rounded-full flex items-center justify-center mx-auto mb-6 text-forest-gold border border-forest-gold/30">
-                            <i class="fa-solid fa-church text-lg"></i>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-forest-goldlight mb-1">Holy Matrimony</h3>
-                        <div class="text-xs tracking-widest text-forest-sage uppercase mb-4">09:00 AM WIB</div>
-                        
-                        <div class="h-[1px] w-12 bg-forest-gold/30 mx-auto mb-4"></div>
-                        
-                        <p class="font-serif text-forest-mist font-semibold">Pool Deck, Lantai 3</p>
-                        <p class="text-sm text-forest-sage mb-1">Avenzel Hotel and Convention</p>
-                        <p class="text-xs text-forest-sage/80 mb-6">Jl. Raya Kranggan No.69, Cibubur, Bekasi</p>
-                        
-                        <a href="https://maps.app.goo.gl/LFeg72B7W5B2X8gg6" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-forest-gold/40 text-forest-goldlight hover:bg-forest-gold hover:text-forest-deep transition-all duration-300 text-xs font-medium bg-forest-canopy/50">
-                            <i class="fa-solid fa-location-dot"></i> Open Google Maps
-                        </a>
-
-                        <div class="flex flex-col items-center gap-2 mt-3">
-                            <a href="#" data-calendar-link="ceremony" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-forest-gold/40 text-forest-goldlight hover:bg-forest-gold hover:text-forest-deep transition-all duration-300 text-xs font-medium bg-forest-canopy/50">
-                                <i class="fa-solid fa-calendar-plus"></i> Add to Calendar
-                            </a>
-                            <button type="button" data-ics-download="ceremony" class="text-[10px] text-forest-sage hover:text-forest-goldlight hover:underline">
-                                or download .ics (Apple / Outlook)
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Reception Dinner Card -->
-                    <div class="bg-forest-deep/80 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-forest-gold/20 text-center reveal text-forest-mist">
-                        <div class="w-12 h-12 bg-forest-canopy rounded-full flex items-center justify-center mx-auto mb-6 text-forest-gold border border-forest-gold/30">
-                            <i class="fa-solid fa-champagne-glasses text-lg"></i>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-forest-goldlight mb-1">Grand Reception</h3>
-                        <div class="text-xs tracking-widest text-forest-sage uppercase mb-4">06:30 PM WIB</div>
-                        
-                        <div class="h-[1px] w-12 bg-forest-gold/30 mx-auto mb-4"></div>
-                        
-                        <p class="font-serif text-forest-mist font-semibold">Peony Ballroom, Lantai 3</p>
-                        <p class="text-sm text-forest-sage mb-1">Avenzel Hotel and Convention</p>
-                        <p class="text-xs text-forest-sage/80 mb-6">Jl. Raya Kranggan No.69, Cibubur, Bekasi</p>
-                        
-                        <a href="https://maps.app.goo.gl/LFeg72B7W5B2X8gg6" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-forest-gold/40 text-forest-goldlight hover:bg-forest-gold hover:text-forest-deep transition-all duration-300 text-xs font-medium bg-forest-canopy/50">
-                            <i class="fa-solid fa-location-dot"></i> Open Google Maps
-                        </a>
-
-                        <div class="flex flex-col items-center gap-2 mt-3">
-                            <a href="#" data-calendar-link="reception" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-forest-gold/40 text-forest-goldlight hover:bg-forest-gold hover:text-forest-deep transition-all duration-300 text-xs font-medium bg-forest-canopy/50">
-                                <i class="fa-solid fa-calendar-plus"></i> Add to Calendar
-                            </a>
-                            <button type="button" data-ics-download="reception" class="text-[10px] text-forest-sage hover:text-forest-goldlight hover:underline">
-                                or download .ics (Apple / Outlook)
-                            </button>
-                        </div>
-                    </div>
-                </div>
+            <div class="bg-forest-deep/70 backdrop-blur-md p-3 rounded-lg border border-forest-gold/20 shadow-lg">
+              <span id="hours" class="block font-serif text-xl md:text-2xl font-semibold text-forest-goldlight">00</span>
+              <span class="text-[9px] uppercase tracking-wider text-forest-sage">Hours</span>
             </div>
-        </section>
-
-        <!-- Pre-Wedding Photo Gallery Section -->
-        <section class="py-24 bg-forest-deep px-4 border-t border-forest-gold/15 text-forest-mist">
-            <div class="max-w-3xl mx-auto text-center">
-                <span class="font-display tracking-[0.2em] text-xs text-forest-sage uppercase">OUR MOMENTS</span>
-                <h2 class="font-serif text-3xl md:text-4xl gold-text mt-2 mb-4">Photo Gallery</h2>
-                <div class="h-[1px] w-20 bg-forest-gold/40 mx-auto mb-12"></div>
-                
-                <div class="reveal max-w-2xl mx-auto rounded-2xl overflow-hidden border-2 border-forest-gold/30 p-2 bg-forest-canopy/40 shadow-2xl">
-                    <img src="asset/collage.jpg" alt="Anton & Steffi Pre-Wedding Collage" class="w-full h-auto rounded-xl object-cover shadow-lg">
-                </div>
-
-                <!-- Horizontal Scrollable Gallery (collage1, collage2, collage3) -->
-                <div class="reveal mt-8 relative max-w-2xl mx-auto">
-                    <!-- Left Arrow Button -->
-                    <button type="button" onclick="scrollGallery(-1)" aria-label="Previous photo" class="absolute -left-2 sm:-left-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-forest-deep/80 hover:bg-forest-gold hover:text-forest-deep text-forest-goldlight border border-forest-gold/40 flex items-center justify-center shadow-lg transition-all backdrop-blur-sm cursor-pointer">
-                        <i class="fa-solid fa-chevron-left text-xs"></i>
-                    </button>
-
-                    <!-- Scroll Container -->
-                    <div id="horizontal-gallery" class="flex items-center gap-4 overflow-x-auto snap-x snap-mandatory py-2 px-1 scrollbar-none scroll-smooth">
-                        <div class="snap-center shrink-0 h-[340px] sm:h-[400px] aspect-[9/16] rounded-2xl overflow-hidden border border-forest-gold/30 p-1.5 bg-forest-canopy/40 shadow-xl group">
-                            <img src="asset/collage1.jpg" alt="Anton & Steffi Photo 1" loading="lazy" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
-                        </div>
-                        <div class="snap-center shrink-0 h-[340px] sm:h-[400px] aspect-[9/16] rounded-2xl overflow-hidden border border-forest-gold/30 p-1.5 bg-forest-canopy/40 shadow-xl group">
-                            <img src="asset/collage2.jpg" alt="Anton & Steffi Photo 2" loading="lazy" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
-                        </div>
-                        <div class="snap-center shrink-0 h-[340px] sm:h-[400px] aspect-[9/16] rounded-2xl overflow-hidden border border-forest-gold/30 p-1.5 bg-forest-canopy/40 shadow-xl group">
-                            <img src="asset/collage3.jpg" alt="Anton & Steffi Photo 3" loading="lazy" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
-                        </div>
-                        <div class="snap-center shrink-0 h-[340px] sm:h-[400px] aspect-square rounded-2xl overflow-hidden border border-forest-gold/30 p-1.5 bg-forest-canopy/40 shadow-xl group">
-                            <img src="asset/collage4.jpg" alt="Anton & Steffi Photo 4" loading="lazy" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
-                        </div>
-                        <div class="snap-center shrink-0 h-[340px] sm:h-[400px] aspect-[2/3] rounded-2xl overflow-hidden border border-forest-gold/30 p-1.5 bg-forest-canopy/40 shadow-xl group">
-                            <img src="asset/studio1.jpg" alt="Anton & Steffi Studio 1" loading="lazy" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
-                        </div>
-                        <div class="snap-center shrink-0 h-[340px] sm:h-[400px] aspect-[2/3] rounded-2xl overflow-hidden border border-forest-gold/30 p-1.5 bg-forest-canopy/40 shadow-xl group">
-                            <img src="asset/studio2.jpg" alt="Anton & Steffi Studio 2" loading="lazy" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
-                        </div>
-                    </div>
-
-                    <!-- Right Arrow Button -->
-                    <button type="button" onclick="scrollGallery(1)" aria-label="Next photo" class="absolute -right-2 sm:-right-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-forest-deep/80 hover:bg-forest-gold hover:text-forest-deep text-forest-goldlight border border-forest-gold/40 flex items-center justify-center shadow-lg transition-all backdrop-blur-sm cursor-pointer">
-                        <i class="fa-solid fa-chevron-right text-xs"></i>
-                    </button>
-
-                    <p class="text-[10px] text-forest-sage/70 tracking-widest uppercase mt-4 flex items-center justify-center gap-1.5">
-                        <i class="fa-solid fa-arrows-left-right text-forest-goldlight"></i> Swipe or scroll to see more
-                    </p>
-                </div>
+            <div class="bg-forest-deep/70 backdrop-blur-md p-3 rounded-lg border border-forest-gold/20 shadow-lg">
+              <span id="minutes" class="block font-serif text-xl md:text-2xl font-semibold text-forest-goldlight">00</span>
+              <span class="text-[9px] uppercase tracking-wider text-forest-sage">Min</span>
             </div>
-        </section>
-
-        <!-- Wedding Gift Registry Section -->
-        <section class="py-24 bg-forest-deep px-4 border-t border-forest-gold/15 text-forest-mist">
-            <div class="max-w-2xl mx-auto text-center">
-                <span class="font-display tracking-[0.2em] text-xs text-forest-sage uppercase">WEDDING REGISTRY</span>
-                <h2 class="font-serif text-3xl md:text-4xl gold-text mt-2 mb-4">Wedding Gift</h2>
-                <div class="h-[1px] w-20 bg-forest-gold/40 mx-auto mb-6"></div>
-                <p class="text-sm md:text-base text-forest-sage leading-relaxed max-w-md mx-auto mb-10">
-                    Your presence at our wedding is the greatest gift of all. However, should you wish to honor us with a gift, a digital contribution can be sent below.
-                </p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left max-w-md mx-auto">
-                    <!-- Bank Option 1 -->
-                    <div class="bg-forest-canopy/60 p-6 rounded-2xl border border-forest-gold/20 shadow-lg reveal">
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="font-bold text-lg text-forest-goldlight tracking-wide">BCA</span>
-                            <i class="fa-solid fa-credit-card text-forest-gold"></i>
-                        </div>
-                        <p class="text-xs text-forest-sage">Account Number</p>
-                        <div class="flex items-center gap-2 mt-1">
-                            <span id="acc-no-1" class="font-mono text-sm font-semibold text-white" data-acc-parts="MTk4MjcwMDIwMA=="></span>
-                            <button type="button" data-copy-target="acc-no-1" class="copy-btn text-[10px] text-forest-goldlight hover:underline font-medium ml-auto flex items-center gap-1">
-                                <i class="fa-regular fa-copy"></i> Copy
-                            </button>
-                        </div>
-                        <p class="text-xs font-medium text-forest-sage mt-2 uppercase">A/N STEFFI ONG</p>
-                    </div>
-
-                    <!-- Bank Option 2 -->
-                    <div class="bg-forest-canopy/60 p-6 rounded-2xl border border-forest-gold/20 shadow-lg reveal">
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="font-bold text-lg text-forest-goldlight tracking-wide">BCA</span>
-                            <i class="fa-solid fa-credit-card text-forest-gold"></i>
-                        </div>
-                        <p class="text-xs text-forest-sage">Account Number</p>
-                        <div class="flex items-center gap-2 mt-1">
-                            <span id="acc-no-2" class="font-mono text-sm font-semibold text-white" data-acc-parts="Mzk5MDM5NzcxNQ=="></span>
-                            <button type="button" data-copy-target="acc-no-2" class="copy-btn text-[10px] text-forest-goldlight hover:underline font-medium ml-auto flex items-center gap-1">
-                                <i class="fa-regular fa-copy"></i> Copy
-                            </button>
-                        </div>
-                        <p class="text-xs font-medium text-forest-sage mt-2 uppercase">A/N ANTON JUNIOR</p>
-                    </div>
-                </div>
+            <div class="bg-forest-deep/70 backdrop-blur-md p-3 rounded-lg border border-forest-gold/20 shadow-lg">
+              <span id="seconds" class="block font-serif text-xl md:text-2xl font-semibold text-forest-goldlight">00</span>
+              <span class="text-[9px] uppercase tracking-wider text-forest-sage">Sec</span>
             </div>
-        </section>
-
-        <section class="py-24 bg-forest-deep px-4 border-t border-forest-gold/15 text-forest-mist">
-            <div class="max-w-3xl mx-auto">
-                <div class="text-center mb-16">
-                    <span class="font-display tracking-[0.2em] text-xs text-forest-sage uppercase">RSVP & GUESTBOOK</span>
-                    <h2 class="font-serif text-4xl gold-text mt-2">Be Our Guest</h2>
-                    <div class="h-[1px] w-20 bg-forest-gold/50 mx-auto mt-4 mb-4"></div>
-                    <p class="text-sm text-forest-sage max-w-sm mx-auto">Kindly respond with your attendance before November 1st, 2026, and share your warm wishes below.</p>
+          </div>
+          <div class="animate-float mt-6">
+            <i class="fa-solid fa-chevron-down text-forest-goldlight text-lg"></i>
+          </div>
+        </div>
+      </header>
+      <section class="py-24 bg-forest-deep px-4 relative overflow-hidden text-forest-mist">
+        <div class="max-w-3xl mx-auto text-center relative z-10">
+          <p class="font-serif text-sm italic text-forest-goldlight mb-2">By the Grace and Blessing of Our Lord</p>
+          <h2 class="font-serif text-3xl md:text-4xl gold-text mb-4">We Request The Honor Of Your Presence</h2>
+          <div class="h-[1px] w-20 bg-forest-gold/40 mx-auto mb-16"></div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 items-center">
+            <!-- Groom Profile -->
+            <div class="reveal">
+              <div class="relative inline-block mb-6">
+                <div class="w-40 h-40 rounded-full overflow-hidden border-2 border-forest-gold p-1 mx-auto bg-forest-canopy shadow-xl">
+                  <img src="asset/aj-head.jpg" alt="Anton Junior" class="w-full h-full object-cover rounded-full">
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-                    <!-- RSVP Form -->
-                    <div class="bg-forest-canopy/70 p-6 md:p-8 rounded-2xl border border-forest-gold/20 shadow-2xl">
-                        <h3 class="font-serif text-lg font-semibold text-forest-goldlight mb-6 text-center">Reservation Form</h3>
-                        
-                        <form id="rsvp-form" class="space-y-4">
-                            <!-- Name Input -->
-                            <div>
-                                <label for="rsvp-name" class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Full Name*</label>
-                                <input type="text" id="rsvp-name" required class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm" placeholder="Your full name">
-                            </div>
-
-                            <!-- Phone Input (Optional) -->
-                            <div>
-                                <label for="rsvp-phone" class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Phone Number <span class="text-[10px] opacity-60">(Optional)</span></label>
-                                <input type="tel" id="rsvp-phone" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm" placeholder="e.g., 08123456789">
-                            </div>
-
-                            <!-- Attendance Selection -->
-                            <div>
-                                <label for="rsvp-status" class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Will you attend?*</label>
-                                <select id="rsvp-status" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm">
-                                    <option value="Yes, reception">Yes, I will join the evening reception</option>
-                                    <option value="Yes, holy matrimony">Yes, I will attend the morning holy matrimony</option>
-                                    <option value="Yes, both">Yes, I will attend both</option>
-                                    <option value="No">No, regretfully I will not</option>
-                                </select>
-                            </div>
-
-                            <!-- Guest Count Selection -->
-                            <div>
-                                <label for="rsvp-count" class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Number of Guests</label>
-                                <select id="rsvp-count" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm">
-                                    <option value="1">1 Person</option>
-                                    <option value="2">2 Persons</option>
-                                    <option value="3">3 Persons</option>
-                                    <option value="4">4 Persons</option>
-                                </select>
-                            </div>
-
-                            <!-- Wishes Message Input (Optional) -->
-                            <div>
-                                <label for="rsvp-message" class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Warm Wishes <span class="text-[10px] opacity-60">(Optional)</span></label>
-                                <textarea id="rsvp-message" rows="4" maxlength="500" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm resize-none" placeholder="Write your congratulations or blessings..."></textarea>
-                            </div>
-
-                            <button type="submit" class="w-full py-3 bg-gradient-to-r from-forest-goldlight via-forest-gold to-forest-amber text-forest-deep font-display text-xs font-semibold tracking-widest rounded-lg transition-all duration-300 mt-2 shadow-lg hover:brightness-110">
-                                SUBMIT RESPONSE
-                            </button>
-                        </form>
-                    </div>
-
-                    <!-- Live Dynamic Wishes Scroll -->
-                    <div class="flex flex-col h-full max-h-[460px]">
-                        <h3 class="font-serif text-lg font-semibold text-forest-goldlight mb-6 flex items-center gap-2">
-                            <i class="fa-solid fa-quote-left text-forest-gold"></i>
-                            Guest Book
-                        </h3>
-                        
-                        <div id="wishes-list" class="space-y-4 overflow-y-auto pr-2 flex-1 scrollbar-thin">
-                            <!-- Wishes populate dynamically -->
-                        </div>
-                    </div>
+                <div class="absolute -bottom-1 -right-1 bg-forest-gold text-forest-deep w-8 h-8 rounded-full flex items-center justify-center border-2 border-forest-deep text-xs font-bold">
+                  <i class="fa-solid fa-mars"></i>
                 </div>
+              </div>
+              <h3 class="font-serif text-2xl font-semibold text-forest-goldlight">Anton Junior</h3>
+              <p class="text-[11px] font-medium tracking-widest text-forest-sage uppercase mt-2">Son of</p>
+              <p class="text-sm text-forest-mist mt-1">Mr. Anton Cip Nio & <br>Mrs. Suyanti </p>
             </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="py-16 bg-gradient-to-b from-forest-deep to-forest-canopy text-white text-center px-4 relative border-t border-forest-gold/10">
-            <p class="font-serif italic text-lg text-forest-goldlight">Thank you for sharing in our joy!</p>
-            <div class="h-[1px] w-24 bg-forest-gold/30 mx-auto my-6"></div>
-            <p class="font-serif text-2xl font-light tracking-[0.1em] text-white">Anton & Steffi</p>
-            <p class="text-[9px] tracking-widest text-forest-sage/50 uppercase mt-8">&copy; 2026 Anton & Steffi Wedding. All Rights Reserved.</p>
-        </footer>
+            <!-- Bride Profile -->
+            <div class="reveal">
+              <div class="relative inline-block mb-6">
+                <div class="w-40 h-40 rounded-full overflow-hidden border-2 border-forest-gold p-1 mx-auto bg-forest-canopy shadow-xl">
+                  <img src="asset/so-head.jpg" alt="Steffi Ong" class="w-full h-full object-cover rounded-full">
+                </div>
+                <div class="absolute -bottom-1 -left-1 bg-forest-moss text-white w-8 h-8 rounded-full flex items-center justify-center border-2 border-forest-deep text-xs font-bold">
+                  <i class="fa-solid fa-venus"></i>
+                </div>
+              </div>
+              <h3 class="font-serif text-2xl font-semibold text-forest-goldlight">Steffi Ong</h3>
+              <p class="text-[11px] font-medium tracking-widest text-forest-sage uppercase mt-2">Daughter of</p>
+              <p class="text-sm text-forest-mist mt-1">Mr. Dani Ong & <br>Mrs. Widari Maryanto </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-24 bg-gradient-to-b from-forest-deep via-forest-canopy to-forest-deep px-4 border-y border-forest-gold/20 relative">
+        <div class="firefly-box" id="schedule-fireflies"></div>
+        <div class="max-w-4xl mx-auto relative z-10">
+          <div class="text-center mb-16">
+            <span class="font-display tracking-[0.2em] text-xs text-forest-sage uppercase">JOIN US FOR THE CELEBRATION</span>
+            <h2 class="font-serif text-4xl gold-text mt-2">Wedding Schedule</h2>
+            <div class="h-[1px] w-20 bg-forest-gold/50 mx-auto mt-4"></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Holy Matrimony Card -->
+            <div class="bg-forest-deep/80 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-forest-gold/20 text-center reveal text-forest-mist">
+              <div class="w-12 h-12 bg-forest-canopy rounded-full flex items-center justify-center mx-auto mb-6 text-forest-gold border border-forest-gold/30">
+                <i class="fa-solid fa-church text-lg"></i>
+              </div>
+              <h3 class="font-serif text-xl font-semibold text-forest-goldlight mb-1">Holy Matrimony</h3>
+              <div class="text-xs tracking-widest text-forest-sage uppercase mb-4">09:00 AM WIB</div>
+              <div class="h-[1px] w-12 bg-forest-gold/30 mx-auto mb-4"></div>
+              <p class="font-serif text-forest-mist font-semibold">Pool Deck, Lantai 3</p>
+              <p class="text-sm text-forest-sage mb-1">Avenzel Hotel and Convention</p>
+              <p class="text-xs text-forest-sage/80 mb-6">Jl. Raya Kranggan No.69, Cibubur, Bekasi</p>
+              <a href="https://maps.app.goo.gl/LFeg72B7W5B2X8gg6" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-forest-gold/40 text-forest-goldlight hover:bg-forest-gold hover:text-forest-deep transition-all duration-300 text-xs font-medium bg-forest-canopy/50">
+                <i class="fa-solid fa-location-dot"></i> Open Google Maps </a>
+              <div class="flex flex-col items-center gap-2 mt-3">
+                <a href="#" data-calendar-link="ceremony" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-forest-gold/40 text-forest-goldlight hover:bg-forest-gold hover:text-forest-deep transition-all duration-300 text-xs font-medium bg-forest-canopy/50">
+                  <i class="fa-solid fa-calendar-plus"></i> Add to Calendar </a>
+                <button type="button" data-ics-download="ceremony" class="text-[10px] text-forest-sage hover:text-forest-goldlight hover:underline"> or download .ics (Apple / Outlook) </button>
+              </div>
+            </div>
+            <!-- Reception Dinner Card -->
+            <div class="bg-forest-deep/80 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-forest-gold/20 text-center reveal text-forest-mist">
+              <div class="w-12 h-12 bg-forest-canopy rounded-full flex items-center justify-center mx-auto mb-6 text-forest-gold border border-forest-gold/30">
+                <i class="fa-solid fa-champagne-glasses text-lg"></i>
+              </div>
+              <h3 class="font-serif text-xl font-semibold text-forest-goldlight mb-1">Grand Reception</h3>
+              <div class="text-xs tracking-widest text-forest-sage uppercase mb-4">06:30 PM WIB</div>
+              <div class="h-[1px] w-12 bg-forest-gold/30 mx-auto mb-4"></div>
+              <p class="font-serif text-forest-mist font-semibold">Peony Ballroom, Lantai 3</p>
+              <p class="text-sm text-forest-sage mb-1">Avenzel Hotel and Convention</p>
+              <p class="text-xs text-forest-sage/80 mb-6">Jl. Raya Kranggan No.69, Cibubur, Bekasi</p>
+              <a href="https://maps.app.goo.gl/LFeg72B7W5B2X8gg6" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-forest-gold/40 text-forest-goldlight hover:bg-forest-gold hover:text-forest-deep transition-all duration-300 text-xs font-medium bg-forest-canopy/50">
+                <i class="fa-solid fa-location-dot"></i> Open Google Maps </a>
+              <div class="flex flex-col items-center gap-2 mt-3">
+                <a href="#" data-calendar-link="reception" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-forest-gold/40 text-forest-goldlight hover:bg-forest-gold hover:text-forest-deep transition-all duration-300 text-xs font-medium bg-forest-canopy/50">
+                  <i class="fa-solid fa-calendar-plus"></i> Add to Calendar </a>
+                <button type="button" data-ics-download="reception" class="text-[10px] text-forest-sage hover:text-forest-goldlight hover:underline"> or download .ics (Apple / Outlook) </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Pre-Wedding Photo Gallery Section -->
+      <section class="py-24 bg-forest-deep px-4 border-t border-forest-gold/15 text-forest-mist">
+        <div class="max-w-3xl mx-auto text-center">
+          <span class="font-display tracking-[0.2em] text-xs text-forest-sage uppercase">OUR MOMENTS</span>
+          <h2 class="font-serif text-3xl md:text-4xl gold-text mt-2 mb-4">Photo Gallery</h2>
+          <div class="h-[1px] w-20 bg-forest-gold/40 mx-auto mb-12"></div>
+          <div class="reveal max-w-2xl mx-auto rounded-2xl overflow-hidden border-2 border-forest-gold/30 p-2 bg-forest-canopy/40 shadow-2xl">
+            <img src="asset/collage.jpg" alt="Anton & Steffi Pre-Wedding Collage" class="w-full h-auto rounded-xl object-cover shadow-lg">
+          </div>
+          <!-- Horizontal Scrollable Gallery (collage1, collage2, collage3) -->
+          <div class="reveal mt-8 relative max-w-2xl mx-auto">
+            <!-- Left Arrow Button -->
+            <button type="button" onclick="scrollGallery(-1)" aria-label="Previous photo" class="absolute -left-2 sm:-left-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-forest-deep/80 hover:bg-forest-gold hover:text-forest-deep text-forest-goldlight border border-forest-gold/40 flex items-center justify-center shadow-lg transition-all backdrop-blur-sm cursor-pointer">
+              <i class="fa-solid fa-chevron-left text-xs"></i>
+            </button>
+            <!-- Scroll Container -->
+            <div id="horizontal-gallery" class="flex items-center gap-4 overflow-x-auto snap-x snap-mandatory py-2 px-1 scrollbar-none scroll-smooth">
+              <div class="snap-center shrink-0 h-[340px] sm:h-[400px] aspect-[9/16] rounded-2xl overflow-hidden border border-forest-gold/30 p-1.5 bg-forest-canopy/40 shadow-xl group">
+                <img src="asset/collage1.jpg" alt="Anton & Steffi Photo 1" loading="lazy" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
+              </div>
+              <div class="snap-center shrink-0 h-[340px] sm:h-[400px] aspect-[9/16] rounded-2xl overflow-hidden border border-forest-gold/30 p-1.5 bg-forest-canopy/40 shadow-xl group">
+                <img src="asset/collage2.jpg" alt="Anton & Steffi Photo 2" loading="lazy" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
+              </div>
+              <div class="snap-center shrink-0 h-[340px] sm:h-[400px] aspect-[9/16] rounded-2xl overflow-hidden border border-forest-gold/30 p-1.5 bg-forest-canopy/40 shadow-xl group">
+                <img src="asset/collage3.jpg" alt="Anton & Steffi Photo 3" loading="lazy" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
+              </div>
+              <div class="snap-center shrink-0 h-[340px] sm:h-[400px] aspect-square rounded-2xl overflow-hidden border border-forest-gold/30 p-1.5 bg-forest-canopy/40 shadow-xl group">
+                <img src="asset/collage4.jpg" alt="Anton & Steffi Photo 4" loading="lazy" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
+              </div>
+              <div class="snap-center shrink-0 h-[340px] sm:h-[400px] aspect-[2/3] rounded-2xl overflow-hidden border border-forest-gold/30 p-1.5 bg-forest-canopy/40 shadow-xl group">
+                <img src="asset/studio1.jpg" alt="Anton & Steffi Studio 1" loading="lazy" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
+              </div>
+              <div class="snap-center shrink-0 h-[340px] sm:h-[400px] aspect-[2/3] rounded-2xl overflow-hidden border border-forest-gold/30 p-1.5 bg-forest-canopy/40 shadow-xl group">
+                <img src="asset/studio2.jpg" alt="Anton & Steffi Studio 2" loading="lazy" class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105">
+              </div>
+            </div>
+            <!-- Right Arrow Button -->
+            <button type="button" onclick="scrollGallery(1)" aria-label="Next photo" class="absolute -right-2 sm:-right-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-forest-deep/80 hover:bg-forest-gold hover:text-forest-deep text-forest-goldlight border border-forest-gold/40 flex items-center justify-center shadow-lg transition-all backdrop-blur-sm cursor-pointer">
+              <i class="fa-solid fa-chevron-right text-xs"></i>
+            </button>
+            <p class="text-[10px] text-forest-sage/70 tracking-widest uppercase mt-4 flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-arrows-left-right text-forest-goldlight"></i> Swipe or scroll to see more
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Wedding Gift Registry Section -->
+      <section class="py-24 bg-forest-deep px-4 border-t border-forest-gold/15 text-forest-mist">
+        <div class="max-w-2xl mx-auto text-center">
+          <span class="font-display tracking-[0.2em] text-xs text-forest-sage uppercase">WEDDING REGISTRY</span>
+          <h2 class="font-serif text-3xl md:text-4xl gold-text mt-2 mb-4">Wedding Gift</h2>
+          <div class="h-[1px] w-20 bg-forest-gold/40 mx-auto mb-6"></div>
+          <p class="text-sm md:text-base text-forest-sage leading-relaxed max-w-md mx-auto mb-10"> Your presence at our wedding is the greatest gift of all. However, should you wish to honor us with a gift, a digital contribution can be sent below. </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left max-w-md mx-auto">
+            <!-- Bank Option 1 -->
+            <div class="bg-forest-canopy/60 p-6 rounded-2xl border border-forest-gold/20 shadow-lg reveal">
+              <div class="flex justify-between items-start mb-4">
+                <span class="font-bold text-lg text-forest-goldlight tracking-wide">BCA</span>
+                <i class="fa-solid fa-credit-card text-forest-gold"></i>
+              </div>
+              <p class="text-xs text-forest-sage">Account Number</p>
+              <div class="flex items-center gap-2 mt-1">
+                <span id="acc-no-1" class="font-mono text-sm font-semibold text-white" data-acc-parts="MTk4MjcwMDIwMA=="></span>
+                <button type="button" data-copy-target="acc-no-1" class="copy-btn text-[10px] text-forest-goldlight hover:underline font-medium ml-auto flex items-center gap-1">
+                  <i class="fa-regular fa-copy"></i> Copy </button>
+              </div>
+              <p class="text-xs font-medium text-forest-sage mt-2 uppercase">A/N STEFFI ONG</p>
+            </div>
+            <!-- Bank Option 2 -->
+            <div class="bg-forest-canopy/60 p-6 rounded-2xl border border-forest-gold/20 shadow-lg reveal">
+              <div class="flex justify-between items-start mb-4">
+                <span class="font-bold text-lg text-forest-goldlight tracking-wide">BCA</span>
+                <i class="fa-solid fa-credit-card text-forest-gold"></i>
+              </div>
+              <p class="text-xs text-forest-sage">Account Number</p>
+              <div class="flex items-center gap-2 mt-1">
+                <span id="acc-no-2" class="font-mono text-sm font-semibold text-white" data-acc-parts="Mzk5MDM5NzcxNQ=="></span>
+                <button type="button" data-copy-target="acc-no-2" class="copy-btn text-[10px] text-forest-goldlight hover:underline font-medium ml-auto flex items-center gap-1">
+                  <i class="fa-regular fa-copy"></i> Copy </button>
+              </div>
+              <p class="text-xs font-medium text-forest-sage mt-2 uppercase">A/N ANTON JUNIOR</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-24 bg-forest-deep px-4 border-t border-forest-gold/15 text-forest-mist">
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center mb-16">
+            <span class="font-display tracking-[0.2em] text-xs text-forest-sage uppercase">RSVP & GUESTBOOK</span>
+            <h2 class="font-serif text-4xl gold-text mt-2">Be Our Guest</h2>
+            <div class="h-[1px] w-20 bg-forest-gold/50 mx-auto mt-4 mb-4"></div>
+            <p class="text-sm text-forest-sage max-w-sm mx-auto">Kindly respond with your attendance before November 1st, 2026, and share your warm wishes below.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            <!-- RSVP Form -->
+            <div class="bg-forest-canopy/70 p-6 md:p-8 rounded-2xl border border-forest-gold/20 shadow-2xl">
+              <h3 class="font-serif text-lg font-semibold text-forest-goldlight mb-6 text-center">Reservation Form</h3>
+              <form id="rsvp-form" class="space-y-4">
+                <!-- Name Input -->
+                <div>
+                  <label for="rsvp-name" class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Full Name*</label>
+                  <input type="text" id="rsvp-name" required class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm" placeholder="Your full name">
+                </div>
+                <!-- Phone Input (Optional) -->
+                <div>
+                  <label for="rsvp-phone" class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Phone Number <span class="text-[10px] opacity-60">(Optional)</span>
+                  </label>
+                  <input type="tel" id="rsvp-phone" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm" placeholder="e.g., 08123456789">
+                </div>
+                <!-- Attendance Selection -->
+                <div>
+                  <label for="rsvp-status" class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Will you attend?*</label>
+                  <select id="rsvp-status" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm">
+                    <option value="Yes, reception">Yes, I will join the evening reception</option>
+                    <option value="Yes, holy matrimony">Yes, I will attend the morning holy matrimony</option>
+                    <option value="Yes, both">Yes, I will attend both</option>
+                    <option value="No">No, regretfully I will not</option>
+                  </select>
+                </div>
+                <!-- Guest Count Selection -->
+                <div>
+                  <label for="rsvp-count" class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Number of Guests</label>
+                  <select id="rsvp-count" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm">
+                    <option value="1">1 Person</option>
+                    <option value="2">2 Persons</option>
+                    <option value="3">3 Persons</option>
+                    <option value="4">4 Persons</option>
+                  </select>
+                </div>
+                <!-- Wishes Message Input (Optional) -->
+                <div>
+                  <label for="rsvp-message" class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Warm Wishes <span class="text-[10px] opacity-60">(Optional)</span>
+                  </label>
+                  <textarea id="rsvp-message" rows="4" maxlength="500" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm resize-none" placeholder="Write your congratulations or blessings..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 bg-gradient-to-r from-forest-goldlight via-forest-gold to-forest-amber text-forest-deep font-display text-xs font-semibold tracking-widest rounded-lg transition-all duration-300 mt-2 shadow-lg hover:brightness-110"> SUBMIT RESPONSE </button>
+              </form>
+            </div>
+            <!-- Live Dynamic Wishes Scroll -->
+            <div class="flex flex-col h-full max-h-[460px]">
+              <h3 class="font-serif text-lg font-semibold text-forest-goldlight mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-quote-left text-forest-gold"></i> Guest Book
+              </h3>
+              <div id="wishes-list" class="space-y-4 overflow-y-auto pr-2 flex-1 scrollbar-thin">
+                <!-- Wishes populate dynamically -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Footer -->
+      <footer class="py-16 bg-gradient-to-b from-forest-deep to-forest-canopy text-white text-center px-4 relative border-t border-forest-gold/10">
+        <p class="font-serif italic text-lg text-forest-goldlight">Thank you for sharing in our joy!</p>
+        <div class="h-[1px] w-24 bg-forest-gold/30 mx-auto my-6"></div>
+        <p class="font-serif text-2xl font-light tracking-[0.1em] text-white">Anton & Steffi</p>
+        <p class="text-[9px] tracking-widest text-forest-sage/50 uppercase mt-8">&copy; 2026 Anton & Steffi Wedding. All Rights Reserved.</p>
+      </footer>
     </main>
-
     <!-- Floating Audio Control Widget -->
     <div id="audio-widget" class="fixed bottom-6 right-6 z-30 hidden">
-        <button onclick="toggleMusic()" class="w-10 h-10 rounded-full bg-forest-gold text-forest-deep flex items-center justify-center shadow-lg border border-white/20 hover:scale-110 active:scale-95 transition-all">
-            <i id="audio-icon" class="fa-solid fa-music"></i>
-        </button>
+      <button onclick="toggleMusic()" class="w-10 h-10 rounded-full bg-forest-gold text-forest-deep flex items-center justify-center shadow-lg border border-white/20 hover:scale-110 active:scale-95 transition-all">
+        <i id="audio-icon" class="fa-solid fa-music"></i>
+      </button>
     </div>
-
     <script>
-        // Google Form RSVP Configuration
-        const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSda2YNhFL0lj_QpJnXM2D9vtWx5OUUVt0bul0t4xhZrp-YD5w/formResponse";
-        
-        const ENTRY_ID_NAME = "entry.1881760146";
-        const ENTRY_ID_PHONE = "entry.2120304517";
-        const ENTRY_ID_STATUS = "entry.1832745907";
-        const ENTRY_ID_COUNT = "entry.1793951564";
-        const ENTRY_ID_MESSAGE = "entry.510660372";
-
-        const WEDDING_DATE = new Date("November 7, 2026 09:00:00").getTime();
-        const GUESTBOOK_STORAGE_KEY = "steffi_anton_wishes_backup";
-
-        // Calendar event definitions. Times are WIB (UTC+7); stored here in
-        // UTC so both the Google Calendar link and the .ics file are correct
-        // regardless of the guest's own timezone/device settings.
-        // NOTE: end times are assumed (2hr ceremony, 3hr reception) since the
-        // invite only states start times -- adjust here if actual end times differ.
-        const CALENDAR_EVENTS = {
-            ceremony: {
-                title: "Holy Matrimony - Anton & Steffi",
-                description: "Holy Matrimony of Anton & Steffi at Avenzel Hotel and Convention, Pool Deck, Lantai 3.",
-                location: "Avenzel Hotel and Convention, Jl. Raya Kranggan No.69, Cibubur, Bekasi",
-                startUTC: "20261107T020000Z", // 09:00 WIB
-                endUTC: "20261107T040000Z"    // 11:00 WIB
-            },
-            reception: {
-                title: "Grand Reception - Anton & Steffi",
-                description: "Grand Reception of Anton & Steffi at Avenzel Hotel and Convention, Peony Ballroom, Lantai 3.",
-                location: "Avenzel Hotel and Convention, Jl. Raya Kranggan No.69, Cibubur, Bekasi",
-                startUTC: "20261107T113000Z", // 18:30 WIB
-                endUTC: "20261107T143000Z"    // 21:30 WIB
-            }
-        };
-
-        function buildGoogleCalendarUrl(event) {
-            const params = new URLSearchParams({
-                action: "TEMPLATE",
-                text: event.title,
-                dates: `${event.startUTC}/${event.endUTC}`,
-                details: event.description,
-                location: event.location
-            });
-            return `https://calendar.google.com/calendar/render?${params.toString()}`;
+      // Google Form RSVP Configuration
+      const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSda2YNhFL0lj_QpJnXM2D9vtWx5OUUVt0bul0t4xhZrp-YD5w/formResponse";
+      const ENTRY_ID_NAME = "entry.1881760146";
+      const ENTRY_ID_PHONE = "entry.2120304517";
+      const ENTRY_ID_STATUS = "entry.1832745907";
+      const ENTRY_ID_COUNT = "entry.1793951564";
+      const ENTRY_ID_MESSAGE = "entry.510660372";
+      // 09:00 Jakarta time (WIB, UTC+7), so the countdown is the same for every viewer
+      const WEDDING_DATE = new Date("2026-11-07T09:00:00+07:00").getTime();
+      const GUESTBOOK_STORAGE_KEY = "steffi_anton_wishes_backup";
+      // Calendar event definitions. Times are WIB (UTC+7); stored here in
+      // UTC so both the Google Calendar link and the .ics file are correct
+      // regardless of the guest's own timezone/device settings.
+      // NOTE: end times are assumed (2hr ceremony, 3hr reception) since the
+      // invite only states start times -- adjust here if actual end times differ.
+      const CALENDAR_EVENTS = {
+        ceremony: {
+          title: "Holy Matrimony - Anton & Steffi",
+          description: "Holy Matrimony of Anton & Steffi at Avenzel Hotel and Convention, Pool Deck, Lantai 3.",
+          location: "Avenzel Hotel and Convention, Jl. Raya Kranggan No.69, Cibubur, Bekasi",
+          startUTC: "20261107T020000Z", // 09:00 WIB
+          endUTC: "20261107T040000Z" // 11:00 WIB
+        },
+        reception: {
+          title: "Grand Reception - Anton & Steffi",
+          description: "Grand Reception of Anton & Steffi at Avenzel Hotel and Convention, Peony Ballroom, Lantai 3.",
+          location: "Avenzel Hotel and Convention, Jl. Raya Kranggan No.69, Cibubur, Bekasi",
+          startUTC: "20261107T113000Z", // 18:30 WIB
+          endUTC: "20261107T143000Z" // 21:30 WIB
         }
+      };
 
-        function buildICSContent(event) {
-            const now = new Date().toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
-            const uid = `${event.title.replace(/\s+/g, "-")}-${now}@steffi-anton-wedding`;
-            // Basic escaping for ICS text fields
-            const esc = (str) => str.replace(/([,;])/g, "\\$1");
+      function buildGoogleCalendarUrl(event) {
+        const params = new URLSearchParams({
+          action: "TEMPLATE",
+          text: event.title,
+          dates: `${event.startUTC}/${event.endUTC}`,
+          details: event.description,
+          location: event.location
+        });
+        return `https://calendar.google.com/calendar/render?${params.toString()}`;
+      }
 
-            return [
-                "BEGIN:VCALENDAR",
-                "VERSION:2.0",
-                "PRODID:-//Anton & Steffi Wedding//EN",
-                "CALSCALE:GREGORIAN",
-                "BEGIN:VEVENT",
-                `UID:${uid}`,
-                `DTSTAMP:${now}`,
-                `DTSTART:${event.startUTC}`,
-                `DTEND:${event.endUTC}`,
-                `SUMMARY:${esc(event.title)}`,
-                `DESCRIPTION:${esc(event.description)}`,
-                `LOCATION:${esc(event.location)}`,
-                "END:VEVENT",
-                "END:VCALENDAR"
-            ].join("\r\n");
-        }
+      function buildICSContent(event) {
+        const now = new Date().toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+        const uid = `${event.title.replace(/\s+/g, "-")}-${now}@steffi-anton-wedding`;
+        // Basic escaping for ICS text fields
+        const esc = (str) => str.replace(/([,;])/g, "\\$1");
+        return ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Anton & Steffi Wedding//EN", "CALSCALE:GREGORIAN", "BEGIN:VEVENT", `UID:${uid}`, `DTSTAMP:${now}`, `DTSTART:${event.startUTC}`, `DTEND:${event.endUTC}`, `SUMMARY:${esc(event.title)}`, `DESCRIPTION:${esc(event.description)}`, `LOCATION:${esc(event.location)}`, "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+      }
 
-        function downloadICS(key) {
-            const event = CALENDAR_EVENTS[key];
-            if (!event) return;
-            const icsContent = buildICSContent(event);
-            const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = `${key === "ceremony" ? "Holy-Matrimony" : "Grand-Reception"}-Steffi-Anton.ics`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }
+      function downloadICS(key) {
+        const event = CALENDAR_EVENTS[key];
+        if (!event) return;
+        const icsContent = buildICSContent(event);
+        const blob = new Blob([icsContent], {
+          type: "text/calendar;charset=utf-8"
+        });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `${key === "ceremony" ? "Holy-Matrimony" : "Grand-Reception"}-Steffi-Anton.ics`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
 
-        function initCalendarButtons() {
-            document.querySelectorAll('[data-calendar-link]').forEach(link => {
-                const key = link.getAttribute('data-calendar-link');
-                const event = CALENDAR_EVENTS[key];
-                if (event) link.href = buildGoogleCalendarUrl(event);
-            });
-            document.querySelectorAll('[data-ics-download]').forEach(btn => {
-                btn.addEventListener('click', () => downloadICS(btn.getAttribute('data-ics-download')));
-            });
-        }
+      function initCalendarButtons() {
+        document.querySelectorAll('[data-calendar-link]').forEach(link => {
+          const key = link.getAttribute('data-calendar-link');
+          const event = CALENDAR_EVENTS[key];
+          if (event) link.href = buildGoogleCalendarUrl(event);
+        });
+        document.querySelectorAll('[data-ics-download]').forEach(btn => {
+          btn.addEventListener('click', () => downloadICS(btn.getAttribute('data-ics-download')));
+        });
+      }
 
-        function scrollGallery(direction) {
-            const gallery = document.getElementById('horizontal-gallery');
-            if (!gallery) return;
-            const scrollDistance = gallery.clientWidth * 0.75;
-            gallery.scrollBy({ left: direction * scrollDistance, behavior: 'smooth' });
-        }
+      function scrollGallery(direction) {
+        const gallery = document.getElementById('horizontal-gallery');
+        if (!gallery) return;
+        const scrollDistance = gallery.clientWidth * 0.75;
+        gallery.scrollBy({
+          left: direction * scrollDistance,
+          behavior: 'smooth'
+        });
+      }
 
-        // Web Audio Synthesizer
-        // ============================================================
-// Final Fantasy-style version (original composition, not a copy of any game track).
-// Same drop-in spot as before: replaces everything from "// Web Audio Synthesizer"
-// down to the end of toggleMusic() (and the visibilitychange listener if you
-// already pasted the previous patch).
-//
-// openInvitation() stays EXACTLY as in your original file (no edits needed):
-//   isMusicPlaying = true;
-//   initSynth();
-//   runMusicLoop();
-//   revealElements();
-//
-// Layers: rolling harp arpeggio + soft string pad + plucked bass + flute-like lead.
-// 8 bars of Cadd9 - G/B - Am7 - Em7 - Fmaj7 - C/E - Dm7 - Gsus4, about 15 s per loop.
-// ============================================================
-
-// Web Audio Synthesizer
-let audioCtx = null;
-let noteBus = null;
-let masterGain = null;
-let schedulerTimer = null;
-let isMusicPlaying = false;
-let musicStep = 0;
-let nextNoteTime = 0;
-
-const STEP_SECONDS = 0.24;   // one 8th note (lower = faster)
-const STEPS_PER_BAR = 8;
-const LOOKAHEAD = 0.3;       // schedule this far ahead (seconds)
-
-const mtof = (m) => 440 * Math.pow(2, (m - 69) / 12);
-
-// bass = bass note, arp = 5 chord tones (low to high) used by the harp
-const progression = [
-    { name: 'Cadd9',  bass: 48, arp: [60, 64, 67, 72, 74] },
-    { name: 'G/B',    bass: 47, arp: [59, 62, 67, 71, 74] },
-    { name: 'Am7',    bass: 45, arp: [57, 60, 64, 67, 72] },
-    { name: 'Em7',    bass: 52, arp: [59, 64, 67, 71, 76] },
-    { name: 'Fmaj7',  bass: 53, arp: [60, 65, 69, 72, 76] },
-    { name: 'C/E',    bass: 52, arp: [64, 67, 72, 76, 79] },
-    { name: 'Dm7',    bass: 50, arp: [62, 65, 69, 72, 77] },
-    { name: 'Gsus4',  bass: 43, arp: [62, 67, 72, 74, 79] }
-];
-
-// Up-and-down harp patterns (indexes into arp); alternate by bar
-const arpPatterns = [
-    [0, 1, 2, 3, 4, 3, 2, 1],
-    [0, 2, 1, 3, 2, 4, 3, 2]
-];
-
-// Lead melody: [bar, step, midi note, length in steps]
-const melodyLine = [
-    [0, 0, 76, 6], [0, 6, 74, 2],
-    [1, 0, 71, 4], [1, 4, 74, 4],
-    [2, 0, 72, 2], [2, 2, 76, 2], [2, 4, 81, 4],
-    [3, 0, 79, 6], [3, 6, 76, 2],
-    [4, 0, 77, 4], [4, 4, 76, 2], [4, 6, 72, 2],
-    [5, 0, 76, 4], [5, 4, 79, 4],
-    [6, 0, 77, 4], [6, 4, 74, 2], [6, 6, 72, 2],
-    [7, 0, 74, 6], [7, 6, 69, 2]
-];
-const melodyMap = {};
-melodyLine.forEach(([bar, step, midi, len]) => { melodyMap[bar + ':' + step] = [midi, len]; });
-
-// Generated hall reverb: decaying stereo noise as an impulse response
-function makeReverb(ctx, seconds = 3.5, decay = 2.6) {
-    const rate = ctx.sampleRate;
-    const len = Math.floor(rate * seconds);
-    const buf = ctx.createBuffer(2, len, rate);
-    for (let c = 0; c < 2; c++) {
-        const d = buf.getChannelData(c);
-        for (let i = 0; i < len; i++) {
+      // ============================================================
+      // Web Audio Synthesizer (Final Fantasy-style, original composition)
+      // Layers: rolling harp arpeggio + soft string pad + plucked bass + flute-like lead.
+      // 8 bars of Cadd9 - G/B - Am7 - Em7 - Fmaj7 - C/E - Dm7 - Gsus4, about 15 s per loop.
+      // ============================================================
+      let audioCtx = null;
+      let noteBus = null;
+      let masterGain = null;
+      let schedulerTimer = null;
+      let isMusicPlaying = false;
+      let musicStep = 0;
+      let nextNoteTime = 0;
+      const STEP_SECONDS = 0.24; // one 8th note (lower = faster)
+      const STEPS_PER_BAR = 8;
+      const LOOKAHEAD = 0.3; // schedule this far ahead (seconds)
+      const mtof = (m) => 440 * Math.pow(2, (m - 69) / 12);
+      // bass = bass note, arp = 5 chord tones (low to high) used by the harp
+      const progression = [{
+        name: 'Cadd9',
+        bass: 48,
+        arp: [60, 64, 67, 72, 74]
+      }, {
+        name: 'G/B',
+        bass: 47,
+        arp: [59, 62, 67, 71, 74]
+      }, {
+        name: 'Am7',
+        bass: 45,
+        arp: [57, 60, 64, 67, 72]
+      }, {
+        name: 'Em7',
+        bass: 52,
+        arp: [59, 64, 67, 71, 76]
+      }, {
+        name: 'Fmaj7',
+        bass: 53,
+        arp: [60, 65, 69, 72, 76]
+      }, {
+        name: 'C/E',
+        bass: 52,
+        arp: [64, 67, 72, 76, 79]
+      }, {
+        name: 'Dm7',
+        bass: 50,
+        arp: [62, 65, 69, 72, 77]
+      }, {
+        name: 'Gsus4',
+        bass: 43,
+        arp: [62, 67, 72, 74, 79]
+      }];
+      // Up-and-down harp patterns (indexes into arp); alternate by bar
+      const arpPatterns = [
+        [0, 1, 2, 3, 4, 3, 2, 1],
+        [0, 2, 1, 3, 2, 4, 3, 2]
+      ];
+      // Lead melody: [bar, step, midi note, length in steps]
+      const melodyLine = [
+        [0, 0, 76, 6],
+        [0, 6, 74, 2],
+        [1, 0, 71, 4],
+        [1, 4, 74, 4],
+        [2, 0, 72, 2],
+        [2, 2, 76, 2],
+        [2, 4, 81, 4],
+        [3, 0, 79, 6],
+        [3, 6, 76, 2],
+        [4, 0, 77, 4],
+        [4, 4, 76, 2],
+        [4, 6, 72, 2],
+        [5, 0, 76, 4],
+        [5, 4, 79, 4],
+        [6, 0, 77, 4],
+        [6, 4, 74, 2],
+        [6, 6, 72, 2],
+        [7, 0, 74, 6],
+        [7, 6, 69, 2]
+      ];
+      const melodyMap = {};
+      melodyLine.forEach(([bar, step, midi, len]) => {
+        melodyMap[bar + ':' + step] = [midi, len];
+      });
+      // Generated hall reverb: decaying stereo noise as an impulse response
+      function makeReverb(ctx, seconds = 3.5, decay = 2.6) {
+        const rate = ctx.sampleRate;
+        const len = Math.floor(rate * seconds);
+        const buf = ctx.createBuffer(2, len, rate);
+        for (let c = 0; c < 2; c++) {
+          const d = buf.getChannelData(c);
+          for (let i = 0; i < len; i++) {
             d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, decay);
+          }
         }
-    }
-    const conv = ctx.createConvolver();
-    conv.buffer = buf;
-    return conv;
-}
+        const conv = ctx.createConvolver();
+        conv.buffer = buf;
+        return conv;
+      }
 
-function initSynth() {
-    if (audioCtx) return;
-    const AC = window.AudioContext || window.webkitAudioContext;
-    if (!AC) { console.warn("Web Audio API not supported on this device."); return; }
-    audioCtx = new AC();
-
-    // master: gentle fade-in, then a compressor so stacked layers never clip
-    masterGain = audioCtx.createGain();
-    masterGain.gain.setValueAtTime(0, audioCtx.currentTime);
-    masterGain.gain.linearRampToValueAtTime(0.8, audioCtx.currentTime + 4);
-    const comp = audioCtx.createDynamicsCompressor();
-    comp.threshold.value = -20;
-    comp.knee.value = 20;
-    comp.ratio.value = 4;
-    masterGain.connect(comp).connect(audioCtx.destination);
-
-    // everything goes through one bus, split into dry + reverb
-    noteBus = audioCtx.createGain();
-    const dry = audioCtx.createGain(); dry.gain.value = 0.75;
-    const wet = audioCtx.createGain(); wet.gain.value = 0.42;
-    noteBus.connect(dry).connect(masterGain);
-    noteBus.connect(makeReverb(audioCtx)).connect(wet).connect(masterGain);
-}
-
-// Basic oscillator voice.
-// pluck:   fast attack, exponential decay over `dur`
-// sustain: slower attack, holds, then releases at the end of `dur`
-function tone(freq, type, when, attack, peak, dur, out, sustain) {
-    const osc = audioCtx.createOscillator();
-    const g = audioCtx.createGain();
-    osc.type = type;
-    osc.frequency.value = freq;
-
-    g.gain.setValueAtTime(0.0001, when);
-    g.gain.linearRampToValueAtTime(peak, when + attack);
-    if (sustain) {
-        const releaseAt = Math.max(when + attack, when + dur - 0.35);
-        g.gain.setValueAtTime(peak, releaseAt);
-    }
-    g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
-
-    osc.connect(g);
-    g.connect(out);
-    osc.start(when);
-    osc.stop(when + dur + 0.05);
-    return osc;
-}
-
-// Harp: sine fundamental + two quick-fading upper partials for the "pluck"
-function playHarp(midi, when, vel, panValue) {
-    const f = mtof(midi);
-    let out = noteBus;
-    if (audioCtx.createStereoPanner) {
-        const p = audioCtx.createStereoPanner();
-        p.pan.value = panValue;           // low notes left, high notes right
-        p.connect(noteBus);
-        out = p;
-    }
-    tone(f,     'sine', when, 0.004, 0.070 * vel, 2.0, out);
-    tone(f * 2, 'sine', when, 0.004, 0.018 * vel, 0.9, out);
-    tone(f * 3, 'sine', when, 0.004, 0.007 * vel, 0.5, out);
-}
-
-// Bass: plucked sine with a quiet octave-up partial so phones can hear it
-function playBass(midi, when, dur) {
-    const f = mtof(midi);
-    tone(f,     'sine', when, 0.02, 0.11, dur, noteBus);
-    tone(f * 2, 'sine', when, 0.02, 0.04, dur * 0.7, noteBus);
-}
-
-// Strings pad: detuned triangle pairs through a low-pass, slow swell
-function playPad(midis, when, dur) {
-    const lp = audioCtx.createBiquadFilter();
-    lp.type = 'lowpass';
-    lp.frequency.value = 1100;
-    lp.connect(noteBus);
-    midis.forEach((m) => {
-        [-5, 5].forEach((cents) => {
+      function initSynth() {
+        if (audioCtx) return;
+        const AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) {
+          console.warn("Web Audio API not supported on this device.");
+          return;
+        }
+        audioCtx = new AC();
+        // master: gentle fade-in, then a compressor so stacked layers never clip
+        masterGain = audioCtx.createGain();
+        masterGain.gain.setValueAtTime(0, audioCtx.currentTime);
+        masterGain.gain.linearRampToValueAtTime(0.8, audioCtx.currentTime + 4);
+        const comp = audioCtx.createDynamicsCompressor();
+        comp.threshold.value = -20;
+        comp.knee.value = 20;
+        comp.ratio.value = 4;
+        masterGain.connect(comp).connect(audioCtx.destination);
+        // everything goes through one bus, split into dry + reverb
+        noteBus = audioCtx.createGain();
+        const dry = audioCtx.createGain();
+        dry.gain.value = 0.75;
+        const wet = audioCtx.createGain();
+        wet.gain.value = 0.42;
+        noteBus.connect(dry).connect(masterGain);
+        noteBus.connect(makeReverb(audioCtx)).connect(wet).connect(masterGain);
+      }
+      // Basic oscillator voice.
+      // pluck:   fast attack, exponential decay over `dur`
+      // sustain: slower attack, holds, then releases at the end of `dur`
+      function tone(freq, type, when, attack, peak, dur, out, sustain) {
+        const osc = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.value = freq;
+        g.gain.setValueAtTime(0.0001, when);
+        g.gain.linearRampToValueAtTime(peak, when + attack);
+        if (sustain) {
+          const releaseAt = Math.max(when + attack, when + dur - 0.35);
+          g.gain.setValueAtTime(peak, releaseAt);
+        }
+        g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+        osc.connect(g);
+        g.connect(out);
+        osc.start(when);
+        osc.stop(when + dur + 0.05);
+        return osc;
+      }
+      // Harp: sine fundamental + two quick-fading upper partials for the "pluck"
+      function playHarp(midi, when, vel, panValue) {
+        const f = mtof(midi);
+        let out = noteBus;
+        if (audioCtx.createStereoPanner) {
+          const p = audioCtx.createStereoPanner();
+          p.pan.value = panValue; // low notes left, high notes right
+          p.connect(noteBus);
+          out = p;
+        }
+        tone(f, 'sine', when, 0.004, 0.070 * vel, 2.0, out);
+        tone(f * 2, 'sine', when, 0.004, 0.018 * vel, 0.9, out);
+        tone(f * 3, 'sine', when, 0.004, 0.007 * vel, 0.5, out);
+      }
+      // Bass: plucked sine with a quiet octave-up partial so phones can hear it
+      function playBass(midi, when, dur) {
+        const f = mtof(midi);
+        tone(f, 'sine', when, 0.02, 0.11, dur, noteBus);
+        tone(f * 2, 'sine', when, 0.02, 0.04, dur * 0.7, noteBus);
+      }
+      // Strings pad: detuned triangle pairs through a low-pass, slow swell
+      function playPad(midis, when, dur) {
+        const lp = audioCtx.createBiquadFilter();
+        lp.type = 'lowpass';
+        lp.frequency.value = 1100;
+        lp.connect(noteBus);
+        midis.forEach((m) => {
+          [-5, 5].forEach((cents) => {
             const osc = tone(mtof(m), 'triangle', when, 0.6, 0.012, dur, lp, true);
             osc.detune.value = cents;
+          });
         });
-    });
-}
+      }
+      // Lead: soft flute-like triangle with delayed vibrato
+      function playLead(midi, when, dur) {
+        const lp = audioCtx.createBiquadFilter();
+        lp.type = 'lowpass';
+        lp.frequency.value = 2400;
+        lp.connect(noteBus);
+        const osc = tone(mtof(midi), 'triangle', when, 0.08, 0.05, dur, lp, true);
+        const lfo = audioCtx.createOscillator();
+        const lfoGain = audioCtx.createGain();
+        lfo.frequency.value = 5.5;
+        lfoGain.gain.setValueAtTime(0, when);
+        lfoGain.gain.linearRampToValueAtTime(3, when + 0.4); // +/-3 Hz, fades in
+        lfo.connect(lfoGain).connect(osc.frequency);
+        lfo.start(when);
+        lfo.stop(when + dur + 0.05);
+      }
 
-// Lead: soft flute-like triangle with delayed vibrato
-function playLead(midi, when, dur) {
-    const lp = audioCtx.createBiquadFilter();
-    lp.type = 'lowpass';
-    lp.frequency.value = 2400;
-    lp.connect(noteBus);
-
-    const osc = tone(mtof(midi), 'triangle', when, 0.08, 0.05, dur, lp, true);
-
-    const lfo = audioCtx.createOscillator();
-    const lfoGain = audioCtx.createGain();
-    lfo.frequency.value = 5.5;
-    lfoGain.gain.setValueAtTime(0, when);
-    lfoGain.gain.linearRampToValueAtTime(3, when + 0.4);   // +/-3 Hz, fades in
-    lfo.connect(lfoGain).connect(osc.frequency);
-    lfo.start(when);
-    lfo.stop(when + dur + 0.05);
-}
-
-function scheduleStep(n, t) {
-    const bar = Math.floor(n / STEPS_PER_BAR) % progression.length;
-    const step = n % STEPS_PER_BAR;
-    const chord = progression[bar];
-    const barLen = STEPS_PER_BAR * STEP_SECONDS;
-    const pattern = arpPatterns[bar % 2];
-    const idx = pattern[step];
-
-    const vel = step === 0 ? 1.0 : (step === 4 ? 0.9 : 0.7 + Math.random() * 0.25);
-    playHarp(chord.arp[idx], t, vel, (idx - 2) / 2 * 0.5);
-
-    if (step === 0) {
-        playBass(chord.bass, t, barLen + 0.3);
-        playPad(chord.arp.slice(1, 4), t, barLen + 0.5);
-    }
-
-    const m = melodyMap[bar + ':' + step];
-    if (m) playLead(m[0], t, m[1] * STEP_SECONDS);
-}
-
-// Look-ahead scheduler: the timer only queues notes on the audio clock,
-// so timing stays exact even when setTimeout jitters.
-function scheduler() {
-    if (!isMusicPlaying || !audioCtx) return;
-    while (nextNoteTime < audioCtx.currentTime + LOOKAHEAD) {
-        scheduleStep(musicStep, nextNoteTime);
-        nextNoteTime += STEP_SECONDS;
-        musicStep++;
-    }
-    schedulerTimer = setTimeout(scheduler, 100);
-}
-
-// Called by your ORIGINAL openInvitation():
-//   isMusicPlaying = true; initSynth(); runMusicLoop();
-function runMusicLoop() {
-    if (!audioCtx) return;
-    clearTimeout(schedulerTimer);   // never run two loops at once
-    audioCtx.resume();
-    nextNoteTime = audioCtx.currentTime + 0.1;
-    scheduler();
-}
-
-// Used by the music button
-function startMusic() {
-    isMusicPlaying = true;
-    initSynth();
-    runMusicLoop();
-}
-
-function stopMusic() {
-    isMusicPlaying = false;
-    clearTimeout(schedulerTimer);
-}
-
-function toggleMusic() {
-    const icon = document.getElementById('audio-icon');
-    if (isMusicPlaying) {
-        stopMusic();
-        icon.className = "fa-solid fa-volume-xmark";
-    } else {
-        startMusic();
-        icon.className = "fa-solid fa-music";
-    }
-}
-
-// Pause the audio clock in background tabs instead of letting it stutter
-document.addEventListener('visibilitychange', () => {
-    if (!audioCtx || !isMusicPlaying) return;
-    if (document.hidden) audioCtx.suspend();
-    else audioCtx.resume();
-});
-
-        // Generate Particles (Fireflies & Petals)
-        function createParticles(containerId, count) {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-            
-            for (let i = 0; i < count; i++) {
-                // Firefly
-                const firefly = document.createElement('div');
-                firefly.className = 'firefly';
-                const size = Math.random() * 5 + 3;
-                firefly.style.width = `${size}px`;
-                firefly.style.height = `${size}px`;
-                firefly.style.left = `${Math.random() * 100}%`;
-                firefly.style.top = `${Math.random() * 100}%`;
-                firefly.style.animationDelay = `${Math.random() * 8}s`;
-                firefly.style.animationDuration = `${Math.random() * 10 + 8}s`;
-                container.appendChild(firefly);
-
-                // Petal
-                const petal = document.createElement('div');
-                petal.className = 'petal';
-                const pSize = Math.random() * 8 + 6;
-                petal.style.width = `${pSize}px`;
-                petal.style.height = `${pSize * 1.5}px`;
-                petal.style.left = `${Math.random() * 100}%`;
-                petal.style.top = `-20px`;
-                petal.style.animationDelay = `${Math.random() * 10}s`;
-                petal.style.animationDuration = `${Math.random() * 8 + 7}s`;
-                container.appendChild(petal);
-            }
+      function scheduleStep(n, t) {
+        const bar = Math.floor(n / STEPS_PER_BAR) % progression.length;
+        const step = n % STEPS_PER_BAR;
+        const chord = progression[bar];
+        const barLen = STEPS_PER_BAR * STEP_SECONDS;
+        const pattern = arpPatterns[bar % 2];
+        const idx = pattern[step];
+        const vel = step === 0 ? 1.0 : (step === 4 ? 0.9 : 0.7 + Math.random() * 0.25);
+        playHarp(chord.arp[idx], t, vel, (idx - 2) / 2 * 0.5);
+        if (step === 0) {
+          playBass(chord.bass, t, barLen + 0.3);
+          playPad(chord.arp.slice(1, 4), t, barLen + 0.5);
         }
-
-        // Open Invitation Envelope
-        function openInvitation() {
-            const envelope = document.getElementById('interactive-envelope');
-            envelope.classList.add('open');
-
-            setTimeout(() => {
-                document.getElementById('envelope-overlay').classList.add('opacity-0');
-                document.getElementById('main-content').classList.remove('hidden');
-                setTimeout(() => {
-                    document.getElementById('main-content').classList.add('opacity-100');
-                    document.getElementById('envelope-overlay').classList.add('hidden');
-                    document.getElementById('audio-widget').classList.remove('hidden');
-                    
-                    isMusicPlaying = true;
-                    initSynth();
-                    runMusicLoop();
-                    revealElements();
-                }, 400);
-            }, 1000);
+        const m = melodyMap[bar + ':' + step];
+        if (m) playLead(m[0], t, m[1] * STEP_SECONDS);
+      }
+      // Look-ahead scheduler: the timer only queues notes on the audio clock,
+      // so timing stays exact even when setTimeout jitters.
+      function scheduler() {
+        if (!isMusicPlaying || !audioCtx) return;
+        while (nextNoteTime < audioCtx.currentTime + LOOKAHEAD) {
+          scheduleStep(musicStep, nextNoteTime);
+          nextNoteTime += STEP_SECONDS;
+          musicStep++;
         }
+        schedulerTimer = setTimeout(scheduler, 100);
+      }
+      // Called by openInvitation(): isMusicPlaying = true; initSynth(); runMusicLoop();
+      function runMusicLoop() {
+        if (!audioCtx) return;
+        clearTimeout(schedulerTimer); // never run two loops at once
+        audioCtx.resume();
+        nextNoteTime = audioCtx.currentTime + 0.1;
+        scheduler();
+      }
+      // Used by the music button
+      function startMusic() {
+        isMusicPlaying = true;
+        initSynth();
+        runMusicLoop();
+      }
 
-        function parseUrlRecipient() {
-            const params = new URLSearchParams(window.location.search);
-            const toVal = params.get('to');
-            const uVal = params.get('u');
+      function stopMusic() {
+        isMusicPlaying = false;
+        clearTimeout(schedulerTimer);
+      }
 
-            if (toVal) {
-                const nameElement = document.getElementById('guest-name');
-                if (nameElement) nameElement.innerText = toVal;
-
-                const rsvpNameInput = document.getElementById('rsvp-name');
-                if (rsvpNameInput) rsvpNameInput.value = toVal;
-            }
-            if (uVal) {
-                const subtextElement = document.getElementById('guest-subtext');
-                if (subtextElement) subtextElement.innerText = uVal;
-            }
+      function toggleMusic() {
+        const icon = document.getElementById('audio-icon');
+        if (isMusicPlaying) {
+          stopMusic();
+          icon.className = "fa-solid fa-volume-xmark";
+        } else {
+          startMusic();
+          icon.className = "fa-solid fa-music";
         }
+      }
+      // Pause the audio clock in background tabs instead of letting it stutter
+      document.addEventListener('visibilitychange', () => {
+        if (!audioCtx || !isMusicPlaying) return;
+        if (document.hidden) audioCtx.suspend();
+        else audioCtx.resume();
+      });
 
-        function renderAccountNumbers() {
-            document.querySelectorAll('[data-acc-parts]').forEach(el => {
-                try {
-                    el.textContent = atob(el.getAttribute('data-acc-parts'));
-                } catch (e) {
-                    console.warn('Could not decode account number', e);
-                }
-            });
+      // Generate Particles (Fireflies & Petals)
+      function createParticles(containerId, count) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        for (let i = 0; i < count; i++) {
+          // Firefly
+          const firefly = document.createElement('div');
+          firefly.className = 'firefly';
+          const size = Math.random() * 5 + 3;
+          firefly.style.width = `${size}px`;
+          firefly.style.height = `${size}px`;
+          firefly.style.left = `${Math.random() * 100}%`;
+          firefly.style.top = `${Math.random() * 100}%`;
+          firefly.style.animationDelay = `${Math.random() * 8}s`;
+          firefly.style.animationDuration = `${Math.random() * 10 + 8}s`;
+          container.appendChild(firefly);
+          // Petal
+          const petal = document.createElement('div');
+          petal.className = 'petal';
+          const pSize = Math.random() * 8 + 6;
+          petal.style.width = `${pSize}px`;
+          petal.style.height = `${pSize * 1.5}px`;
+          petal.style.left = `${Math.random() * 100}%`;
+          petal.style.top = `-20px`;
+          petal.style.animationDelay = `${Math.random() * 10}s`;
+          petal.style.animationDuration = `${Math.random() * 8 + 7}s`;
+          container.appendChild(petal);
         }
+      }
 
-        async function copyToClipboard(elementId) {
-            const el = document.getElementById(elementId);
-            const textToCopy = el.innerText;
-            const btn = document.querySelector(`[data-copy-target="${elementId}"]`);
-            const prevHtml = btn.innerHTML;
+      // Open Invitation Envelope
+      function openInvitation() {
+        // Create and unlock the audio engine inside the tap itself, so iOS Safari allows sound
+        initSynth();
+        if (audioCtx) audioCtx.resume();
 
-            const showCopied = () => {
-                btn.innerHTML = `<i class="fa-solid fa-check"></i> Copied!`;
-                setTimeout(() => { btn.innerHTML = prevHtml; }, 2000);
-            };
-            const showFailed = () => {
-                btn.innerHTML = `<i class="fa-solid fa-xmark"></i> Failed`;
-                setTimeout(() => { btn.innerHTML = prevHtml; }, 2000);
-            };
+        const envelope = document.getElementById('interactive-envelope');
+        envelope.classList.add('open');
+        setTimeout(() => {
+          document.getElementById('envelope-overlay').classList.add('opacity-0');
+          document.getElementById('main-content').classList.remove('hidden');
+          setTimeout(() => {
+            document.getElementById('main-content').classList.add('opacity-100');
+            document.getElementById('envelope-overlay').classList.add('hidden');
+            document.getElementById('audio-widget').classList.remove('hidden');
+            isMusicPlaying = true;
+            initSynth();
+            runMusicLoop();
+            revealElements();
+          }, 400);
+        }, 1000);
+      }
 
-            // Preferred modern API (requires secure context: https or localhost --
-            // GitHub Pages serves over https, so this will work there).
-            if (navigator.clipboard && window.isSecureContext) {
-                try {
-                    await navigator.clipboard.writeText(textToCopy);
-                    showCopied();
-                    return;
-                } catch (err) {
-                    console.warn('Clipboard API failed, falling back.', err);
-                }
-            }
-
-            // Fallback for older/non-secure contexts.
-            try {
-                const tempInput = document.createElement("textarea");
-                tempInput.value = textToCopy;
-                tempInput.style.position = "fixed";
-                tempInput.style.opacity = "0";
-                document.body.appendChild(tempInput);
-                tempInput.focus();
-                tempInput.select();
-                const successful = document.execCommand("copy");
-                document.body.removeChild(tempInput);
-                successful ? showCopied() : showFailed();
-            } catch (err) {
-                console.error('Copy fallback failed', err);
-                showFailed();
-            }
+      function parseUrlRecipient() {
+        const params = new URLSearchParams(window.location.search);
+        const toVal = params.get('to');
+        const uVal = params.get('u');
+        if (toVal) {
+          const nameElement = document.getElementById('guest-name');
+          if (nameElement) nameElement.innerText = toVal;
+          const rsvpNameInput = document.getElementById('rsvp-name');
+          if (rsvpNameInput) rsvpNameInput.value = toVal;
         }
-
-        function runCountdown() {
-            const now = new Date().getTime();
-            const difference = WEDDING_DATE - now;
-
-            if (difference < 0) {
-                document.getElementById('days').innerText = "00";
-                document.getElementById('hours').innerText = "00";
-                document.getElementById('minutes').innerText = "00";
-                document.getElementById('seconds').innerText = "00";
-                return;
-            }
-
-            const d = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((difference % (1000 * 60)) / 1000);
-
-            document.getElementById('days').innerText = String(d).padStart(2, '0');
-            document.getElementById('hours').innerText = String(h).padStart(2, '0');
-            document.getElementById('minutes').innerText = String(m).padStart(2, '0');
-            document.getElementById('seconds').innerText = String(s).padStart(2, '0');
+        if (uVal) {
+          const subtextElement = document.getElementById('guest-subtext');
+          if (subtextElement) subtextElement.innerText = uVal;
         }
-        setInterval(runCountdown, 1000);
+      }
 
-        // Guestbook Local Storage
-        const defaultWishes = [
-            { name: "Jessica Clara", status: "Yes", message: "Wishing you both a magical journey together. Congratulations Anton & Steffi!", timestamp: Date.now() - 400000 },
-            { name: "Robert Hartono", status: "Yes", message: "So excited for the big day! Can't wait to celebrate with you.", timestamp: Date.now() - 800000 }
-        ];
-
-        function getLocalWishes() {
-            const raw = localStorage.getItem(GUESTBOOK_STORAGE_KEY);
-            if (!raw) {
-                localStorage.setItem(GUESTBOOK_STORAGE_KEY, JSON.stringify(defaultWishes));
-                return defaultWishes;
-            }
-            return JSON.parse(raw);
-        }
-
-        function renderWishesList(wishes) {
-            const container = document.getElementById('wishes-list');
-            if (!container) return;
-            container.innerHTML = "";
-            
-            wishes.forEach(wish => {
-                const date = new Date(wish.timestamp).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-                const bubble = document.createElement('div');
-                bubble.className = "bg-forest-canopy/60 p-4 rounded-xl border border-forest-gold/15 text-xs shadow-md text-forest-mist";
-                bubble.innerHTML = `
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="font-semibold text-forest-goldlight">${escapeHtml(wish.name)}</span>
-                    </div>
-                    ${wish.message ? `<p class="text-forest-sage leading-relaxed mb-1 italic">"${escapeHtml(wish.message)}"</p>` : ''}
-                    <span class="text-[9px] text-forest-sage/60 font-medium">${date}</span>
-                `;
-                container.appendChild(bubble);
-            });
-        }
-
-        function escapeHtml(text) {
-            return text
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#039;");
-        }
-
-        // Form Submit Handler
-        const rsvpForm = document.getElementById('rsvp-form');
-        if (rsvpForm) {
-            rsvpForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                const name = document.getElementById('rsvp-name').value.trim();
-                const phone = document.getElementById('rsvp-phone').value.trim();
-                const status = document.getElementById('rsvp-status').value;
-                const count = document.getElementById('rsvp-count').value;
-                const message = document.getElementById('rsvp-message').value.trim();
-
-                // Validate BEFORE touching the submit button, so a failed
-                // validation never leaves the button stuck on "SUBMITTING...".
-                if (!name || !status) {
-                    document.getElementById('rsvp-name').reportValidity();
-                    return;
-                }
-
-                const submitButton = rsvpForm.querySelector('button[type="submit"]');
-                submitButton.disabled = true;
-                submitButton.innerHTML = 'SUBMITTING...';
-
-                const formData = new FormData();
-                formData.append(ENTRY_ID_NAME, name);
-                formData.append(ENTRY_ID_PHONE, phone);
-                formData.append(ENTRY_ID_STATUS, status);
-                formData.append(ENTRY_ID_COUNT, count);
-                formData.append(ENTRY_ID_MESSAGE, message);
-
-                fetch(GOOGLE_FORM_URL, {
-                    method: "POST",
-                    mode: "no-cors",
-                    body: formData
-                }).catch(err => console.error(err));
-
-                const localWishes = getLocalWishes();
-                localWishes.unshift({
-                    name: name,
-                    status: status,
-                    message: message,
-                    timestamp: Date.now()
-                });
-                localStorage.setItem(GUESTBOOK_STORAGE_KEY, JSON.stringify(localWishes));
-                renderWishesList(localWishes);
-
-                const formContainer = rsvpForm.parentElement;
-                formContainer.innerHTML = `
-                    <div class="text-center py-8 text-forest-mist">
-                        <div class="w-16 h-16 bg-forest-canopy rounded-full flex items-center justify-center mx-auto mb-4 text-forest-gold border border-forest-gold/30">
-                            <i class="fa-solid fa-circle-check text-2xl"></i>
-                        </div>
-                        <h4 class="font-serif text-xl font-semibold text-forest-goldlight mb-2">Thank You!</h4>
-                        <p class="text-sm text-forest-sage max-w-xs mx-auto mb-6">Your RSVP response has been submitted successfully.</p>
-                        <button onclick="location.reload()" class="px-6 py-2 rounded-full border border-forest-gold/40 text-forest-goldlight hover:bg-forest-gold hover:text-forest-deep transition-all duration-300 text-xs font-medium bg-forest-canopy/50">
-                            Submit Another Response
-                        </button>
-                    </div>
-                `;
-            });
-        }
-
-        // Delegate clicks on the copy buttons (works even if the button HTML
-        // is re-rendered later).
-        document.addEventListener('click', function (e) {
-            const btn = e.target.closest('.copy-btn');
-            if (btn) {
-                copyToClipboard(btn.getAttribute('data-copy-target'));
-            }
+      function renderAccountNumbers() {
+        document.querySelectorAll('[data-acc-parts]').forEach(el => {
+          try {
+            el.textContent = atob(el.getAttribute('data-acc-parts'));
+          } catch (e) {
+            console.warn('Could not decode account number', e);
+          }
         });
+      }
 
-        function revealElements() {
-            const reveals = document.querySelectorAll(".reveal");
-            for (let i = 0; i < reveals.length; i++) {
-                const windowHeight = window.innerHeight;
-                const elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-        window.addEventListener("scroll", revealElements);
-
-        window.onload = function() {
-            parseUrlRecipient();
-            renderAccountNumbers();
-            initCalendarButtons();
-            runCountdown();
-            renderWishesList(getLocalWishes());
-            
-            createParticles('overlay-fireflies', 15);
-            createParticles('hero-fireflies', 25);
-            createParticles('schedule-fireflies', 15);
+      async function copyToClipboard(elementId) {
+        const el = document.getElementById(elementId);
+        const textToCopy = el.innerText;
+        const btn = document.querySelector(`[data-copy-target="${elementId}"]`);
+        const prevHtml = btn.innerHTML;
+        const showCopied = () => {
+          btn.innerHTML = `<i class="fa-solid fa-check"></i> Copied!`;
+          setTimeout(() => {
+            btn.innerHTML = prevHtml;
+          }, 2000);
         };
+        const showFailed = () => {
+          btn.innerHTML = `<i class="fa-solid fa-xmark"></i> Failed`;
+          setTimeout(() => {
+            btn.innerHTML = prevHtml;
+          }, 2000);
+        };
+        // Preferred modern API (requires secure context: https or localhost --
+        // GitHub Pages serves over https, so this will work there).
+        if (navigator.clipboard && window.isSecureContext) {
+          try {
+            await navigator.clipboard.writeText(textToCopy);
+            showCopied();
+            return;
+          } catch (err) {
+            console.warn('Clipboard API failed, falling back.', err);
+          }
+        }
+        // Fallback for older/non-secure contexts.
+        try {
+          const tempInput = document.createElement("textarea");
+          tempInput.value = textToCopy;
+          tempInput.style.position = "fixed";
+          tempInput.style.opacity = "0";
+          document.body.appendChild(tempInput);
+          tempInput.focus();
+          tempInput.select();
+          const successful = document.execCommand("copy");
+          document.body.removeChild(tempInput);
+          successful ? showCopied() : showFailed();
+        } catch (err) {
+          console.error('Copy fallback failed', err);
+          showFailed();
+        }
+      }
+
+      function runCountdown() {
+        const now = new Date().getTime();
+        const difference = WEDDING_DATE - now;
+        if (difference < 0) {
+          document.getElementById('days').innerText = "00";
+          document.getElementById('hours').innerText = "00";
+          document.getElementById('minutes').innerText = "00";
+          document.getElementById('seconds').innerText = "00";
+          return;
+        }
+        const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((difference % (1000 * 60)) / 1000);
+        document.getElementById('days').innerText = String(d).padStart(2, '0');
+        document.getElementById('hours').innerText = String(h).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(m).padStart(2, '0');
+        document.getElementById('seconds').innerText = String(s).padStart(2, '0');
+      }
+      setInterval(runCountdown, 1000);
+
+      // Guestbook Local Storage
+      const defaultWishes = [{
+        name: "Jessica Clara",
+        status: "Yes",
+        message: "Wishing you both a magical journey together. Congratulations Anton & Steffi!",
+        timestamp: Date.now() - 400000
+      }, {
+        name: "Robert Hartono",
+        status: "Yes",
+        message: "So excited for the big day! Can't wait to celebrate with you.",
+        timestamp: Date.now() - 800000
+      }];
+
+      // localStorage can throw (private mode, some in-app browsers), so never let it break the page
+      function getLocalWishes() {
+        try {
+          const raw = localStorage.getItem(GUESTBOOK_STORAGE_KEY);
+          if (!raw) {
+            localStorage.setItem(GUESTBOOK_STORAGE_KEY, JSON.stringify(defaultWishes));
+            return defaultWishes;
+          }
+          return JSON.parse(raw);
+        } catch (err) {
+          console.warn('Local storage unavailable, using default wishes.', err);
+          return defaultWishes;
+        }
+      }
+
+      function renderWishesList(wishes) {
+        const container = document.getElementById('wishes-list');
+        if (!container) return;
+        container.innerHTML = "";
+        wishes.forEach(wish => {
+          const date = new Date(wish.timestamp).toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric'
+          });
+          const bubble = document.createElement('div');
+          bubble.className = "bg-forest-canopy/60 p-4 rounded-xl border border-forest-gold/15 text-xs shadow-md text-forest-mist";
+          bubble.innerHTML = `
+            <div class="flex justify-between items-center mb-2">
+              <span class="font-semibold text-forest-goldlight">${escapeHtml(wish.name)}</span>
+            </div>
+            ${wish.message ? `<p class="text-forest-sage leading-relaxed mb-1 italic">"${escapeHtml(wish.message)}"</p>` : ''}
+            <span class="text-[9px] text-forest-sage/60 font-medium">${date}</span>
+          `;
+          container.appendChild(bubble);
+        });
+      }
+
+      function escapeHtml(text) {
+        return text
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      // Form Submit Handler
+      const rsvpForm = document.getElementById('rsvp-form');
+      if (rsvpForm) {
+        rsvpForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const name = document.getElementById('rsvp-name').value.trim();
+          const phone = document.getElementById('rsvp-phone').value.trim();
+          const status = document.getElementById('rsvp-status').value;
+          const count = document.getElementById('rsvp-count').value;
+          const message = document.getElementById('rsvp-message').value.trim();
+          // Validate BEFORE touching the submit button, so a failed
+          // validation never leaves the button stuck on "SUBMITTING...".
+          if (!name || !status) {
+            document.getElementById('rsvp-name').reportValidity();
+            return;
+          }
+          const submitButton = rsvpForm.querySelector('button[type="submit"]');
+          submitButton.disabled = true;
+          submitButton.innerHTML = 'SUBMITTING...';
+          const formData = new FormData();
+          formData.append(ENTRY_ID_NAME, name);
+          formData.append(ENTRY_ID_PHONE, phone);
+          formData.append(ENTRY_ID_STATUS, status);
+          formData.append(ENTRY_ID_COUNT, count);
+          formData.append(ENTRY_ID_MESSAGE, message);
+          fetch(GOOGLE_FORM_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: formData
+          }).catch(err => console.error(err));
+          const localWishes = getLocalWishes();
+          localWishes.unshift({
+            name: name,
+            status: status,
+            message: message,
+            timestamp: Date.now()
+          });
+          try {
+            localStorage.setItem(GUESTBOOK_STORAGE_KEY, JSON.stringify(localWishes));
+          } catch (err) {
+            console.warn('Could not save wish locally.', err);
+          }
+          renderWishesList(localWishes);
+          const formContainer = rsvpForm.parentElement;
+          formContainer.innerHTML = `
+            <div class="text-center py-8 text-forest-mist">
+              <div class="w-16 h-16 bg-forest-canopy rounded-full flex items-center justify-center mx-auto mb-4 text-forest-gold border border-forest-gold/30">
+                <i class="fa-solid fa-circle-check text-2xl"></i>
+              </div>
+              <h4 class="font-serif text-xl font-semibold text-forest-goldlight mb-2">Thank You!</h4>
+              <p class="text-sm text-forest-sage max-w-xs mx-auto mb-6">Your RSVP response has been submitted successfully.</p>
+              <button onclick="location.reload()" class="px-6 py-2 rounded-full border border-forest-gold/40 text-forest-goldlight hover:bg-forest-gold hover:text-forest-deep transition-all duration-300 text-xs font-medium bg-forest-canopy/50">
+                Submit Another Response
+              </button>
+            </div>
+          `;
+        });
+      }
+
+      // Delegate clicks on the copy buttons (works even if the button HTML
+      // is re-rendered later).
+      document.addEventListener('click', function(e) {
+        const btn = e.target.closest('.copy-btn');
+        if (btn) {
+          copyToClipboard(btn.getAttribute('data-copy-target'));
+        }
+      });
+
+      function revealElements() {
+        const reveals = document.querySelectorAll(".reveal");
+        for (let i = 0; i < reveals.length; i++) {
+          const windowHeight = window.innerHeight;
+          const elementTop = reveals[i].getBoundingClientRect().top;
+          if (elementTop < windowHeight - 100) {
+            reveals[i].classList.add("active");
+          }
+        }
+      }
+      window.addEventListener("scroll", revealElements);
+
+      window.onload = function() {
+        parseUrlRecipient();
+        renderAccountNumbers();
+        initCalendarButtons();
+        runCountdown();
+        renderWishesList(getLocalWishes());
+        createParticles('overlay-fireflies', 15);
+        createParticles('hero-fireflies', 25);
+        createParticles('schedule-fireflies', 15);
+      };
     </script>
-</body>
+  </body>
 </html>
