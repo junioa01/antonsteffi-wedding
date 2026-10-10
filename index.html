@@ -504,6 +504,37 @@
               <p class="text-xs font-medium text-forest-sage mt-2 uppercase">A/N ANTON JUNIOR</p>
             </div>
           </div>
+          <!-- Wedding Gift Confirmation Form -->
+          <div class="mt-10 max-w-md mx-auto bg-forest-canopy/70 p-6 md:p-8 rounded-2xl border border-forest-gold/20 shadow-2xl text-left reveal">
+            <div class="text-center mb-6">
+              <span class="font-display tracking-[0.2em] text-[10px] text-forest-sage uppercase">CONFIRMATION</span>
+              <h3 class="font-serif text-lg font-semibold text-forest-goldlight mt-1">Confirm Your Gift</h3>
+              <div class="h-[1px] w-12 bg-forest-gold/40 mx-auto mt-2"></div>
+            </div>
+            <form id="gift-form" class="space-y-4">
+              <!-- Sender Full Name -->
+              <div>
+                <label for="gift-name" class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Sender Name*</label>
+                <input type="text" id="gift-name" maxlength="30" required class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm" placeholder="Your full name (max 30 characters)">
+              </div>
+              <!-- Account Destination -->
+              <div>
+                <label for="gift-destination" class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Destination Account*</label>
+                <select id="gift-destination" required class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm">
+                  <option value="steffi bca">BCA - Steffi Ong</option>
+                  <option value="anton bca">BCA - Anton Junior</option>
+                </select>
+              </div>
+              <!-- Gift Amount -->
+              <div>
+                <label for="gift-amount" class="block text-xs uppercase tracking-wider text-forest-sage font-medium mb-1">Gift Amount (Rp)*</label>
+                <input type="text" inputmode="numeric" id="gift-amount" required autocomplete="off" class="w-full px-4 py-2.5 rounded-lg border border-forest-moss/50 focus:outline-none focus:border-forest-gold bg-forest-deep text-white text-sm" placeholder="Input the amount you have sent">
+              </div>
+              <button type="submit" class="w-full py-3 bg-gradient-to-r from-forest-goldlight via-forest-gold to-forest-amber text-forest-deep font-display text-xs font-semibold tracking-widest rounded-lg transition-all duration-300 mt-2 shadow-lg hover:brightness-110">
+                CONFIRM GIFT
+              </button>
+            </form>
+          </div>
         </div>
       </section>
       <section class="py-24 bg-forest-deep px-4 border-t border-forest-gold/15 text-forest-mist">
@@ -593,6 +624,13 @@
       const ENTRY_ID_STATUS = "entry.1832745907";
       const ENTRY_ID_COUNT = "entry.1793951564";
       const ENTRY_ID_MESSAGE = "entry.510660372";
+
+      // Google Form Wedding Gift Confirmation Configuration
+      const GIFT_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdWjPhzrtV1s1jhRqWRoBO1PgoGPlA7J1fgLuVXERdZOxEBfw/formResponse";
+      const GIFT_ENTRY_NAME = "entry.1515036179";
+      const GIFT_ENTRY_DESTINATION = "entry.651276456";
+      const GIFT_ENTRY_AMOUNT = "entry.439289088";
+
       // 09:00 Jakarta time (WIB, UTC+7), so the countdown is the same for every viewer
       const WEDDING_DATE = new Date("2026-11-07T09:00:00+07:00").getTime();
       const GUESTBOOK_STORAGE_KEY = "steffi_anton_wishes_backup";
@@ -995,6 +1033,8 @@
           if (nameElement) nameElement.innerText = toVal;
           const rsvpNameInput = document.getElementById('rsvp-name');
           if (rsvpNameInput) rsvpNameInput.value = toVal;
+          const giftNameInput = document.getElementById('gift-name');
+          if (giftNameInput) giftNameInput.value = toVal.slice(0, 30);
         }
         if (uVal) {
           const subtextElement = document.getElementById('guest-subtext');
@@ -1198,12 +1238,98 @@
         });
       }
 
+      // Automatic thousand separator for gift amount input
+      const giftAmountInput = document.getElementById('gift-amount');
+      if (giftAmountInput) {
+        giftAmountInput.addEventListener('input', function() {
+          const cursorPosition = this.selectionEnd;
+          const originalLength = this.value.length;
+          const digits = this.value.replace(/\D/g, '');
+
+          if (!digits) {
+            this.value = '';
+            this.setCustomValidity('');
+            return;
+          }
+
+          const formatted = digits.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+          this.value = formatted;
+          this.setCustomValidity('');
+
+          const newLength = formatted.length;
+          const newPosition = Math.max(0, cursorPosition + (newLength - originalLength));
+          this.setSelectionRange(newPosition, newPosition);
+        });
+      }
+
+      // Gift Confirmation Form Submit Handler
+      const giftForm = document.getElementById('gift-form');
+      if (giftForm) {
+        giftForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const name = document.getElementById('gift-name').value.trim();
+          const destination = document.getElementById('gift-destination').value;
+          const amountInput = document.getElementById('gift-amount');
+          const rawAmount = amountInput.value.replace(/\D/g, '');
+
+          if (!name || !destination || !rawAmount) {
+            giftForm.reportValidity();
+            return;
+          }
+
+          if (name.length > 30) {
+            const nameInput = document.getElementById('gift-name');
+            nameInput.setCustomValidity('Full name must be 30 characters or fewer.');
+            nameInput.reportValidity();
+            return;
+          }
+
+          if (Number(rawAmount) <= 0) {
+            amountInput.setCustomValidity('Please enter a valid amount.');
+            amountInput.reportValidity();
+            return;
+          }
+
+          const submitButton = giftForm.querySelector('button[type="submit"]');
+          submitButton.disabled = true;
+          submitButton.innerHTML = 'CONFIRMING...';
+
+          const formData = new FormData();
+          formData.append(GIFT_ENTRY_NAME, name);
+          formData.append(GIFT_ENTRY_DESTINATION, destination);
+          formData.append(GIFT_ENTRY_AMOUNT, rawAmount);
+
+          fetch(GIFT_FORM_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: formData
+          }).catch(err => console.error(err));
+
+          const formContainer = giftForm.parentElement;
+          formContainer.innerHTML = `
+            <div class="text-center py-6 text-forest-mist">
+              <div class="w-14 h-14 bg-forest-canopy rounded-full flex items-center justify-center mx-auto mb-3 text-forest-gold border border-forest-gold/30">
+                <i class="fa-solid fa-circle-check text-2xl"></i>
+              </div>
+              <h4 class="font-serif text-lg font-semibold text-forest-goldlight mb-1">Thank You!</h4>
+              <p class="text-xs text-forest-sage max-w-xs mx-auto mb-4">Your gift confirmation has been sent successfully.</p>
+            </div>
+          `;
+        });
+      }
+
       // Delegate clicks on the copy buttons (works even if the button HTML
       // is re-rendered later).
       document.addEventListener('click', function(e) {
         const btn = e.target.closest('.copy-btn');
         if (btn) {
-          copyToClipboard(btn.getAttribute('data-copy-target'));
+          const target = btn.getAttribute('data-copy-target');
+          copyToClipboard(target);
+          const giftDest = document.getElementById('gift-destination');
+          if (giftDest) {
+            if (target === 'acc-no-1') giftDest.value = 'steffi bca';
+            else if (target === 'acc-no-2') giftDest.value = 'anton bca';
+          }
         }
       });
 
